@@ -40,6 +40,8 @@ activated this plugin (tested on 2.4.5).
 ### 0.1
 * Initial version.
 
+* New child theme based on Fitzgerald, a Luther's child theme
+
 * Custom Chapter Metadata: new custom metaboxes for the custom page chapter
 ** Questions And Answers: this field allows teachers to insert a custom link. 
 ** Class Learning Time (minutes): how long the students will need for the topic.
@@ -58,6 +60,8 @@ activated this plugin (tested on 2.4.5).
 ** Bibliography URL: custom link to a bibliography.
 ** Library URL: custom link to a library.
 ** Questions and Answers: allows teachers to insert a custom link. 
+
+
 * Related books: Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
 ** Notional Components
 *** Vocabulary
