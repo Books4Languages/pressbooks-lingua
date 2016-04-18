@@ -1,7 +1,7 @@
-# Pressbooks-Metadata
+# pressbooks-lingua
 
 ## Description
-Extended features for Pressbooks (Metadata and Theme)
+Extended features for Pressbooks (Metadata and new child Theme)
 
 ### About
 
