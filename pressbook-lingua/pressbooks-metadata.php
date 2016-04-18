@@ -13,7 +13,7 @@
  * @package           Pressbooks_Metadata
  *
  * @wordpress-plugin
- * Plugin Name:       pressbooks-lingua-book-2
+ * Plugin Name:       pressbooks-lingua
  * Plugin URI:        http://on-lingua.com/
  * Description:       Extended features for Pressbooks (Metadata)
  * Version:           1.0
