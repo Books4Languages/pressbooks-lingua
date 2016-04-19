@@ -282,6 +282,46 @@ li.bg-color {
     }
 }
 
+@media screen and (max-width: 470px) {
+    #booknav {
+        max-width: 355px;
+        overflow: hidden;
+        overflow-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #booknav {
+        max-width: 285px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #booknav {
+        max-width: 215px;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    #booknav {
+        max-width: 145px;
+    }
+}
+
+table.metadata_questtions_answers td {
+    padding: 0.5em;
+}
+
+table.metadata_questtions_answers tr:first-child td a {
+    color: blue !important;
+    font-size: 2em !important;
+}
+
+table.metadata_questtions_answers tr:first-child td {
+    padding-bottom: 2em;
+    text-decoration: underline;
+}
+
 
 
 /****************************************
