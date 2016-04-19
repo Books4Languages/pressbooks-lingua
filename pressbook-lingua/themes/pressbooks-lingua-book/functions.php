@@ -328,9 +328,9 @@ function pm_enqueue_scripts() {
 
 	// TOC pop-out JS code without conflicts with Page Info's one
 	wp_dequeue_script( 'pb-pop-out-toc' );
-	wp_enqueue_script( 'pb-pop-out-toc', get_stylesheet_directory_uri() . '/js/toc-pop-out.js', array( 'jquery' ), '1.0', false );
+	wp_enqueue_script( 'pb-pop-out-toc', get_stylesheet_directory_uri() . '/js/pop-out.js', array( 'jquery' ), '1.0', false );
 
-	wp_enqueue_script( 'pm-pop-out-page-meta', get_stylesheet_directory_uri() . '/js/page-metadata-pop-out.js', array( 'jquery' ), '1.0', false );
+	wp_enqueue_script( 'pm-pop-out-page-meta', get_stylesheet_directory_uri() . '/js/pop-out.js', array( 'jquery' ), '1.0', false );
 
 }
 
