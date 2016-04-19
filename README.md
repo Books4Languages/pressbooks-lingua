@@ -39,16 +39,15 @@ activated this plugin (tested on 2.4.5).
 
 ### 0.1
 * Initial version.
-
 * New child theme based on Fitzgerald, a Luther's child theme
 
-* Custom Chapter Metadata: new custom metaboxes for the custom page chapter
+* **Custom Chapter Metadata:** new custom metaboxes for the custom page chapter
   * Questions And Answers: this field allows teachers to insert a custom link. 
   * Class Learning Time (minutes): how long the students will need for the topic.
   * Custom Input 1: hashtag 1 
   * Custom Input 2: hashtag 2
 
-* General Education Informations:
+* **General Education Informations:**
   * Target Language: european languages
   * Level: A1, A2, B1, B2, C1, C2
   * Learning Reasource Type: Course, Examination, Exercise, Descriptor
@@ -62,10 +61,10 @@ activated this plugin (tested on 2.4.5).
   * Questions and Answers: allows teachers to insert a custom link. 
 
 
-* Related books: Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
+* **Related books:** Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
 1. Notional Components
-⋅⋅1 Vocabulary
-** Grammatical Components
+  1 Vocabulary
+  1 Grammatical Components
 *** Grammar
 *** Phonetics and Spelling
 ** Pragmatic Components
