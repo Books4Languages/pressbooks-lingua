@@ -43,23 +43,23 @@ activated this plugin (tested on 2.4.5).
 * New child theme based on Fitzgerald, a Luther's child theme
 
 * Custom Chapter Metadata: new custom metaboxes for the custom page chapter
-..* Questions And Answers: this field allows teachers to insert a custom link. 
-..* Class Learning Time (minutes): how long the students will need for the topic.
-..* Custom Input 1: hashtag 1 
-..* Custom Input 2: hashtag 2
+  * Questions And Answers: this field allows teachers to insert a custom link. 
+  * Class Learning Time (minutes): how long the students will need for the topic.
+  * Custom Input 1: hashtag 1 
+  * Custom Input 2: hashtag 2
 
 * General Education Informations:
-⋅⋅* Target Language: european languages
-⋅⋅* Level: A1, A2, B1, B2, C1, C2
-⋅⋅* Learning Reasource Type: Course, Examination, Exercise, Descriptor
-⋅⋅* Interactivity Type: Active, Expositive, Mixed
-⋅⋅* Age range: 3-5, 6-7, 7-8, 8-9, 9-10, 10-11, 11-12, 12-13, 13-14, 14-15, 15-16, 16-17, 17-18 years, Adults
-⋅⋅* Content Type: Course, Extra Content, Text and Functions, Phonetics and Spelling, Grammar, Vocaboulary
-⋅⋅* Class Learning Time: how long the students will need for the book.
-⋅⋅* License URL: custom link to a licence.
-⋅⋅* Bibliography URL: custom link to a bibliography.
-⋅⋅* Library URL: custom link to a library.
-⋅⋅* Questions and Answers: allows teachers to insert a custom link. 
+  * Target Language: european languages
+  * Level: A1, A2, B1, B2, C1, C2
+  * Learning Reasource Type: Course, Examination, Exercise, Descriptor
+  * Interactivity Type: Active, Expositive, Mixed
+  * Age range: 3-5, 6-7, 7-8, 8-9, 9-10, 10-11, 11-12, 12-13, 13-14, 14-15, 15-16, 16-17, 17-18 years, Adults
+  * Content Type: Course, Extra Content, Text and Functions, Phonetics and Spelling, Grammar, Vocaboulary
+  * Class Learning Time: how long the students will need for the book.
+  * License URL: custom link to a licence.
+  * Bibliography URL: custom link to a bibliography.
+  * Library URL: custom link to a library.
+  * Questions and Answers: allows teachers to insert a custom link. 
 
 
 * Related books: Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
