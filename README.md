@@ -62,17 +62,11 @@ activated this plugin (tested on 2.4.5).
 
 
 * **Related books:** Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
-1. Notional Components
-  1. Vocabulary
-  1. Grammatical Components
-*** Grammar
-*** Phonetics and Spelling
-** Pragmatic Components
-*** Texts and Functions
-** Cultural Components
-*** Cultural and Sociocultural
-** Extra Components
-*** Extra Content
+  * _Notional Components_: Vocabulary, Grammatical Components
+  * _Grammar_: Phonetics and Spelling
+  * _Pragmatic Components_: Texts and Functions
+  * _Cultural Component_: Cultural and Sociocultural
+  * _Extra Components_: Extra Content
 
 ## Credits
 
