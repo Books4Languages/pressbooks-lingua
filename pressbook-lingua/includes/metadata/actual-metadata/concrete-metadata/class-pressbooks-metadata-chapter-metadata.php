@@ -97,33 +97,38 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	public function print_chapter_metadata_fields() {
             global $post;
             if($post->post_type!='chapter'){
-                 $pm_BM = get_metada_fields();
-	$meta=$pm_BM->get_current_metadata_flat();
-        foreach ( $meta as $key=>$elt ) {
-                       
-			  if($elt->get_name()==='Questions and Answers URL'){
-                            $QandAURL=$elt->get_value();
-                        $pos = strpos($QandAURL, 'http://');
-                        if($pos===false){                 
-                            $QandAURL='http://'.$QandAURL;
-                        }
-                        }
-                          if($elt->get_name()==='Class Learning Time (hours)'){
-                            $learning_time=$elt->get_value();     
-                        }
-                        
-                        
-		}
-                echo '<table>';
-                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers</td><td style="font-size:1em;">'.
-                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>';
-                echo '<tr id="lb_time_required"><td style="padding:1em;">Class Learning Time (minutes)</td><td style="font-size:1em;">'.($learning_time?$learning_time:0).'</td></tr>';
-                echo '</table>';
-                
-                
-                
-                
-                return;}
+					$pm_BM = get_metada_fields();
+				$meta = $pm_BM->get_current_metadata_flat();
+			    foreach ( $meta as $key=>$elt ) {      
+				  	if($elt->get_name()==='Questions and Answers URL'){
+		                if($elt->get_value()!== '0'){
+		                	$QandAURL=$elt->get_value();
+			                $pos = strpos($QandAURL, 'http://');
+			                if($pos===false){                 
+			                    $QandAURL='http://'.$QandAURL;
+			                }
+		            	}
+		            }
+		            if($elt->get_name()==='Class Learning Time (hours)'){
+		                if($elt->get_value()!== '0'){
+		                	$learning_time=$elt->get_value();
+		                }
+		            }            
+				}
+	            echo '<table>';
+	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
+	            if(isset($QandAURL)){
+	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers</td><td style="font-size:1em;">'.
+	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>';
+	        	}
+	            if(isset($learning_time)){
+	                echo '<tr id="lb_time_required"><td style="padding:1em;">Class Learning Time (minutes)</td><td style="font-size:1em;">'.($learning_time?$learning_time:0).'</td></tr>';
+	        	}
+	            echo '</table>';
+	            
+	            return;
+       		}
+       		
             global $wpdb;
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
