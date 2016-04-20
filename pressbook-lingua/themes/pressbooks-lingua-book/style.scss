@@ -47,15 +47,18 @@ h3, h4 {
   top: 20px;
   right: 0;
   text-align: center;
-  width: 74px; }
+  width: 74px;
+}
 
 .ie7 #sidebar {
-  z-index: 11; }
+  z-index: 11;
+}
 
 #sidebar a {
   color: #4a4a4a;
-  font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
-  text-decoration: none; }
+  font: 0.6em/1em $font-3;
+  text-decoration: none;
+}
 
 #booknav {
   background: #ffffff;
@@ -68,24 +71,30 @@ h3, h4 {
   -webkit-box-shadow: 2px 2px 2px #dddddd;
   box-shadow: 2px 2px 2px #dddddd;
   margin: -5px 0 0;
-  position: relative; }
+  position: relative;
+}
 
 #booknav li {
-  height: 70px; }
+  height: 70px;
+}
 
 #booknav li:hover {
-  background: #eeeeee; }
+  background: #eeeeee;
+}
 
 #booknav li:first-child {
-  padding-top: 10px; }
+  padding-top: 10px;
+}
 
 #booknav li:last-child {
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+}
 
 #booknav li a {
   display: block;
   padding-top: 40px;
-  height: 20px; }
+  height: 20px;
+}
 
 .admin-btn a,
 .home-btn a,
@@ -93,37 +102,44 @@ h3, h4 {
 .read-btn a,
 .about-btn a,
 .authors-btn a {
-  background: url("images/sprite.png") 30px -187px no-repeat; }
+  background: url($url-base+'images/sprite.png') 30px -187px no-repeat;
+}
 
 .home-btn a {
-  background-position: -20px -187px; }
+  background-position: -20px -187px;
+}
 
 .lib-btn a {
-  background: url('images/books.png') 30px -187px no-repeat; 
-  background-position:  50% 36%; }
+  background: url($url-base+'images/books.png') 30px -187px no-repeat; 
+  background-position:  50% 36%; 
+}
 
 .search-btn a {
-  background: url('images/search.png') 30px -187px no-repeat;
-  background-position: 50% 36%; }
+  background-image: url($url-base+'images/search.png')  30px -187px no-repeat; 
+  background-position: 50% 36%;
+}
 
 .toc-btn a {
-  background-position: -121px -187px; }
+  background-position: -121px -187px;
+}
 
 .read-btn a {
-  background-position: -178px -187px; }
+  background-position: -178px -187px;
+}
 
 .about-btn a {
-  background-position: -255px -187px; }
+  background-position: -255px -187px;
+}
 
 .authors-btn a {
-  background-position: -320px -187px; }
+  background-position: -320px -187px;
+}
 
 #authors .authors-btn,
 #about .about-btn,
 #tableofcontents .toc-btn {
-  background: #eeeeee; }
-
-
+  background: #eeeeee;
+}
 
 /****************
    Pop out TOC
@@ -144,51 +160,62 @@ h3, h4 {
   padding: 10px 10px 10px 20px;
   position: relative;
   width: 180px;
-  z-index: 50; }
+  z-index: 50;
+}
 
-a.close {
-  background: url("images/sprite.png") 0 -50px;
+#toc a.close {
+  background: url($url-base+'images/sprite.png') 0 -50px;
   display: block;
   float: right;
   overflow: hidden;
   text-indent: 100%;
   width: 20px;
   height: 20px;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 #toc ul {
   margin-left: 0;
-  text-align: left; }
+  text-align: left;
+}
 
 #toc h4 {
-  font: 0.8em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+  font: 0.8em $font-3;
   font-style: normal;
   font-weight: bold;
-  margin: 5px 0 2px; }
+  margin: 5px 0 2px;
+}
 
 #toc h4 a {
-  font: inherit; }
+  font: inherit;
+}
 
 #toc ul ul {
   border-bottom: 1px dotted #999;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+}
 
 #toc ul ul:last-of-type {
   border-bottom: none;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+}
 
 #toc h4, #toc li.chapter {
   padding-left: 10px;
-  text-indent: -10px; }
+  text-indent: -10px;
+}
 
 #toc .dashicons {
-  color: #aaa; }
+  color: #aaa;
+}
 
 #toc h4:hover .dashicons {
-  color: #777; }
+  color: #777;
+}
 
 li.bg-color {
-  background: #eeeeee; }
+  background: #eeeeee;
+}
 
 /********************
   Pop out PAGE INFO
@@ -249,6 +276,14 @@ li.bg-color {
 @media screen and (max-width: 768px) {
     #page-info a.close{
         background-position: 260px -50px;
+          background: url($url-base+'images/sprite.png') 0 -50px;
+        display: block;
+        float: right;
+        overflow: hidden;
+        text-indent: 100%;
+        width: 20px;
+        height: 20px;
+        white-space: nowrap;
     }
     /* Copied from Luther theme (#toc) */
     #page-info{
@@ -274,61 +309,6 @@ li.bg-color {
     }
 }
 
-@media screen and (max-width: 470px) {
-    #booknav {
-        max-width: 355px;
-        overflow: hidden;
-        overflow-wrap: break-word;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    #booknav {
-        max-width: 285px;
-    }
-}
-
-@media screen and (max-width: 330px) {
-    #booknav {
-        max-width: 215px;
-    }
-}
-
-@media screen and (max-width: 260px) {
-    #booknav {
-        max-width: 145px;
-    }
-}
-
-table.metadata_questtions_answers td {
-    padding: 0.5em;
-}
-
-table.metadata_questtions_answers tr:first-child td a {
-    color: blue !important;
-    font-size: 2em !important;
-}
-
-table.metadata_questtions_answers tr:first-child td {
-    padding-bottom: 2em;
-    text-decoration: underline;
-}
-
-/****************************************
-	TOC, Author page, Book Page
-*****************************************/
-
-#inline-toc h4 {
-  font-family: inherit;
-  font-size: 1em;
-  font-weight: bold;
-  text-align: left;
-  text-transform: none;
-}
-
-.page-title {
-  font-weight: normal;
-}
 
 /****************************************
 	Structure
