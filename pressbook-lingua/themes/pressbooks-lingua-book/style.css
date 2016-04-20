@@ -44,269 +44,137 @@ h3, h4 {
   text-transform: uppercase;
 }
 
-/********************
-  Sidebar
-*********************/
-#sidebar {
-  line-height: 1.1em;
-  margin: 10px 74px 0 0;
-  padding: 0 0 0 4px;
-  position: absolute;
-  top: 20px;
-  right: 0;
-  text-align: center;
-  width: 74px; }
+@import url("open-textbooks-style.css");
 
-.ie7 #sidebar {
-  z-index: 11; }
-
-#sidebar a {
-  color: #4a4a4a;
-  font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
-  text-decoration: none; }
-
-#booknav {
-  background: #ffffff;
-  -moz-border-radius: 0 6px 6px 0;
-  -o-border-radius: 0 6px 6px 0;
-  -webkit-border-radius: 0 6px 6px 0;
-  border-radius: 0 6px 6px 0;
-  -moz-box-shadow: 2px 2px 2px #dddddd;
-  -o-box-shadow: 2px 2px 2px #dddddd;
-  -webkit-box-shadow: 2px 2px 2px #dddddd;
-  box-shadow: 2px 2px 2px #dddddd;
-  margin: -5px 0 0;
-  position: relative; }
-
-#booknav li {
-  height: 70px; }
-
-#booknav li:hover {
-  background: #eeeeee; }
-
-#booknav li:first-child {
-  padding-top: 10px; }
-
-#booknav li:last-child {
-  padding-bottom: 10px; }
-
-#booknav li a {
-  display: block;
-  padding-top: 40px;
-  height: 20px; }
-
-.admin-btn a,
-.home-btn a,
-.toc-btn a,
-.read-btn a,
-.about-btn a,
-.authors-btn a {
-  background: url("images/sprite.png") 30px -187px no-repeat; }
-
-.home-btn a {
-  background-position: -20px -187px; }
-
-.lib-btn a {
-  background: url('images/books.png') 30px -187px no-repeat; 
-  background-position:  50% 36%; }
-
-.search-btn a {
-  background: url('images/search.png') 30px -187px no-repeat;
-  background-position: 50% 36%; }
-
-.toc-btn a {
-  background-position: -121px -187px; }
-
-.read-btn a {
-  background-position: -178px -187px; }
-
-.about-btn a {
-  background-position: -255px -187px; }
-
-.authors-btn a {
-  background-position: -320px -187px; }
-
-#authors .authors-btn,
-#about .about-btn,
-#tableofcontents .toc-btn {
-  background: #eeeeee; }
-
-
-
-/****************
-   Pop out TOC
-*****************/
-#toc {
-  display: none;
-  background: #eeeeee;
-  -moz-border-radius: 6px;
-  -o-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  -moz-box-shadow: 2px 2px 2px #dddddd;
-  -o-box-shadow: 2px 2px 2px #dddddd;
-  -webkit-box-shadow: 2px 2px 2px #dddddd;
-  box-shadow: 2px 2px 2px #dddddd;
-  margin-left: -132px;
-  margin-top: 0;
-  padding: 10px 10px 10px 20px;
-  position: relative;
-  width: 180px;
-  z-index: 50; }
-
-a.close {
-  background: url("images/sprite.png") 0 -50px;
-  display: block;
-  float: right;
-  overflow: hidden;
-  text-indent: 100%;
-  width: 20px;
-  height: 20px;
-  white-space: nowrap; }
-
-#toc ul {
-  margin-left: 0;
-  text-align: left; }
-
-#toc h4 {
-  font: 0.8em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  margin: 5px 0 2px; }
-
-#toc h4 a {
-  font: inherit; }
-
-#toc ul ul {
-  border-bottom: 1px dotted #999;
-  padding-bottom: 5px; }
-
-#toc ul ul:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0; }
-
-#toc h4, #toc li.chapter {
-  padding-left: 10px;
-  text-indent: -10px; }
-
-#toc .dashicons {
-  color: #aaa; }
-
-#toc h4:hover .dashicons {
-  color: #777; }
-
-li.bg-color {
-  background: #eeeeee; }
-
-/********************
-  Pop out PAGE INFO
-********************/
-
-#page-info{
-  background: #eeeeee;
-  -moz-border-radius: 6px;
-  -o-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  -moz-box-shadow: 2px 2px 2px #dddddd;
-  -o-box-shadow: 2px 2px 2px #dddddd;
-  -webkit-box-shadow: 2px 2px 2px #dddddd;
-  box-shadow: 2px 2px 2px #dddddd;
-  margin-left: -232px;
-  margin-top: 0;
-  padding: 10px 10px 10px 20px;
-  position: relative;
-  width: 280px;
-  z-index: 50;
+#booknav .home-btn a {
+    background-image: url("images/books.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
 }
 
-.page-info-btn a{
-  background: url('images/info.png') 30px -187px no-repeat;
-  background-position: 50% 36%;
+#booknav .search-btn a {
+    background-image: url("images/search.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
 }
 
-#page-info{
-  background-position: 50% 36%;
+#booknav .related-books-btn a {
+    background-image: url("images/related.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+/* Extra sidebar button pop-up */
+#page-info, #related-books, #sidebar-search {
+    background: #eeeeee;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 2px 2px 2px #dddddd;
+    -o-box-shadow: 2px 2px 2px #dddddd;
+    -webkit-box-shadow: 2px 2px 2px #dddddd;
+    box-shadow: 2px 2px 2px #dddddd;
+    margin-left: -232px;
+    margin-top: 0;
+    padding: 10px 10px 10px 20px;
+    position: relative;
+    width: 280px;
+    z-index: 50;
 }
 
+.page-info-btn a {
+    background-image: url("images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
+/* Copied from Luther theme (for #toc a tags) */
 #page-info table {
     color: #4A4A4A;
     font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
     text-decoration: none;
 }
 
-#page-info table tr td:first-child {
-    font-weight: bold;
-    padding-right: 3px;
-}
+    #page-info table tr td:first-child {
+        font-weight: bold;
+        padding-right: 3px;
+    }
 
-#page-info table tr td:last-child {
-    padding-left: 3px;
-}
+    #page-info table tr td:last-child {
+        padding-left: 3px;
+    }
 
 /* Pressbooks Luther theme overrides */
 @media screen and (max-width: 1024px) {
     /* Copied from Luther theme (#toc) */
-    #page-info{
+    #page-info, #related-books {
         background: none repeat scroll 0% 0% #E0E0E0;
         /*margin-left: -130px;
-          margin-top: -10px;*/
+    margin-top: -10px;*/
+    }
+}
+
+@media screen and (max-width: 940px) {
+    #wrap {
+        width: auto;
+    }
+
+    #content {
+        width: 500px;
+    }
+    /* Sidebar glued to the right */
+    #sidebar {
+        margin-right: 0;
+    }
+
+    #booknav {
+        border-radius: 6px 0px 0px 6px;
+        box-shadow: -2px 2px 2px #ddd;
     }
 }
 
 @media screen and (max-width: 768px) {
-    #page-info a.close{
+    #content {
+        width: auto;
+    }
+
+    .edit-link {
+        float: none;
+    }
+
+    #page-info a.close, #related-books a.close {
         background-position: 260px -50px;
     }
     /* Copied from Luther theme (#toc) */
-    #page-info{
+    #page-info, #related-books {
         position: relative;
         margin-top: 47px;
         margin-left: 0px;
         z-index: 100;
     }
+}
+
+@media screen and (max-device-width: 480px) {
+    #content {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* Copied from Luther theme (#toc) */
+    #toc {
+        position: relative;
+        right: 0px;
+        */;
+    }
 
     #page-info {
-        max-width: 180px;
-        margin-top: 47px;
-        margin-left: 0;
-        z-index: 100;
-    }
-
-    #page-info table {
-        display: table;
-    }
-
-    #page-info a.close {
-        background-position: 160px -50px;
+        /*position: absolute;
+    right: 0px;*/
     }
 }
 
-@media screen and (max-width: 470px) {
-    #booknav {
-        max-width: 355px;
-        overflow: hidden;
-        overflow-wrap: break-word;
-    }
-}
 
-@media screen and (max-width: 400px) {
-    #booknav {
-        max-width: 285px;
-    }
-}
-
-@media screen and (max-width: 330px) {
-    #booknav {
-        max-width: 215px;
-    }
-}
-
-@media screen and (max-width: 260px) {
-    #booknav {
-        max-width: 145px;
-    }
-}
 
 table.metadata_questtions_answers td {
     padding: 0.5em;
