@@ -46,6 +46,24 @@ h3, h4 {
 
 @import url("open-textbooks-style.css");
 
+#sidebar {
+  line-height: 1.1em;
+  margin: 10px 74px 0 0;
+  padding: 0 0 0 4px;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  text-align: center;
+  width: 74px; }
+
+.ie7 #sidebar {
+  z-index: 11; }
+
+#sidebar a {
+  color: #4a4a4a;
+  font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+  text-decoration: none; }
+
 #booknav .home-btn a {
     background-image: url("images/books.png");
     background-repeat: no-repeat;
@@ -165,7 +183,6 @@ h3, h4 {
     #toc {
         position: relative;
         right: 0px;
-        */;
     }
 
     #page-info {
