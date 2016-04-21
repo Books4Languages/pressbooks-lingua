@@ -8,26 +8,27 @@ Copyright 2011-2015 Book Oven Inc. (Pressbooks.com) code@pressbooks.com
 Version: 1.6
 Template: pressbooks-book
 */
+
+
+
 @import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
 
-
+/* Open Textbooks style */
 @import url("open-textbooks-style.css");
 
-
-
-.home-btn a {
+#booknav .lib-btn a {
     background-image: url("images/books.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
 
-.search-btn a {
+#booknav .search-btn a {
     background-image: url("images/search.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
 
-.related-books-btn a {
+#booknav .related-books-btn a {
     background-image: url("images/related.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
@@ -79,7 +80,7 @@ Template: pressbooks-book
     #page-info, #related-books {
         background: none repeat scroll 0% 0% #E0E0E0;
         /*margin-left: -130px;
-    margin-top: -10px;*/
+        margin-top: -10px;*/
     }
 }
 
@@ -134,15 +135,136 @@ Template: pressbooks-book
     #toc {
         position: relative;
         right: 0px;
+        */;
     }
 
     #page-info {
         /*position: absolute;
-    right: 0px;*/
+        right: 0px;*/
     }
 }
 
 
+.book_name_author p {
+    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
+    margin: 0px auto;
+    text-align: center;
+    width: auto;
+}
+
+.nav-container {
+    margin-bottom: 0px;
+}
+
+.wrapper #content .entry-title {
+    margin: 10px auto 3em;
+}
+
+.single #content {
+    min-height: 405px;
+}
+
+@media screen and (max-width: 768px) {
+    .lingua-logo a {
+        background: url("images/On_lingua.png");
+    }
+
+    #sidebar-search {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+    #related-books {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+    #page-info {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+        #page-info table {
+            display: table;
+        }
+
+        #page-info a.close {
+            background-position: 160px -50px;
+        }
+
+    .edit-link a {
+        display: inline-block;
+        color: #c03;
+        position: absolute;
+        min-width: 100px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    #booknav {
+        max-width: 355px;
+        overflow: hidden;
+        overflow-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #booknav {
+        max-width: 285px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #booknav {
+        max-width: 215px;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    #booknav {
+        max-width: 145px;
+    }
+}
+
+.lingua-logo a {
+    background: url("images/On_lingua.png");
+    display: block;
+    text-indent: -9999em;
+    min-width: 75px;
+    background-size: 50%;
+    min-height: 40px;
+    background-repeat: no-repeat;
+    margin: 8%;
+}
+
+nav {
+    min-height: 45px;
+}
+
+.log-wrap {
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    max-width: 120px;
+    right: 0px;
+}
+
+    .log-wrap a {
+        display: inline-block;
+    }
+
+.book-info h1 {
+    margin: 20px 0px;
+}
 
 table.metadata_questtions_answers td {
     padding: 0.5em;
@@ -157,21 +279,3 @@ table.metadata_questtions_answers tr:first-child td {
     padding-bottom: 2em;
     text-decoration: underline;
 }
-
-
-
-/****************************************
-	TOC, Author page, Book Page
-*****************************************/
-#inline-toc h4 {
-  font-family: inherit;
-  font-size: 1em;
-  font-weight: bold;
-  text-align: left;
-  text-transform: none;
-}
-
-.page-title {
-  font-weight: normal;
-}
-
