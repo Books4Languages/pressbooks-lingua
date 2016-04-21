@@ -62,7 +62,7 @@ class Pressbooks_Metadata_Themes {
 	 */
 	public function enqueue_custom_themes() {
 
-		wp_register_style( 'pressbooks-lingua-theme', plugin_dir_url( dirname( __FILE__ ) ) . 'themes/pressbooks-lingua-book/style.css', array( 'pressbooks-book' ), $this->version, 'all' );
+		wp_register_style( 'pressbooks-lingua-book', plugin_dir_url( dirname( __FILE__ ) ) . 'themes/pressbooks-lingua-book/style.css', array( 'pressbooks-book' ), $this->version, 'all' );
 
 		wp_enqueue_style( 'pressbooks-book' );
 		wp_enqueue_style( 'pressbooks-lingua-book' );
@@ -111,7 +111,7 @@ class Pressbooks_Metadata_Themes {
 	 */
 	public function add_epub_export_styles( $styles ) {
 
-		$editor_styles = file_get_contents( plugin_dir_path( dirname( __FILE__ ) ) . 'themes/pressbooks-lingua-theme/editor-style.css' );
+		$editor_styles = file_get_contents( plugin_dir_path( dirname( __FILE__ ) ) . 'themes/pressbooks-lingua-book/editor-style.css' );
 		if ( $editor_styles ) {
 			$styles .= $editor_styles;
 		}
