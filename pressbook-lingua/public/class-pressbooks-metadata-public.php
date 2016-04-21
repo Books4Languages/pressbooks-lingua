@@ -81,10 +81,10 @@ class Pressbooks_Metadata_Public {
                 }
                 $level=$level? '-'.strtolower($level):'none';
                 if($level==='none'){
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public.css', array(), $this->version, 'all' );
                 }
                 else{
-                wp_enqueue_style( $this->plugin_name.$level, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public'.$level.'.css', array(), $this->version, 'all' );    
+                wp_enqueue_style( $this->plugin_name.$level, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public'.$level.'.css', array(), $this->version, 'all' );    
                 }
 	}
 
