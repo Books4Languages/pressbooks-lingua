@@ -37,9 +37,16 @@ activated this plugin (tested on 2.4.5).
 
 ## Changelog
 
+### 0.1.1
+New: 
+Tweak:
+Fix: theme style is now overriding the default pressbooks style
+
+
 ### 0.1
 * Initial version.
 * New child theme based on Fitzgerald, a Luther's child theme
+* Custom stylesheets for every course level
 
 * **Custom Chapter Metadata:** new custom metaboxes for the custom page chapter
   * _Questions And Answers:_ this field allows teachers to insert a custom link. 
@@ -67,6 +74,8 @@ activated this plugin (tested on 2.4.5).
   * _Pragmatic Components_: Texts and Functions
   * _Cultural Component_: Cultural and Sociocultural
   * _Extra Components_: Extra Content
+  * 
+ 
 
 ## Credits
 
