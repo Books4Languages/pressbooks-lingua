@@ -38,9 +38,9 @@ activated this plugin (tested on 2.4.5).
 ## Changelog
 
 ### 0.1.1
-New: 
-Tweak:
-Fix: theme style is now overriding the default pressbooks style
+* New: 
+* Tweak:
+* Fix: theme style is now overriding the default pressbooks style
 
 
 ### 0.1
@@ -74,7 +74,7 @@ Fix: theme style is now overriding the default pressbooks style
   * _Pragmatic Components_: Texts and Functions
   * _Cultural Component_: Cultural and Sociocultural
   * _Extra Components_: Extra Content
-  * 
+   
  
 
 ## Credits
