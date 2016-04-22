@@ -115,7 +115,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		                }
 		            }            
 				}
-	            echo '<table>';
+	            echo '<table class="metadata_questtions_answers">';
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
 	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers</td><td style="font-size:1em;">'.

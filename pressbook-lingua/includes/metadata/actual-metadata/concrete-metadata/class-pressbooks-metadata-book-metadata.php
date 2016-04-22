@@ -178,7 +178,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			if ( empty( $meta ) ) {
 				return;
 			}
-	                ?> <table><?php
+	                ?> <table class="metadata_questtions_answers"><?php
 			foreach ( $meta as $elt ) {
 				?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
 				?><td><?php echo $elt; ?></td></tr><?php
