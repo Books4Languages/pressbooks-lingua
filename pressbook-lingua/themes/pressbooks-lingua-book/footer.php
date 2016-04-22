@@ -19,14 +19,14 @@
 		<?php if (get_option('blog_public') == '1' || is_user_logged_in()): ?>
 			<?php if (is_page() || is_home( ) ): ?>
 			
-			<table>
+			<table  class="footer-table">
 				<tr>
 					<td><?php _e('Book Name', 'pressbooks'); ?>:</td>
 					<td><?php bloginfo('name'); ?></td>
 				</tr>
 				<?php global $metakeys; ?>
        			 <?php $metadata = pb_get_book_information();?>
-				<?php foreach ($metadata as $key => $val): ?>
+				<?php foreach ($metakeys as $key => $val): ?>
 				<?php if ( isset( $metakeys[$key] ) && ! empty( $val ) ): ?>
 				<tr>
 					<td><?php _e($metakeys[$key], 'pressbooks'); ?>:</td>
@@ -37,19 +37,30 @@
 				<?php
 				// Copyright
 				echo '<tr><td>' . __( 'Copyright', 'pressbooks' ) . ':</td><td>';
-				echo ( ! empty( $
-					['pb_copyright_year'] ) ) ? $metadata['pb_copyright_year'] : date( 'Y' );
-				if ( ! empty( $metadata['pb_copyright_holder'] ) ) echo ' ' . __( 'by', 'pressbooks' ) . ' ' . $metadata['pb_copyright_holder'] . '. ';
+				echo ( ! empty( $metadata['pb_copyright_year'] ) ) ? $metadata['pb_copyright_year'] : date( 'Y' );
+				if ( ! empty( $metadata['pb_copyright_holder'] ) ) echo ' ' . __( 'by ', 'pressbooks' ) . ' ' . $metadata['pb_copyright_holder'] . '. ';
 				echo "</td></tr>\n";
+				print_book_information_fields();
 				?>
 
 				</table>
-				<?php endif; ?>
-			
-			<?php echo pressbooks_copyright_license(); ?>
-
 			<?php endif; ?>
-			<p class="cie-name"><a href="http://pressbooks.com"><?php _e('Pressbooks.com: Simple Book Production', 'pressbooks'); ?></a></p>
+		
+			<?php
+			// avoid a fatal PHP call for those instances that don't have the latest
+			// version of PB
+			// @TODO remove this logic, eventually
+			if ( function_exists( 'pressbooks_copyright_license' ) ) {
+				echo pressbooks_copyright_license();
+			}
+			?>
+		
+		<?php endif; ?>
+		<p class="cie-name">
+			<?php
+				_e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');		
+			?>
+		</p>
 	</div><!-- #inner -->
 </div><!-- #footer -->
 </span><!-- schema.org -->
