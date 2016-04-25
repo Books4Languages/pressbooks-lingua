@@ -92,7 +92,7 @@
 			
 			<?php if (@array_filter(get_option('pressbooks_ecommerce_links'))) : ?>
 			 <!-- Buy -->
-				 <a class="btn black" href="<?php echo get_option('home'); ?>/buy"><span class="buy-icon"></span><?php _e('Buy', 'pressbooks'); ?></a>				
+				 <a class="btn black" href="<?php echo get_option('home'); ?>/buy"><span class="buy-icon"></span><?php _e('Download', 'pressbooks'); ?></a>				
 			 <?php endif; ?>	
 			 
 			

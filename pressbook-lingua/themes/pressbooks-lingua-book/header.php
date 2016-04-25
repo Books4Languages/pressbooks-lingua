@@ -79,15 +79,18 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 			    
 					    <div class="sub-nav-left">
 							<!-- Logo -->
-							<h2 class="pressbooks-logo"><a href="<?php echo PATH_CURRENT_SITE; ?>"><?php echo get_site_option('site_name'); ?></a></h2>
+							<h2 class="onlingua-logo"><a href="http://on-lingua.com">On Lingua</a></h2>
 					    </div> <!-- end .sub-nav-left -->
 			    
 			    <div class="sub-nav-right">
+			    		<div class="levelbox">
+			    			<a class="level">12</a>
+			    		</div>	
 			    
 					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 					    <!-- Buy -->
 					    <div class="buy">
-							<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Buy', 'pressbooks'); ?></a>
+							<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a>
 						</div>
 						<?php endif; ?>	
 						
@@ -95,18 +98,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 				
 				</div> <!-- end .sub-nav-right -->
 			</nav>
-			      
-			  <div class="sub-nav">       
-			     <!-- Author Name -->   
-			    <div class="author-wrap"> 
-			    	<?php $metadata = pb_get_book_information(); ?>
-					<?php if ( ! empty( $metadata['pb_author'] ) ): ?>
-			     	<h3><?php echo $metadata['pb_author']; ?></h3>
-		     		<?php endif; ?>
-			     </div> <!-- end .author-name -->
-		     
-			  </div><!-- end sub-nav -->  
-			    
+			     		    
 				 
 		</div> <!-- end .nav-container -->
 
