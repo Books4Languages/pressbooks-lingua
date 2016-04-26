@@ -39,7 +39,7 @@ activated this plugin (tested on 2.4.5).
 
 ### 0.2
 * New: Download button, custom Header: on-lingua logo, custom color for each language level 
-* Tweak: Facebook like button
+* Tweak: Facebook like button, Metadata in the main page
 * Fix: 
 
 ### 0.1.1
