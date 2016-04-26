@@ -43,10 +43,12 @@ activated this plugin (tested on 2.4.5).
 * Tweak: 
   * Download button
   * Custom Header with on-lingua logo
-  * Removed author name from the header
 * Fix: 
   * Facebook like button
   * Footer metadata
+* Deprecated:
+  * Removed author name from the header
+  * Removed 'open-textbooks-style.css' from child theme
 
 ### 0.1.1
 * New: 
