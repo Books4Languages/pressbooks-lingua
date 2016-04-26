@@ -37,7 +37,7 @@ activated this plugin (tested on 2.4.5).
 
 ## Changelog
 
-### 0.2
+### 0.1.2
 * New: 
   * Custom color for each language level shown in the header
 * Tweak: 
