@@ -48,7 +48,7 @@ activated this plugin (tested on 2.4.5).
   * Footer metadata
 * Deprecated:
   * Removed author name from the header
-  * Removed 'open-textbooks-style.css' from child theme
+  * Removed  `open-textbooks-style.css ` from child theme
 
 ### 0.1.1
 * New: 
