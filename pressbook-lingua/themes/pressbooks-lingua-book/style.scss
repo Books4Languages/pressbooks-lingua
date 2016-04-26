@@ -192,11 +192,6 @@
         top: 0px;
         width: 100%;
     }
-
-    .footer-table{
-        max-width: 100%;
-        padding-left: 15%;
-    }
 }
 
 @media screen and (max-width: 470px) {
@@ -205,19 +200,11 @@
         overflow: hidden;
         overflow-wrap: break-word;
     }
-    .footer-table{
-        max-width: 100%;
-        padding-left: 15%;
-    }
 }
 
 @media screen and (max-width: 400px) {
     #booknav {
         max-width: 285px;
-    }
-    .footer-table{
-        max-width: 100%;
-        padding-left: 15%;
     }
 }
 
@@ -225,20 +212,11 @@
     #booknav {
         max-width: 215px;
     }
-    .footer-table{
-        max-width: 100%;
-        padding-left: 15%;
-    }
 }
 
 @media screen and (max-width: 260px) {
     #booknav {
         max-width: 145px;
-    }
-
-    .footer-table{
-        max-width: 100%;
-        padding-left: 15%;
     }
 }
 
@@ -289,7 +267,7 @@ table.metadata_questtions_answers tr:first-child td {
 
 .footer-table{
     max-width: 100%;
-    padding-left: 20%;
+    padding-left: 25%;
 }
 
 
