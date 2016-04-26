@@ -84,7 +84,18 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 			    
 			    <div class="sub-nav-right">
 			    		<div class="levelbox">
-			    			<a class="level">12</a>
+			    			<?php
+			                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+			                $meta=$pm_BM->get_current_metadata_flat();
+			                foreach ( $meta as $key=>$elt ) {
+			                if($elt->get_name()==='Level'){
+			                            $level=$elt;
+			                        }        
+			                }
+			                $level=$level?strtolower($level):'none';
+							if($level != 'none'){ ?>
+			    				<a class="level"><?php _e($level, 'pressbooks');?></a>
+			    			<?php }?>
 			    		</div>	
 			    
 					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>

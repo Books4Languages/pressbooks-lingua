@@ -233,6 +233,8 @@ function latest_exports() {
 	return $latest;
 }
 
+
+
 /**
  * Returns true if the current chapter has related books (option checked in
  * chapter's admin page).
