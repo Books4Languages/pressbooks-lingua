@@ -1,25 +1,20 @@
 @import 'mixins', 'fonts-web';
 
-$url-base = '' !default;
-
-
-/* Open Textbooks style */
-@import url("open-textbooks-style.css");
 
 #booknav .lib-btn a {
-    background-image: url($url-base+"images/books.png");
+    background-image: url("images/books.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
 
 #booknav .search-btn a {
-    background-image: url($url-base+"images/search.png");
+    background-image: url("images/search.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
 
 #booknav .related-books-btn a {
-    background-image: url($url-base+"images/related.png");
+    background-image: url("images/related.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
@@ -43,7 +38,7 @@ $url-base = '' !default;
 }
 
 .page-info-btn a {
-    background-image: url($url-base+"images/info.png");
+    background-image: url("images/info.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
