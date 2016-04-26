@@ -37,10 +37,15 @@ activated this plugin (tested on 2.4.5).
 
 ## Changelog
 
-### 0.1.1
+### 0.2
 * New: 
-* Tweak:
-* Fix: theme style is now overriding the default pressbooks style
+* Tweak: 
+* Fix: 
+
+### 0.1.1
+* New: Download button, custom Header: on-lingua logo, custom color for each language level 
+* Tweak: Facebook like button
+* Fix: 
 
 
 ### 0.1
