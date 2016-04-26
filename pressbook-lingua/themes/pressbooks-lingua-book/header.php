@@ -79,7 +79,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 			    
 					    <div class="sub-nav-left">
 							<!-- Logo -->
-							<h2 class="onlingua-logo"><a href="http://on-lingua.com">On Lingua</a></h2>
+							<h2 class="pb-lingua-logo"><a href="http://on-lingua.com">Pressboks Lingua</a></h2>
 					    </div> <!-- end .sub-nav-left -->
 			    
 			    <div class="sub-nav-right">

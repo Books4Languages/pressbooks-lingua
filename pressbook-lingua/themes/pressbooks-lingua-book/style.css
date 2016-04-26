@@ -205,6 +205,10 @@ Template: pressbooks-book
         top: 0px;
         width: 100%;
     }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 15%;
+    }
 }
 
 @media screen and (max-width: 470px) {
@@ -213,11 +217,19 @@ Template: pressbooks-book
         overflow: hidden;
         overflow-wrap: break-word;
     }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 15%;
+    }
 }
 
 @media screen and (max-width: 400px) {
     #booknav {
         max-width: 285px;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 15%;
     }
 }
 
@@ -225,16 +237,24 @@ Template: pressbooks-book
     #booknav {
         max-width: 215px;
     }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 15%;
+    }
 }
 
 @media screen and (max-width: 260px) {
     #booknav {
         max-width: 145px;
     }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 15%;
+    }
 }
 
-.onlingua-logo a {
-    background: url("images/On_lingua.png");
+.pb-lingua-logo a {
+    background: url("images/pb-lingua.png");
     display: block;
     text-indent: -9999em;
     min-width: 75px;
@@ -280,8 +300,8 @@ table.metadata_questtions_answers tr:first-child td {
 
 
 .footer-table{
-    max-width: 50%;
-    padding-left:20px;
+    max-width: 100%;
+    padding-left: 20%;
 }
 
 .btn{
