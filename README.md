@@ -38,14 +38,20 @@ activated this plugin (tested on 2.4.5).
 ## Changelog
 
 ### 0.2
-* New: Download button, custom Header: on-lingua logo, custom color for each language level 
-* Tweak: Facebook like button, Metadata in the main page
+* New: 
+  * Custom color for each language level shown in the header
+* Tweak: 
+  * Download button
+  * Custom Header with on-lingua logo
+  * Removed author name from the header
 * Fix: 
+  * Facebook like button
+  * Footer metadata
 
 ### 0.1.1
 * New: 
 * Tweak: 
-* Fix: our theme stylesheets now overrides the default parent theme's css
+* Fix: our theme stylesheets now overrides the default parent theme's style
 
 
 ### 0.1
