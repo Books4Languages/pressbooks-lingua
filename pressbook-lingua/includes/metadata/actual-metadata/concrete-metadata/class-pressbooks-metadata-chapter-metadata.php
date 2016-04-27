@@ -54,11 +54,11 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (minutes)',
 			'', 'time_required', '', '', 0, false, 0 ) );
-                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Custom Input 1',
-			'', 'custom_input1', '', '', '', false, 'custom',
+                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Main Descriptor:',
+			'', 'desc1', '', '', '', false, 'descriptor',
 			'custom2' ) );
-                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Custom Input 2',
-			'', 'custom_input2', '', '', '', false, 'custom',
+                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Secondary Descriptor',
+			'', 'desc2', '', '', '', false, 'descriptor',
 			'custom1' ) );
 
 		// Built-in fields (from WordPress)
@@ -73,8 +73,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	}
 
 	/**
-	 * Returns the class instance.
-	 *
+	 * Returns the class instance	 *
 	 * @since  0.1
 	 * @return Pressbooks_Metadata_Book_Metadata The class instance.
 	 */
@@ -132,7 +131,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             global $wpdb;
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
-            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_custom_input1'=>'Custom Input 1','lb_custom_input2'=>'Custom Input 2');
+            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
                 

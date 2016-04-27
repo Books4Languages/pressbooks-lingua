@@ -22,9 +22,9 @@
                                    $count_1=count($url_parts);
                                    unset($url_parts[$count_1-1]);           
                                    array_values($url_parts);
-                                   $url_onlingua=implode('/', $url_parts).'/wp-content/plugins/Pressbooks-Metadata/themes/pressbooks-lingua-theme/images/onlingua_buy_logo.png';
+                                   $url_onlingua=implode('/', $url_parts).'/wp-content/plugins/pressbooks-lingua/themes/pressbooks-lingua-book/images/pb-lingua.png';
                             ?>      
-                           <li class="buy-onlingua"><a href="http://books.on-lingua.com/" class="bookstore-logo-link logo"><img src="<?php echo $url_onlingua; ?>" width="100" height="20" alt="on-lingua-logo" title="On-lingua"/></a><?php printf( __('Purchase on  <a href="http://on-lingua.com/buy">on-lingua.com</a>', 'pressbooks'), $urls['onlingua']); ?></li>
+                           <li class="buy-onlingua"><a href="http://books.on-lingua.com/" class="bookstore-logo-link logo"><img src="<?php echo $url_onlingua; ?>" alt="pb-lingua-logo" title="On-lingua"/></a><?php printf( __('Purchase on  <a href="http://on-lingua.com/buy">on-lingua.com</a>', 'pressbooks'), $urls['onlingua']); ?></li>
 <!--                        END ON-LINGUA LOGO-->   
                            <?php if (isset($urls['amazon']) && $urls['amazon']): ?>
 			   <li class="buy-amazon"><a href="<?php print $urls['amazon']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/amazon.png" width="100" height="20" alt="amazon-logo" title="Amazon"/></a><?php printf( __('Purchase on  <a href="%1$s">amazon.com</a>', 'pressbooks'), $urls['amazon']); ?></li>
