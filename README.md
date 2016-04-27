@@ -36,6 +36,7 @@ activated this plugin (tested on 2.4.5).
 
 
 ## Changelog
+Afther version 2.0 We need to write the List of Files Revised
 
 ### 0.1.2
 * New: 
