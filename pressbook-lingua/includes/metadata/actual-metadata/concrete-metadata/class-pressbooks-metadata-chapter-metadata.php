@@ -45,6 +45,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'Chapter Metadata', '',
 			'chapter-metadata2',true );
 		$chap_meta->add_post_type( 'chapter' );
+
 		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
 			'Questions and answers',
 			'The URL of a forum/discussion about this page.',
@@ -94,18 +95,36 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	 * @since 0.1
 	 */
 	public function print_chapter_metadata_fields() {
+
+            
             global $post;
             if($post->post_type!='chapter'){
-					$pm_BM = get_metada_fields();
+				$pm_BM = get_metada_fields();
 				$meta = $pm_BM->get_current_metadata_flat();
 			    foreach ( $meta as $key=>$elt ) {      
 				  	if($elt->get_name()==='Questions and Answers URL'){
-		                if($elt->get_value()!== '0'){
+		                if($elt->get_value() !== '0'){
 		                	$QandAURL=$elt->get_value();
 			                $pos = strpos($QandAURL, 'http://');
 			                if($pos===false){                 
 			                    $QandAURL='http://'.$QandAURL;
 			                }
+		            	}else{
+		            		
+				    		$pm_BM_book = Pressbooks_Metadata_Book_Metadata::get_instance();
+				    		$metabook=$pm_BM_book->get_current_metadata_flat();
+							foreach ( $metabook as $keybook=>$eltbook ) {      
+				  				if($eltbook->get_name()==='Questions and Answers URL'){
+				        			if($eltbook->get_value() !== '0'){
+				        				$QandAURLbook=$eltbook->get_value();
+						                $pos = strpos($QandAURLbook, 'http://');
+						                if($pos===false){                 
+						                    $QandAURLbook='http://'.$QandAURLbook;
+						                }
+						            }
+						        }
+				            }
+		            		$QandAURL = $QandAURLbook;
 		            	}
 		            }
 		            if($elt->get_name()==='Class Learning Time (hours)'){
@@ -115,6 +134,8 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		            }            
 				}
 	            echo '<table class="metadata_questtions_answers">';
+	            echo '<tr id="lb_toc"><td>'.
+	                '<a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
 	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers</td><td style="font-size:1em;">'.
@@ -134,34 +155,29 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
+            echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
                 
 		foreach ( $meta as $row ) {
-                    if(array_key_exists( $row['meta_key'] , $meta_keys )){
-                     
-			?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']];                         
-                        ?></td><?php
-			?><td><?php
-                       unset($meta_keys[$row['meta_key']]);
-                       array_values($meta_keys);
-                        if($row['meta_key'] === 'lb_discussion_url')
-                        {              
-                          $pos = strpos($row['meta_value'], 'http://');    
-                          if($pos===false){                 
-                                                   
-                              echo '<a href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
-                          }
-                          else
-                          { 
-                              echo '<a href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
-                          }
-                        }
-                        else
-                        {
-                        echo $row['meta_value'];
-                        }
-                    ?></td></tr><?php 
-                    
-                         }
+            if(array_key_exists( $row['meta_key'] , $meta_keys )){  
+				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
+				?><td><?php
+                   unset($meta_keys[$row['meta_key']]);
+                   array_values($meta_keys);
+                   if($row['meta_key'] === 'lb_discussion_url' && $row['meta_key'] === null){
+                   		echo '<a href="'.$QandAURLbook.'">'.$QandAURLbook.'</a>';
+                   }
+                    if($row['meta_key'] === 'lb_discussion_url'){              
+						$pos = strpos($row['meta_value'], 'http://');    
+						if($pos===false){                                      
+						  echo '<a href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
+						}else{ 
+						  echo '<a href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
+						}
+                    }else{
+                    	echo $row['meta_value'];
+                    }
+                	?></td></tr><?php 
+            }
 		}
 		?></table><?php
 

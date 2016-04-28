@@ -312,14 +312,10 @@ table.metadata_questtions_answers td {
     padding: 0.5em;
 }
 
-table.metadata_questtions_answers tr:first-child td a {
-    color: blue !important;
+#lb_toc td {
+    margin-bottom: 2em;
     font-size: 2em !important;
-}
-
-table.metadata_questtions_answers tr:first-child td {
-    padding-bottom: 2em;
-    text-decoration: underline;
+    font-weight: bold!important;
 }
 
 .footer-table{
