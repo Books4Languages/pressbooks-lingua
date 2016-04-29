@@ -109,8 +109,8 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			                if($pos===false){                 
 			                    $QandAURL='http://'.$QandAURL;
 			                }
-		            	}else{
-		            		
+		            	/*}else{
+
 				    		$pm_BM_book = Pressbooks_Metadata_Book_Metadata::get_instance();
 				    		$metabook=$pm_BM_book->get_current_metadata_flat();
 							foreach ( $metabook as $keybook=>$eltbook ) {      
@@ -125,6 +125,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 						        }
 				            }
 		            		$QandAURL = $QandAURLbook;
+		            		*/
 		            	}
 		            }
 		            if($elt->get_name()==='Class Learning Time (hours)'){
@@ -155,8 +156,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
-            echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
-                
+        	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';  
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
 				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
