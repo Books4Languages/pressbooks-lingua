@@ -128,14 +128,14 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			}
             
             global $post;
-            if($post->post_type!='chapter'){
+            if($post->post_type!='chapter' && $post->post_type!='front-matter'){
 
 	            echo '<table class="metadata_questtions_answers">';
 	            echo '<tr id="lb_toc"><td>'.
 	                '<a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
-	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers</td><td style="font-size:1em;">'.
+	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
 	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>';
 	        	}
 	            if(isset($learning_time)){
@@ -153,7 +153,9 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             	'lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
-        	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';  
+        	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
+        	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
+	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>'; 
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
 				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
@@ -163,9 +165,9 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
                     if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_media1' || $row['meta_key'] === 'lb_media2'){              
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
-						  echo '<a href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
+						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
 						}else{ 
-						  echo '<a href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
+						  echo '<a style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
 						}
                     }else{
                     	echo $row['meta_value'];
