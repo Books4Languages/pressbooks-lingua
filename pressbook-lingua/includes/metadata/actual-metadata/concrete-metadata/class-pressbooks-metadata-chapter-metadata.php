@@ -52,6 +52,18 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'discussion_url', '', '', '', false,
 			'http://site.com/' ) );
 
+		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
+			'Media 1',
+			'The URL of a video/audio about this lesson.',
+			'media1_url', '', '', '', false,
+			'http://site.com/' ) );
+
+		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
+			'Media 2',
+			'The URL of a video/audio about this lesson.',
+			'media2_url', '', '', '', false,
+			'http://site.com/' ) );
+
 		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (minutes)',
 			'', 'time_required', '', '', 0, false, 0 ) );
@@ -109,23 +121,6 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			                if($pos===false){                 
 			                    $QandAURL='http://'.$QandAURL;
 			                }
-		            	/*}else{
-
-				    		$pm_BM_book = Pressbooks_Metadata_Book_Metadata::get_instance();
-				    		$metabook=$pm_BM_book->get_current_metadata_flat();
-							foreach ( $metabook as $keybook=>$eltbook ) {      
-				  				if($eltbook->get_name()==='Questions and Answers URL'){
-				        			if($eltbook->get_value() !== '0'){
-				        				$QandAURLbook=$eltbook->get_value();
-						                $pos = strpos($QandAURLbook, 'http://');
-						                if($pos===false){                 
-						                    $QandAURLbook='http://'.$QandAURLbook;
-						                }
-						            }
-						        }
-				            }
-		            		$QandAURL = $QandAURLbook;
-		            		*/
 		            	}
 		            }
 		            if($elt->get_name()==='Class Learning Time (hours)'){
@@ -153,7 +148,8 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             global $wpdb;
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
-            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
+            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)',
+            	'lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
         	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';  
@@ -163,10 +159,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 				?><td><?php
                    unset($meta_keys[$row['meta_key']]);
                    array_values($meta_keys);
-                   if($row['meta_key'] === 'lb_discussion_url' && $row['meta_key'] === null){
-                   		echo '<a href="'.$QandAURLbook.'">'.$QandAURLbook.'</a>';
-                   }
-                    if($row['meta_key'] === 'lb_discussion_url'){              
+                    if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_media1' || $row['meta_key'] === 'lb_media2'){              
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
 						  echo '<a href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
