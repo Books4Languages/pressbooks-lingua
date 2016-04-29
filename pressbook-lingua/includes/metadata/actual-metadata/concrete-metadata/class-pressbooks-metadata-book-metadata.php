@@ -149,7 +149,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'Youtube Channel',
 			'The URL of a video/audio about this lesson.',
 			'youtube_url', '', '', '', false,
-			'http://site.com/' ) );
+			'http://site.com/', 'isBasedOnUrl' ) );
 
 		$this->add_component( $g_b_info );
 

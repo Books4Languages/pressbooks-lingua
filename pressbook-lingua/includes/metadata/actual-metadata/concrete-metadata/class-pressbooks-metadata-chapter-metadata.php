@@ -108,27 +108,28 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	 */
 	public function print_chapter_metadata_fields() {
 
+			$pm_BM = get_metada_fields();
+			$meta = $pm_BM->get_current_metadata_flat();
+		    foreach ( $meta as $key=>$elt ) {      
+			  	if($elt->get_name()==='Questions and Answers URL'){
+	                if($elt->get_value() !== '0'){
+	                	$QandAURL=$elt->get_value();
+		                $pos = strpos($QandAURL, 'http://');
+		                if($pos===false){                 
+		                    $QandAURL='http://'.$QandAURL;
+		                }
+	            	}
+	            }
+	            if($elt->get_name()==='Class Learning Time (hours)'){
+	                if($elt->get_value()!== '0'){
+	                	$learning_time=$elt->get_value();
+	                }
+	            }            
+			}
             
             global $post;
             if($post->post_type!='chapter'){
-				$pm_BM = get_metada_fields();
-				$meta = $pm_BM->get_current_metadata_flat();
-			    foreach ( $meta as $key=>$elt ) {      
-				  	if($elt->get_name()==='Questions and Answers URL'){
-		                if($elt->get_value() !== '0'){
-		                	$QandAURL=$elt->get_value();
-			                $pos = strpos($QandAURL, 'http://');
-			                if($pos===false){                 
-			                    $QandAURL='http://'.$QandAURL;
-			                }
-		            	}
-		            }
-		            if($elt->get_name()==='Class Learning Time (hours)'){
-		                if($elt->get_value()!== '0'){
-		                	$learning_time=$elt->get_value();
-		                }
-		            }            
-				}
+
 	            echo '<table class="metadata_questtions_answers">';
 	            echo '<tr id="lb_toc"><td>'.
 	                '<a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
