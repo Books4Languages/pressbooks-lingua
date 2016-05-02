@@ -52,6 +52,23 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'discussion_url', '', '', '', false,
 			'http://site.com/' ) );
 
+		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
+			'Class Learning Time (minutes)',
+			'', 'time_required', '', '', 0, false, 0 ) );
+
+        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
+        	'Main Descriptor:',
+        	'Kind of grammar element taught in the topic',
+        	'desc1', '', '', '', 
+        	false, 'Descriptor', 'custom2' ) );
+
+        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
+        	'Secondary Descriptor',
+			'Kind of descriptor taught in the topic',
+			'desc2', '', '', '', 
+			false, 'Subdescriptor','custom1' ) );
+
+
 		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
 			'Media 1',
 			'The URL of a video/audio about this lesson.',
@@ -63,22 +80,6 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'The URL of a video/audio about this lesson.',
 			'media2_url', '', '', '', false,
 			'http://site.com/' ) );
-
-		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
-			'Class Learning Time (minutes)',
-			'', 'time_required', '', '', 0, false, 0 ) );
-
-        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
-        	'Main Descriptor:',
-        	'Custom descriptor of the lecture: professor profile, related websites',
-        	'desc1', '', '', '', 
-        	false, 'descriptor', 'custom2' ) );
-
-        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
-        	'Secondary Descriptor',
-			'Custom descriptor of the lecture: professor profile, related websites',
-			'desc2', '', '', '', 
-			false, 'descriptor','custom1' ) );
 
 		// Built-in fields (from WordPress)
 		$chap_meta->add_field( new Pressbooks_Metadata_Creation_Date_Field(
@@ -156,19 +157,20 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
             $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)',
-            	'lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
+            	'lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor', 'lb_media1'=>'Media 1', 'lb_media2'=>'Media 2',);
 
 		?><table class="metadata_questtions_answers"><?php
 		   	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
         	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
 	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>'; 
+		
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
 				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
 				?><td><?php
                    unset($meta_keys[$row['meta_key']]);
                    array_values($meta_keys);
-                    if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_media1' || $row['meta_key'] === 'lb_media2'){              
+                    if($row['meta_key'] === 'lb_discussion_url'){              
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
 						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
@@ -184,6 +186,5 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		?></table><?php
 
 	}
-
 }
 
