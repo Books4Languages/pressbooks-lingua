@@ -132,22 +132,24 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'bibliography_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
+		
         $g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Library URL',
 			'Leave empty if you want to use your default On-lingua library <b>www.on-lingua.com/YourUserName/</b>',
 			'user_library_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
+
     	$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Questions and Answers URL',
-			'',
+			'Questions and answers about the',
 			'book_questions_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
-		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
+		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Youtube Channel',
-			'The URL of a video/audio about this lesson.',
+			'The URL of the Youtube channel of this book.',
 			'youtube_url', '', '', '', false,
 			'http://site.com/', 'isBasedOnUrl' ) );
 

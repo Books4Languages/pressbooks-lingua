@@ -50,12 +50,6 @@ Template: pressbooks-book
     z-index: 50;
 }
 
-.page-info-btn a {
-    background-image: url("images/info.png");
-    background-repeat: no-repeat;
-    background-position: 50% 36%;
-}
-
 /* Copied from Luther theme (for #toc a tags) */
 #page-info table {
     color: #4A4A4A;

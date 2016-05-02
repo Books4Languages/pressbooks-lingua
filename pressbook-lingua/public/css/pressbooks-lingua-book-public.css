@@ -1,3 +1,13 @@
-.nav-container nav{
+/*.nav-container nav{
 background-color: #313131;
+}
+*/
+.nav-container nav{
+	background-color: #FF0000;
+}
+
+.page-info-btn a {
+    background-image: url("themes/pressbooks-lingua-book/images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
 }

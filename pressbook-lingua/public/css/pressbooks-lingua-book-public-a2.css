@@ -1,3 +1,10 @@
 .level{
-background-color: #FFFF00;
+	background-color: #FFFF00;
+}
+
+
+.page-info-btn a {
+    background-image: url("themes/pressbooks-lingua-book/images/Badges4Languages-A2.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
 }

@@ -67,12 +67,18 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (minutes)',
 			'', 'time_required', '', '', 0, false, 0 ) );
-                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Main Descriptor:',
-			'', 'desc1', '', '', '', false, 'descriptor',
-			'custom2' ) );
-                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Secondary Descriptor',
-			'', 'desc2', '', '', '', false, 'descriptor',
-			'custom1' ) );
+
+        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
+        	'Main Descriptor:',
+        	'Custom descriptor of the lecture: professor profile, related websites',
+        	'desc1', '', '', '', 
+        	false, 'descriptor', 'custom2' ) );
+
+        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
+        	'Secondary Descriptor',
+			'Custom descriptor of the lecture: professor profile, related websites',
+			'desc2', '', '', '', 
+			false, 'descriptor','custom1' ) );
 
 		// Built-in fields (from WordPress)
 		$chap_meta->add_field( new Pressbooks_Metadata_Creation_Date_Field(
@@ -128,7 +134,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			}
             
             global $post;
-            if($post->post_type!='chapter' && $post->post_type!='front-matter'){
+            if($post->post_type!='chapter'){
 
 	            echo '<table class="metadata_questtions_answers">';
 	            echo '<tr id="lb_toc"><td>'.
@@ -153,7 +159,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             	'lb_custom_input1'=>'Main Descriptor','lb_custom_input2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
-        	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
+		   	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
         	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
 	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>'; 
 		foreach ( $meta as $row ) {
