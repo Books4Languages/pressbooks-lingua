@@ -192,9 +192,9 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 						$pos = strpos($elt->get_value(), 'http://');    
 						if($pos===false){ 
 							echo '<tr><td>'.$elt->get_name().'</td>
-							<td><a style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'">'.$elt->get_value().'</a></td></tr>'; 
+							<td><a style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'">'.str_replace("www.", '', $elt->get_value()).'</a></td></tr>'; 
 						}else{ 
-							echo '<tr><td>'.$elt->get_name().'</td><td><a style="font-size:1em; color:blue;" href="'.$elt->get_value().'">'.str_replace("http://", '', $elt)->get_value().'</a></td></tr>';
+							echo '<tr><td>'.$elt->get_name().'</td><td><a style="font-size:1em; color:blue;" href="'.$elt->get_value().'">'.str_replace("http://www.", '', $elt)->get_value().'</a></td></tr>';
 						}
 					}else{	
 						?><tr><td><?php echo $elt->get_name(); ?>:</td><?php

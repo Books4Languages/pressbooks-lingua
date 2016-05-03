@@ -147,7 +147,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
 	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
-	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>';
+	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>';
 	        	}
 	            if(isset($learning_time)){
 	                echo '<tr id="lb_time_required"><td style="padding:1em;">Class Learning Time (minutes)</td><td style="font-size:1em;">'.($learning_time?$learning_time:0).'</td></tr>';
@@ -166,7 +166,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		?><table class="metadata_questtions_answers"><?php
 		   	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
         	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
-	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://", '', $QandAURL).'</a></td></tr>'; 
+	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>'; 
 		
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
@@ -177,7 +177,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
                     if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){              
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
-						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.$row['meta_value'].'</a>';                       
+						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       
 						}else{ 
 						  echo '<a style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
 						}
