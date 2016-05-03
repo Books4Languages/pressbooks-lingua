@@ -83,6 +83,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 					    </div> <!-- end .sub-nav-left -->
 			    
 			    <div class="sub-nav-right">
+			    	<!-- Shows level descriptor in the header
 			    		<div class="levelbox">
 			    			<?php
 			                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
@@ -97,6 +98,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 			    				<a class="level"><?php _e($level, 'pressbooks');?></a>
 			    			<?php }?>
 			    		</div>	
+			    	-->
 			    
 					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 					    <!-- Buy -->
