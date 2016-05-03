@@ -140,14 +140,14 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
-    	$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+    	$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Questions and Answers URL',
 			'Questions and answers about the',
 			'book_questions_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
-		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Youtube Channel',
 			'The URL of the Youtube channel of this book.',
 			'youtube_url', '', '', '', false,
@@ -186,12 +186,12 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			if ( empty( $meta ) ) {
 				return;
 			}
-	                ?> <table class="metadata_questtions_answers"><?php
-			foreach ( $meta as $elt ) {
-				?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
-				?><td><?php echo $elt; ?></td></tr><?php
-			}
-	                ?> </table><?php
+            ?> <table class="metadata_questtions_answers"><?php
+				foreach ( $meta as $elt ) {
+					?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
+					?><td><?php echo $elt; ?></td></tr><?php
+				}
+            ?> </table><?php
         }
 	}
 
