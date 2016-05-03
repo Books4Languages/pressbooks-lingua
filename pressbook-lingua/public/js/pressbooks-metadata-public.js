@@ -6,4 +6,5 @@ jQuery(document).ready(function ($) {
     $('#lb_desc1').after($('#lb_desc2'));
     $('#lb_desc2').after($('#lb_video'));
     $('#lb_video').after($('#lb_audio'));
+    $('#lb_audio').after($('#lb_discussion_url'));
 });

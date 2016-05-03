@@ -17,8 +17,10 @@
 if ( is_front_page() ) {
 	echo pb_get_seo_meta_elements();
 	echo pb_get_microdata_elements();
+	print_book_microdata_meta_tags();
 } else {
 	echo pb_get_microdata_elements();
+	print_chapter_microdata_meta_tags();
 }
 ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
