@@ -1,5 +1,8 @@
 @import 'mixins', 'fonts-web';
 
+.book-title{
+    text-transform: uppercase;
+}
 
 #booknav .lib-btn a {
     background-image: url("images/books.png");
