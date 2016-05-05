@@ -3,6 +3,7 @@
 	<?php pb_get_links(false); ?>
 	<?php $metadata = pb_get_book_information();?>
 	<?php 
+
 		/* Takes the site URL and creates the filepath
 			Example: http://rld.on-lingua.com/vocabularya1en/
 			$pathparts: http:/, /, rld.on-lingua.com/, vocabularya1en/ 
@@ -23,14 +24,14 @@
 
         foreach($meta as $key=>$elt) {
           	if($elt->get_name()==='Level'){
-                $level = $elt;
+                $level = $elt; //gets the level 
             }
                        
 			if($elt->get_name()==='Library URL'){
                 $libraryURL = $elt->get_value();
                 $pos = strpos($libraryURL, 'http://');
 	            if($pos === false){                 
-	                $libraryURL = 'http://'.$libraryURL;
+	                $libraryURL = 'http://'.$libraryURL; //gets the library URL as a string and concats it with http:// string
 	            }
             }
 		}
@@ -49,10 +50,13 @@
 	<div class="log-wrap">	<!-- Login/Logout -->
 	   <?php if(!is_single()): ?>
 	    	<?php if(!is_user_logged_in()): ?>
+	    	<!-- Login button -->
 				<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="" style="margin-left:10px;"><?php _e('login', 'pressbooks'); ?></a>
 	   	 	<?php else: ?>
+	   	 	<!-- Logout button -->
 				<a href="<?php echo  wp_logout_url(); ?>" class=""><?php _e('logout', 'pressbooks'); ?></a>
 				<?php if(is_super_admin() || is_user_member_of_blog()): ?>
+			<!-- Admint button -->
 				<a href="<?php echo get_option('home'); ?>/wp-admin"><?php _e('Admin', 'pressbooks'); ?></a>
 				<?php endif; ?>
 	    	<?php endif; ?>
@@ -79,22 +83,29 @@
 
 	</div> <!-- end .book-info -->
 	
+	<!-- Sets the cover of the book -->
 	<?php if(!empty( $metadata['pb_cover_image'] ) ): ?>
 	<div class="book-cover">
-		<img src="<?php echo $metadata['pb_cover_image']; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />			
+		<?php
+			$pathparts=explode('/', site_url());
+            $length=count($pathparts);
+            unset($pathparts[$length-1]);
+            array_values($pathparts);  
+            $filepath=implode('/', $pathparts);
+                    $bookcoverpath=$filepath.'/wp-content/plugins/pressbook-lingua/themes/pressbooks-lingua-book/images/default-book-cover.jpg';
+        ?>
+		<img src="<?php echo $bookcoverpath; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />			
 	</div>	
 	<?php endif; ?>
 	
 	<div class="call-to-action-wrap">
 		<?php global $first_chapter; ?>
 		<div class="call-to-action">
+			<!-- Download Icon -->
 			<a class="btn red" href="<?php global $first_chapter; echo $first_chapter; ?>"><span class="read-icon"></span><?php _e('Read', 'pressbooks'); ?></a>
-			
 			<?php if (@array_filter(get_option('pressbooks_ecommerce_links'))) : ?>
-			 <!-- Buy -->
-				 <a class="btn black" href="<?php echo get_option('home'); ?>/buy"><span class="buy-icon"></span><?php _e('Download', 'pressbooks'); ?></a>				
-			 <?php endif; ?>	
-			 
+				<a class="btn black" href="<?php echo get_option('home'); ?>/buy"><span class="buy-icon"></span><?php _e('Download', 'pressbooks'); ?></a>				
+			<?php endif; ?>	
 			
 		</div> <!-- end .call-to-action -->		
 	</div><!--  end .call-to-action-wrap -->

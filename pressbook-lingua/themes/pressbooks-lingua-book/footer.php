@@ -56,10 +56,9 @@
 			?>
 		
 		<?php endif; ?>
+		<!-- Footer custom sentence -->
 		<p class="cie-name">
-			<?php
-				_e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');		
-			?>
+			<?php _e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');?>
 		</p>
 	</div><!-- #inner -->
 </div><!-- #footer -->

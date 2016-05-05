@@ -17,7 +17,7 @@
 			 <p><?php printf( __( 'You can buy <a href="%1$s">%2$s</a> by following any of the links below:', 'pressbooks' ), get_bloginfo( 'url' ), get_bloginfo( 'name' ) ); ?></p>
 			 			 
 			 <ul class="buy-book">
-<!--                        ON-LINGUA BUY LINK AND LOGO-->                             
+<!--                        ON-LINGUA BUY LINK AND LOGO                            -->                             
                             <?php  $url_parts=explode('/', site_url()); 
                                    $count_1=count($url_parts);
                                    unset($url_parts[$count_1-1]);           

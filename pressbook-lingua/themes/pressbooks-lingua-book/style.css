@@ -9,8 +9,6 @@ Version: 0.1.2
 Template: pressbooks-book
 */
 
-
-
 @import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
 
 .book-title{
@@ -51,6 +49,25 @@ Template: pressbooks-book
     position: relative;
     width: 280px;
     z-index: 50;
+}
+
+.book_name_author p {
+    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
+    margin: 0px auto;
+    text-align: center;
+    width: auto;
+}
+
+.nav-container {
+    margin-bottom: 0px;
+}
+
+.wrapper #content .entry-title {
+    margin: 10px auto 3em;
+}
+
+.single #content {
+    min-height: 405px;
 }
 
 /* Copied from Luther theme (for #toc a tags) */
@@ -163,26 +180,6 @@ Template: pressbooks-book
         max-width: 100%;
         padding-left: 25%;
     }
-}
-
-
-.book_name_author p {
-    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
-    margin: 0px auto;
-    text-align: center;
-    width: auto;
-}
-
-.nav-container {
-    margin-bottom: 0px;
-}
-
-.wrapper #content .entry-title {
-    margin: 10px auto 3em;
-}
-
-.single #content {
-    min-height: 405px;
 }
 
 @media screen and (max-width: 768px) {

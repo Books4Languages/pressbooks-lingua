@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-		
+	/* Table of contents pop-up */	
 	jQuery('#toc').hide();
 	jQuery(document).on('click', '.toc-btn a, #toc a.close', function() {
 		if(jQuery('#toc').css('display') == 'none') {
@@ -15,7 +15,8 @@ jQuery(document).ready(function(){
 			return false;
 		}
 	});
-
+	
+	/* Page button pop-up */
 	jQuery('#page-info').hide();
 	jQuery(document).on('click', '.page-info-btn a, #page-info a.close', function(){
 		if(jQuery('#page-info').css('display') == 'none'){

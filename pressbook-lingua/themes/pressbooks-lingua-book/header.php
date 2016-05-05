@@ -14,14 +14,14 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
-if ( is_front_page() ) {
-	echo pb_get_seo_meta_elements();
-	echo pb_get_microdata_elements();
-	print_book_microdata_meta_tags();
-} else {
-	echo pb_get_microdata_elements();
-	print_chapter_microdata_meta_tags();
-}
+	if ( is_front_page() ) {
+		echo pb_get_seo_meta_elements();
+		echo pb_get_microdata_elements();
+		print_book_microdata_meta_tags();
+	} else {
+		echo pb_get_microdata_elements();
+		print_chapter_microdata_meta_tags();
+	}
 ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
 <title><?php
@@ -60,65 +60,58 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 <?php } ?>
 
 <?php get_template_part( 'content', 'accessibility-toolbar' ); ?>
+<?php if (is_front_page()):?>
+ 
+ 	<!-- home page wrap -->
+ 	<span itemscope itemtype="http://schema.org/Book" itemref="about alternativeHeadline author copyrightHolder copyrightYear datePublished description editor 
+	      image inLanguage keywords publisher">
+	<div class="book-info-container">
 
-	 <?php if (is_front_page()):?>
-	 
-	 	<!-- home page wrap -->
-	 	<span itemscope itemtype="http://schema.org/Book" itemref="about alternativeHeadline author copyrightHolder copyrightYear datePublished description editor 
-		      image inLanguage keywords publisher">
-		      
-	 		<div class="book-info-container">
-	 
-		<?php else: ?>  	 
-		<span itemscope itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher">		
-		<div class="nav-container">
-				<nav>
-			
-			 		<!-- Book Title -->
-				    <h1 class="book-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			    
-			   
-			    
-					    <div class="sub-nav-left">
-							<!-- Logo -->
-							<h2 class="pb-lingua-logo"><a href="http://on-lingua.com">Pressboks Lingua</a></h2>
-					    </div> <!-- end .sub-nav-left -->
-			    
-			    <div class="sub-nav-right">
-			    	<!-- Shows level descriptor in the header
-			    		<div class="levelbox">
-			    			<?php
-			                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
-			                $meta=$pm_BM->get_current_metadata_flat();
-			                foreach ( $meta as $key=>$elt ) {
-			                if($elt->get_name()==='Level'){
-			                            $level=$elt;
-			                        }        
-			                }
-			                $level=$level?strtolower($level):'none';
-							if($level != 'none'){ ?>
-			    				<a class="level"><?php _e($level, 'pressbooks');?></a>
-			    			<?php }?>
-			    		</div>	
-			    	-->
-			    
-					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
-					    <!-- Buy -->
-					    <div class="buy">
-							<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a>
-						</div>
-						<?php endif; ?>	
-						
-						<?php get_template_part( 'content', 'social-header' ); ?> 
+<?php else: ?>  	 
+	<span itemscope itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher">		
+	<div class="nav-container">
+		<nav>
+ 			<!-- Book Title -->
+	    	<h1 class="book-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+    
+		    <div class="sub-nav-left">
+				<!-- Logo -->
+				<h2 class="pb-lingua-logo"><a href="http://on-lingua.com">Pressboks Lingua</a></h2>
+		    </div> <!-- end .sub-nav-left -->
+		    
+		    <div class="sub-nav-right">
+		    	<!-- Shows level descriptors in the header
+
+		    		<div class="levelbox">
+		    			<?php
+		                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+		                $meta=$pm_BM->get_current_metadata_flat();
+		                foreach ( $meta as $key=>$elt ) {
+		                if($elt->get_name()==='Level'){
+		                            $level=$elt;
+		                        }        
+		                }
+		                $level=$level?strtolower($level):'none';
+						if($level != 'none'){ ?>
+		    				<a class="level"><?php _e($level, 'pressbooks');?></a>
+		    			<?php }?>
+		    		</div>	
+		    	-->			    
+			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
+				    <!-- Download button -->
+				    <div class="buy">
+						<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a>
+					</div>
+				<?php endif; ?>	
 				
-				</div> <!-- end .sub-nav-right -->
-			</nav>
-			     		    
-				 
-		</div> <!-- end .nav-container -->
+				<?php get_template_part( 'content', 'social-header' ); ?> 
+			
+			</div> <!-- end .sub-nav-right -->
+		</nav>    		    
+	</div> <!-- end .nav-container -->
 
 	<div class="wrapper"><!-- for sitting footer at the bottom of the page -->	    
 			<div id="wrap">	    
 				<div id="content">
 
-	 <?php endif; ?>	
+<?php endif; ?>	
