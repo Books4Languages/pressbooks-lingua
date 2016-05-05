@@ -51,6 +51,13 @@ Template: pressbooks-book
     z-index: 50;
 }
 
+
+.page-info-btn a {
+    background-image: url("../../themes/pressbooks-lingua-book/images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
 .book_name_author p {
     font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
     margin: 0px auto;
