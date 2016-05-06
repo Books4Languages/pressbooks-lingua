@@ -38,6 +38,41 @@ activated this plugin (tested on 2.4.5).
 ## Changelog
 Afther version 2.0 We need to write the List of Files Revised
 
+### 0.6
+ * Requires Pressbooks 0.0.0
+ * FEATURE:
+ * ENHANCED: 
+ * FIXED: 
+ * UNDER THE HOOD: 
+
+### 0.5
+ * Requires Pressbooks 0.0.0
+ * FEATURE:
+ * ENHANCED: 
+ * FIXED: 
+ * UNDER THE HOOD: 
+
+### 0.4
+ * Requires Pressbooks 0.0.0
+ * FEATURE:
+ * ENHANCED: 
+ * FIXED: 
+ * UNDER THE HOOD: 
+ * 
+### 0.3
+ * Requires Pressbooks 0.0.0
+ * FEATURE:
+ * ENHANCED: 
+ * FIXED: 
+ * UNDER THE HOOD: 
+
+### 0.2
+ * Requires Pressbooks 3.5.0
+ * FEATURE:
+ * ENHANCED: 
+ * FIXED: 
+ * UNDER THE HOOD: 
+
 ### 0.1.2
 * New: 
   * Custom color for each language level shown in the header
