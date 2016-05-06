@@ -14,6 +14,11 @@ We want to make the language courses more user-friendly. This is the second step
 ### General Information
 [Read general teorical information](/README-general-information.md).
 
+#### PB-Lingua: Plugin for pressbooks
+
+#### PB-Lingua-Book: Child theme for Luther (pressbooks-book)
+
+#### PB-Lingua-Catalog: Child theme for Pressbook Root Page (themes-root/pressbooks-publisher/)
 
 ## Requirements
 This is a plugin for Wordpress (tested on 4.3)
