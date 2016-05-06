@@ -58,7 +58,7 @@ Afther version 2.0 We need to write the List of Files Revised
  * ENHANCED: 
  * FIXED: 
  * UNDER THE HOOD: 
- * 
+
 ### 0.3
  * Requires Pressbooks 0.0.0
  * FEATURE:
