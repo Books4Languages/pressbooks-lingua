@@ -1,0 +1,357 @@
+/*
+Theme Name: Pressbooks Lingua Book
+Theme URI: http://pressbooks.com/themes/fitzgerald
+Description: Serif body, with condensed sans serif header fonts. Based on a theme commissioned by the University of Minnesota Press.
+Author: Pressbooks (Book Oven Inc.)
+Author URI: http://pressbooks.com
+Copyright 2011-2015 Book Oven Inc. (Pressbooks.com) code@pressbooks.com
+Version: 0.1.2
+Template: pressbooks-book
+*/
+
+@import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
+
+.book-title{
+    text-transform: uppercase;
+}
+
+#booknav .lib-btn a {
+    background-image: url("images/books.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
+#booknav .search-btn a {
+    background-image: url("images/search.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
+#booknav .related-books-btn a {
+    background-image: url("images/related.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+/* Extra sidebar button pop-up */
+#page-info, #related-books, #sidebar-search {
+    background: #eeeeee;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 2px 2px 2px #dddddd;
+    -o-box-shadow: 2px 2px 2px #dddddd;
+    -webkit-box-shadow: 2px 2px 2px #dddddd;
+    box-shadow: 2px 2px 2px #dddddd;
+    margin-left: -232px;
+    margin-top: 0;
+    padding: 10px 10px 10px 20px;
+    position: relative;
+    width: 280px;
+    z-index: 50;
+}
+
+
+.page-info-btn a {
+    background-image: url("../../themes/pressbooks-lingua-book/images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
+.book_name_author p {
+    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
+    margin: 0px auto;
+    text-align: center;
+    width: auto;
+}
+
+.nav-container {
+    margin-bottom: 0px;
+}
+
+.wrapper #content .entry-title {
+    margin: 10px auto 3em;
+}
+
+.single #content {
+    min-height: 405px;
+}
+
+/* Copied from Luther theme (for #toc a tags) */
+#page-info table {
+    color: #4A4A4A;
+    font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+    #page-info table tr td:first-child {
+        font-weight: bold;
+        padding-right: 3px;
+    }
+
+    #page-info table tr td:last-child {
+        padding-left: 3px;
+    }
+
+/* Pressbooks Luther theme overrides */
+@media screen and (min-width: 1024px) {
+    /* Copied from Luther theme (#toc) */
+    #page-info, #related-books {
+        background: none repeat scroll 0% 0% #E0E0E0;
+        /*margin-left: -130px;
+        margin-top: -10px;*/
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    /* Copied from Luther theme (#toc) */
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+
+@media screen and (max-width: 940px) {
+    #wrap {
+        width: auto;
+    }
+
+    #content {
+        width: 500px;
+    }
+    /* Sidebar glued to the right */
+    #sidebar {
+        margin-right: 0;
+    }
+
+    #booknav {
+        border-radius: 6px 0px 0px 6px;
+        box-shadow: -2px 2px 2px #ddd;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        width: auto;
+    }
+
+    .edit-link {
+        float: none;
+    }
+
+    #page-info a.close, #related-books a.close {
+        background-position: 260px -50px;
+    }
+    /* Copied from Luther theme (#toc) */
+    #page-info, #related-books {
+        position: relative;
+        margin-top: 47px;
+        margin-left: 0px;
+        z-index: 100;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    #content {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* Copied from Luther theme (#toc) */
+    #toc {
+        position: relative;
+        right: 0px;
+        */;
+    }
+
+    #page-info {
+        /*position: absolute;
+        right: 0px;*/
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .lingua-logo a {
+        background: url("images/On_lingua.png");
+    }
+
+    #sidebar-search {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+    #related-books {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+    #page-info {
+        max-width: 180px;
+        margin-top: 47px;
+        margin-left: 0;
+        z-index: 100;
+    }
+
+        #page-info table {
+            display: table;
+        }
+
+        #page-info a.close {
+            background-position: 160px -50px;
+        }
+
+    .edit-link a {
+        display: inline-block;
+        color: #c03;
+        position: absolute;
+        min-width: 100px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    #booknav {
+        max-width: 355px;
+        overflow: hidden;
+        overflow-wrap: break-word;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #booknav {
+        max-width: 285px;
+    }
+    .footer-table{
+        max-width: 100%;
+        padding-left: 10%;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #booknav {
+        max-width: 215px;
+    }
+        .footer-table{
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    #booknav {
+        max-width: 145px;
+    }
+        .footer-table{
+        max-width: 100%;
+    }
+}
+
+.pb-lingua-logo a {
+    background: url("images/pb-lingua.png");
+    display: block;
+    text-indent: -9999em;
+    min-width: 75px;
+    background-size: 50%;
+    min-height: 40px;
+    background-repeat: no-repeat;
+    margin: 8%;
+}
+
+nav {
+    min-height: 45px;
+}
+
+.log-wrap {
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    max-width: 120px;
+    right: 0px;
+}
+
+    .log-wrap a {
+        display: inline-block;
+    }
+
+.book-info h1 {
+    margin: 20px 0px;
+}
+
+table.metadata_questtions_answers td {
+    padding: 0.5em;
+}
+
+#lb_toc td {
+    margin-bottom: 2em;
+    font-size: 2em !important;
+    font-weight: bold!important;
+}
+
+.footer-table{
+    max-width: 100%;
+    padding-left: 25%;
+}
+
+
+.btn{
+    margin: 5px 10px!important;
+    width: 140px!important;
+}
+
+.facebook{
+    padding: 0px 0px 0px 15px!important;
+    margin-top: 0px!important;
+}
+
+/*.levelbox{
+    display: block;
+    float: left;
+    margin: 10px 10px 0 0;
+    width: 46px;
+}
+
+.level{
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #ffffff;
+    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
+    text-shadow: 0 1px 0 #000;
+    margin-right: 15px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}*/
+

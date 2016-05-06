@@ -9,4 +9,5 @@ background-color: #313131;
 .page-info-btn a {
     background-image: url("../../themes/pressbooks-lingua-book/images/info.png");
     background-repeat: no-repeat;
+    background-position: 50% 36%;
 }
