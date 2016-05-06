@@ -39,9 +39,9 @@ activated this plugin (tested on 2.4.5).
 ## Changelog
 Afther version 2.0 We need to write the List of Files Revised
 
-PB-Lingua: Plugin for pressbooks
-PB-Lingua-Book: Child theme for Luther (pressbooks-book)
-PB-Lingua-Catalog: Child theme for Pressbook Root Page (themes-root/pressbooks-publisher/)
+* PB-Lingua: Plugin for pressbooks
+* PB-Lingua-Book: Child theme for Luther (pressbooks-book)
+* PB-Lingua-Catalog: Child theme for Pressbook Root Page (themes-root/pressbooks-publisher/)
 
 ### 0.6
  * Requires Pressbooks 0.0.0
