@@ -96,7 +96,26 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 		    				<a class="level"><?php _e($level, 'pressbooks');?></a>
 		    			<?php }?>
 		    		</div>	
-		    	-->			    
+		    	-->	
+		    	<?php 
+		    		$pm_BM = Pressbooks_Metadata_Chapter_Resources::get_instance();
+	                $meta=$pm_BM->get_current_metadata_flat();
+	                foreach ( $meta as $key=>$elt ) {
+		                if($elt->get_name()==='Exercises'){
+                        	$link=$elt->get_value();
+			                $pos = strpos($link, 'http://');
+			                if($pos===false){                 
+			                    $link='http://'.$link;
+			                }
+	                    }        
+	                }
+	    			
+		    	if($link != 'none'){ ?>
+			    	<div class="ex_box">
+			    		<a class="exercise" href='<?php echo $link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+			    	</div>	
+		    	<?php }?>	
+
 			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 				    <!-- Download button -->
 				    <div class="buy">

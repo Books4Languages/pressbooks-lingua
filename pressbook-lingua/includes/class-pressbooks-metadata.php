@@ -201,6 +201,7 @@ class Pressbooks_Metadata {
 		//$plugin_metadata = new Pressbooks_Metadata_Metadata( $this->get_plugin_name(), $this->get_version() );
 		$plugin_book_metadata = Pressbooks_Metadata_Book_Metadata::get_instance();
 		$plugin_chapter_metadata = Pressbooks_Metadata_Chapter_Metadata::get_instance();
+		$plugin_chapter_resources = Pressbooks_Metadata_Chapter_Resources::get_instance();
 		$plugin_related_books_metadata = Pressbooks_Metadata_Related_Books_Metadata::get_instance();
 
 		$this->loader->add_action(
@@ -210,6 +211,10 @@ class Pressbooks_Metadata {
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',
 			$plugin_chapter_metadata,
+			'add_to_current_post_metadata', 31 );
+		$this->loader->add_action(
+			'custom_metadata_manager_init_metadata',
+			$plugin_chapter_resources,
 			'add_to_current_post_metadata', 31 );
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',

@@ -40,7 +40,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		parent::__construct();
 
 		// Preexisting meta-box
-                global $post;
+        global $post;
 		$chap_meta = new Pressbooks_Metadata_Meta_Box(
 			'Chapter Metadata', '',
 			'chapter-metadata2',true );
@@ -73,18 +73,6 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'Kind of descriptor taught in the topic',
 			'desc2', '', '', '', 
 			false, 'descriptor','second_desc' ) );
-
-		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
-			'Video',
-			'The URL of a video about this lesson.',
-			'video_url', '', '', '', false,
-			'http://site.com/' ) );
-
-		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
-			'Audio',
-			'The URL of a audio about this lesson.',
-			'audio_url', '', '', '', false,
-			'http://site.com/' ) );
 
 		// Built-in fields (from WordPress)
 		$chap_meta->add_field( new Pressbooks_Metadata_Creation_Date_Field(
@@ -161,7 +149,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
             $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)',
-            	'lb_generaldesc'=>'General Descriptor','lb_desc1'=>'Main Descriptor','lb_desc2'=>'Secondary Descriptor', 'lb_video_url'=>'Video', 'lb_audio_url'=>'Audio');
+            	'lb_generaldesc'=>'General Descriptor','lb_desc1'=>'Main Descriptor','lb_desc2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
 		   	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 

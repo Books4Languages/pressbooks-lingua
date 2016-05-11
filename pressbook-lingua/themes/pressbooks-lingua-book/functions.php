@@ -267,6 +267,15 @@ function print_page_information_fields() {
 }
 
 /**
+ * Prints all the informations about the Resources
+**/
+
+function print_chapter_resources_fields(){
+	$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
+	$pm_CR->print_chapter_resources_fields();
+}
+
+/*
  * Prints the book information contents.
  */
 function print_book_information_fields() {

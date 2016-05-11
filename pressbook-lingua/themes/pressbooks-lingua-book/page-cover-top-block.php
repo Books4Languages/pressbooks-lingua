@@ -86,7 +86,7 @@
 	<!-- Sets the cover of the book -->
 	<?php if(!empty( $metadata['pb_cover_image'] ) ): ?>
 	<div class="book-cover">
-		<?php
+		<!--<?php
 			$pathparts=explode('/', site_url());
             $length=count($pathparts);
             unset($pathparts[$length-1]);
@@ -94,7 +94,8 @@
             $filepath=implode('/', $pathparts);
                     $bookcoverpath=$filepath.'/wp-content/plugins/pressbook-lingua/themes/pressbooks-lingua-book/images/default-book-cover.jpg';
         ?>
-		<img src="<?php echo $bookcoverpath; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />			
+		<img src="<?php echo $bookcoverpath; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />	-->
+		<img src="<?php echo $metadata['pb_cover_image']; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />
 	</div>	
 	<?php endif; ?>
 	

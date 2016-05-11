@@ -32,6 +32,22 @@ jQuery(document).ready(function(){
 		}
 	});
 
+	/* Resources button pop-up */
+	jQuery('#resource').hide();
+	jQuery(document).on('click', '.resource-btn a, #resource a.close', function(){
+		if(jQuery('#resource').css('display') == 'none'){
+			jQuery('.resource-btn a').addClass('tabbed');
+			jQuery('.resource-btn').addClass('bg-color');
+			jQuery('#resource').toggle({ duration:200 });
+			return false;
+		}else{ 
+			jQuery('.resource-btn a').removeClass('tabbed');
+			jQuery('.resource-btn').removeClass('bg-color');
+			jQuery('#resource').toggle({ duration:100 });
+			return false;
+		}
+	});
+
 });
 
 

@@ -12,7 +12,7 @@ Template: pressbooks-book
 @import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
 
 .book-title{
-    text-transform: uppercase;
+    text-transform: uppercase!important;
 }
 
 #booknav .lib-btn a {
@@ -32,8 +32,16 @@ Template: pressbooks-book
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
+
+
+#booknav .resource-btn a {
+    background-image: url("images/play.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
 /* Extra sidebar button pop-up */
-#page-info, #related-books, #sidebar-search {
+#page-info, #related-books, #sidebar-search, #resource {
     background: #eeeeee;
     -moz-border-radius: 6px;
     -o-border-radius: 6px;
@@ -78,7 +86,7 @@ Template: pressbooks-book
 }
 
 /* Copied from Luther theme (for #toc a tags) */
-#page-info table {
+#page-info table, #resource table {
     color: #4A4A4A;
     font: 0.6em/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
     text-decoration: none;
@@ -96,7 +104,7 @@ Template: pressbooks-book
 /* Pressbooks Luther theme overrides */
 @media screen and (min-width: 1024px) {
     /* Copied from Luther theme (#toc) */
-    #page-info, #related-books {
+    #page-info, #related-books, #resource {
         background: none repeat scroll 0% 0% #E0E0E0;
         /*margin-left: -130px;
         margin-top: -10px;*/
@@ -149,11 +157,11 @@ Template: pressbooks-book
         float: none;
     }
 
-    #page-info a.close, #related-books a.close {
+    #page-info a.close, #related-books a.close, #resource a.close {
         background-position: 260px -50px;
     }
     /* Copied from Luther theme (#toc) */
-    #page-info, #related-books {
+    #page-info, #related-books, #resource {
         position: relative;
         margin-top: 47px;
         margin-left: 0px;
@@ -179,7 +187,7 @@ Template: pressbooks-book
         */;
     }
 
-    #page-info {
+    #page-info, #resource {
         /*position: absolute;
         right: 0px;*/
     }
@@ -208,18 +216,18 @@ Template: pressbooks-book
         z-index: 100;
     }
 
-    #page-info {
+    #page-info, #resource {
         max-width: 180px;
         margin-top: 47px;
         margin-left: 0;
         z-index: 100;
     }
 
-        #page-info table {
+        #page-info table, #resource table {
             display: table;
         }
 
-        #page-info a.close {
+        #page-info a.close, #resource table {
             background-position: 160px -50px;
         }
 
@@ -333,6 +341,30 @@ table.metadata_questtions_answers td {
 .facebook{
     padding: 0px 0px 0px 15px!important;
     margin-top: 0px!important;
+}
+
+
+.ex_box{
+    display: block;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 10px 10px 0 0;
+    width: 46px;
+    background-color:#00FF00;
+}
+
+.exercise{
+    width: 100px;
+    height: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
+    text-shadow: 0 1px 0 #000;
+    margin-right: 15px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 /*.levelbox{

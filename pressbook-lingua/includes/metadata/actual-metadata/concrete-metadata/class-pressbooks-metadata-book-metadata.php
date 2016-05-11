@@ -220,5 +220,9 @@ add_action( 'custom_metadata_manager_init_metadata', function (){
 		'label' => __( 'Custom Chapter Metadata', 'pressbooks' )
 	) );
 
+	x_add_metadata_group( 'chapter-resources2', 'chapter', array(
+		'label' => __( 'Chapter Resources', 'pressbooks' )
+	) );
+
 
 });
