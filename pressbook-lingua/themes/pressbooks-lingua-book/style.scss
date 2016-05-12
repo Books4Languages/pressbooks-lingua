@@ -1,6 +1,6 @@
 @import 'mixins', 'fonts-web';
 
-.book-title{
+h1.book-title a {
     text-transform: uppercase!important;
 }
 
@@ -60,12 +60,12 @@
     text-decoration: none;
 }
 
-    #page-info table tr td:first-child {
+    #page-info table tr td:first-child, #resource table tr td:first-child{
         font-weight: bold;
         padding-right: 3px;
     }
 
-    #page-info table tr td:last-child {
+    #page-info table tr td:last-child,  #resource table tr td:last-child{
         padding-left: 3px;
     }
 
@@ -147,7 +147,6 @@
     #toc {
         position: relative;
         right: 0px;
-        */;
     }
 
     #page-info {
@@ -320,31 +319,36 @@ table.metadata_questtions_answers td {
     padding: 0px 0px 0px 15px!important;
 }
 
-
-.ex_box{
+.activity{
     display: block;
     float: left;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    margin: 10px 10px 0 0;
-    width: 46px;
-    background-color:#00FF00;
+    margin: 10px 10px 0 -190px;
+    width: 100px;
 }
 
 .exercise{
-    width: 100px;
-    height: 30px;
+    display: block;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 10px 10px 0 -40px;
+    width: 70px;
+}
+
+.level{
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
     color: #ffffff;
-    text-decoration: none;
     font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
     text-shadow: 0 1px 0 #000;
-    margin-right: 15px;
     padding: 5px 10px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 
-//L
 /*.levelbox{
     display: block;
     float: left;

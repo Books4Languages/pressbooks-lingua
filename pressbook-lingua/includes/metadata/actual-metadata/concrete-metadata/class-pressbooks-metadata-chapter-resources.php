@@ -50,7 +50,13 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Exercises',
 			'The URL of exercise site about this lesson.',
-			'exercise_url', '', '', '', false,
+			'exercises_url', '', '', '', false,
+			'http://site.com/' ) );
+
+		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
+			'Activities',
+			'The URL of the Activities site about this lesson.',
+			'activities_url', '', '', '', false,
 			'http://site.com/' ) );
 
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
@@ -90,38 +96,38 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 	 */
 	public function print_chapter_resources_fields(){
 
-			$pm_BM = get_metada_fields();
-			$meta = $pm_BM->get_current_metadata_flat();
-		   
-            global $post;
-            if($post->post_type!='chapter'){
-			    foreach ( $meta as $key=>$elt ) {      
-				  	if($elt->get_name()==='Youtube Channel'){
-		                if($elt->get_value() !== '0'){
-		                	$YTchannel=$elt->get_value();
-			                $pos = strpos($YTchannel, 'http://');
-			                if($pos===false){                 
-			                    $YTchannel='http://'.$YTchannel;
-			                }
-		            	}
-		            }           
-				}
+		$pm_BM = get_metada_fields();
+		$meta = $pm_BM->get_current_metadata_flat();
+	   
+        global $post;
+        if($post->post_type!='chapter'){
+		    foreach ( $meta as $key=>$elt ) {      
+			  	if($elt->get_name()==='Youtube Channel'){
+	                if($elt->get_value() !== '0'){
+	                	$YTchannel=$elt->get_value();
+		                $pos = strpos($YTchannel, 'http://');
+		                if($pos===false){                 
+		                    $YTchannel='http://'.$YTchannel;
+		                }
+	            	}
+	            }           
+			}
 
-	            echo '<table class="metadata_questtions_answers">';
-	            /* if any value is set for $YTchannel*/
-	            if(isset($YTchannel)){
-	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
-	                '<a style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
-	        	}
-	            echo '</table>';
-	            
-	            return;
-       		}
-       		
-            global $wpdb;
-            $table_name=$wpdb->prefix.'postmeta';
-            $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
-            $meta_keys=array('lb_exercises_url'=>'Exercises', 'lb_video_url'=>'Video', 'lb_audio_url'=>'Audio');
+            echo '<table class="metadata_questtions_answers">';
+            /* if any value is set for $YTchannel*/
+            if(isset($YTchannel)){
+                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
+                '<a style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
+        	}
+            echo '</table>';
+            
+            return;
+   		}
+   		
+        global $wpdb;
+        $table_name=$wpdb->prefix.'postmeta';
+        $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
+        $meta_keys=array('lb_exercises_url'=>'Exercises', 'lb_activities_url'=>'Activities','lb_video_url'=>'Video', 'lb_audio_url'=>'Audio');
 
 		?><table class="metadata_questtions_answers"><?php
 		         			
@@ -131,7 +137,7 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 				?><td><?php
                    unset($meta_keys[$row['meta_key']]);
                    array_values($meta_keys);
-                    if($row['meta_key'] === 'lb_exercises_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){ 
+                    if($row['meta_key'] === 'lb_exercises_url' ||  $row['meta_key'] === 'lb_activities_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){ 
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
 						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       

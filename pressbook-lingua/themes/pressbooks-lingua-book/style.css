@@ -11,7 +11,7 @@ Template: pressbooks-book
 
 @import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
 
-.book-title{
+h1.book-title a {
     text-transform: uppercase!important;
 }
 
@@ -92,12 +92,12 @@ Template: pressbooks-book
     text-decoration: none;
 }
 
-    #page-info table tr td:first-child {
+    #page-info table tr td:first-child, #resource table tr td:first-child{
         font-weight: bold;
         padding-right: 3px;
     }
 
-    #page-info table tr td:last-child {
+    #page-info table tr td:last-child,  #resource table tr td:last-child{
         padding-left: 3px;
     }
 
@@ -344,24 +344,30 @@ table.metadata_questtions_answers td {
 }
 
 
-.ex_box{
+.exercise{
     display: block;
     float: left;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    margin: 10px 10px 0 0;
-    width: 46px;
-    background-color:#00FF00;
+    margin: 10px 10px 0 -40px;
+    width: 100px;
 }
 
-.exercise{
+.activity{
+    display: block;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 10px 10px 0 -190px;
     width: 100px;
-    height: 30px;
+}
+
+.level{
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
     color: #ffffff;
-    text-decoration: none;
     font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
     text-shadow: 0 1px 0 #000;
-    margin-right: 15px;
     padding: 5px 10px;
     text-transform: uppercase;
     text-decoration: none;

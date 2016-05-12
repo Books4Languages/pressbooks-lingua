@@ -98,23 +98,35 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 		    		</div>	
 		    	-->	
 		    	<?php 
-		    		$pm_BM = Pressbooks_Metadata_Chapter_Resources::get_instance();
-	                $meta=$pm_BM->get_current_metadata_flat();
+		    		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
+	                $meta = $pm_CR->get_current_metadata_flat();
 	                foreach ( $meta as $key=>$elt ) {
 		                if($elt->get_name()==='Exercises'){
-                        	$link=$elt->get_value();
-			                $pos = strpos($link, 'http://');
+                        	$ex_link=$elt->get_value();
+			                $pos = strpos($ex_link, 'http://');
 			                if($pos===false){                 
-			                    $link='http://'.$link;
+			                    $ex_link='http://'.$ex_link;
 			                }
+	                    }
+	                    if($elt->get_name()==='Activities'){
+	                    	$act_link = $elt->get_value();
+	                    	$pos = strpos($act_link, 'http://');
+	                    	if($pos===false){
+	                    		$act_link = 'http://'.$act_link;
+	                    	}
 	                    }        
 	                }
-	    			
-		    	if($link != 'none'){ ?>
-			    	<div class="ex_box">
-			    		<a class="exercise" href='<?php echo $link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
-			    	</div>	
-		    	<?php }?>	
+    			
+			    	if($ex_link != null){	?>
+					    	<div class="exercise">
+					    		<a class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+					    	</div>
+			    	<?php  }	
+			    	if($act_link != null){	?>	
+					    	<div class="activity">
+					    		<a class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+					    	</div>		
+		    	<?php  }	?>	
 
 			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 				    <!-- Download button -->
