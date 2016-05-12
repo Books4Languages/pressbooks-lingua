@@ -116,6 +116,16 @@ h1.book-title a {
 }
 
 
+@media screen and (max-width: 1260px){
+    .log-wrap a {
+        display: inline!important;
+    }
+    .book-cover img{
+        margin-top:35px;
+    }
+}
+
+
 @media screen and (min-width: 1024px) {
     /* Copied from Luther theme (#toc) */
     .footer-table{
