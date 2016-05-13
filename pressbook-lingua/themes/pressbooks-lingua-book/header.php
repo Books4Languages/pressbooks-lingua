@@ -118,13 +118,13 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	                }
     			
 			    	if($ex_link != null){	?>
-					    	<div class="exercise">
-					    		<a class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+					    	<div id="exercise_h" class="exercise">
+					    		<a id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
 					    	</div>
 			    	<?php  }	
 			    	if($act_link != null){	?>	
-					    	<div class="activity">
-					    		<a class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+					    	<div id="activity_h" class="activity">
+					    		<a id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
 					    	</div>		
 		    	<?php  }	?>	
 

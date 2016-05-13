@@ -341,7 +341,7 @@ function pm_enqueue_scripts() {
 	wp_dequeue_script( 'pb-pop-out-toc' );
 	wp_enqueue_script( 'pb-pop-out-toc', get_stylesheet_directory_uri() . '/js/pop-out.js', array( 'jquery' ), '1.0', false );
 
-	//wp_enqueue_script( 'pm-pop-out-page-meta', get_stylesheet_directory_uri() . '/js/pop-out.js', array( 'jquery' ), '1.0', false );
+	wp_enqueue_script( 'pb-hide-btn', get_stylesheet_directory_uri() . '/js/hide-btn.js', array( 'jquery' ), '1.0', false );
 
 }
 

@@ -57,6 +57,36 @@
 		
 		<?php endif; ?>
 		<!-- Footer custom sentence -->
+	    	<?php 
+		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
+        $meta = $pm_CR->get_current_metadata_flat();
+        foreach ( $meta as $key=>$elt ) {
+            if($elt->get_name()==='Exercises'){
+            	$ex_link=$elt->get_value();
+                $pos = strpos($ex_link, 'http://');
+                if($pos===false){                 
+                    $ex_link='http://'.$ex_link;
+                }
+            }
+            if($elt->get_name()==='Activities'){
+            	$act_link = $elt->get_value();
+            	$pos = strpos($act_link, 'http://');
+            	if($pos===false){
+            		$act_link = 'http://'.$act_link;
+            	}
+            }        
+        }
+	
+    	if($ex_link != null){	?>
+		    	<div id="exercise_f" class="exercise">
+		    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+		    	</div>
+    	<?php  }	
+    	if($act_link != null){	?>	
+		    	<div id="activity_f" class="activity">
+		    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+		    	</div>		
+	<?php  }	?>
 		<p class="cie-name">
 			<?php _e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');?>
 		</p>
