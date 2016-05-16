@@ -4,6 +4,10 @@ h1.book-title a {
     text-transform: uppercase!important;
 }
 
+h1.book-title {
+    width: auto!important; 
+}
+
 #booknav .lib-btn a {
     background-image: url("images/books.png");
     background-repeat: no-repeat;

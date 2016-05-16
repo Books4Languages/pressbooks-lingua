@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 	jQuery("#exercise_f").hide();
 	jQuery("#activity_f").hide();
 	jQuery("#download_f").hide();
-
+	jQuery("#download_h").hide();
 
 	if(jQuery(window).width() < 880){
 		//mettere le icone
