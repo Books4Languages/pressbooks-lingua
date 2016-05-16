@@ -481,7 +481,41 @@ a.button-red-f{
   text-transform: uppercase; }
 
 
+#exercise_f, #activity_f, .buy-f, .buy-f a{
+    display:none;
+}
 
+@media screen and (max-width : 750px) {
+    #exercise_h, #activity_h{
+        display:none;
+    }
+    #exercise_f, #activity_f{
+        display: inherit;
+    }
+    .buy-f, .buy-f a{
+        display: inherit;
+    }
+}
+
+@media screen and (max-width : 360px) {
+    .buy-h, .buy-h a{
+        display:none;
+    }
+
+    .buy-f, .buy-f a{
+        display: inherit;
+    }
+}
+
+/*
+@media screen and (max-width > 700px) {
+    #exercise_f, #activity_f{
+        display:none;
+    }
+    #exercise_h, #activity_h{
+        display:block;
+    }
+}*/
 
 /*.levelbox{
     display: block;
