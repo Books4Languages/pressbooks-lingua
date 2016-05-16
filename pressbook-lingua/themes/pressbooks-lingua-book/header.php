@@ -130,8 +130,8 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 
 			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 				    <!-- Download button -->
-				    <div class="buy">
-						<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a>
+				    <div id="download-h" class="buy-h">
+						<a id="dwn-h-a" href="<?php echo get_option('home'); ?>/buy" class="button-red dwn-img"></a> <!-- <?php _e('Download', 'pressbooks'); ?> -->
 					</div>
 				<?php endif; ?>	
 				

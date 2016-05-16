@@ -75,18 +75,26 @@
             		$act_link = 'http://'.$act_link;
             	}
             }        
-        }
-	
-    	if($ex_link != null){	?>
-		    	<div id="exercise_f" class="exercise">
-		    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
-		    	</div>
-    	<?php  }	
-    	if($act_link != null){	?>	
-		    	<div id="activity_f" class="activity">
-		    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
-		    	</div>		
-	<?php  }	?>
+        } ?>
+		<div class="f-container">
+	    	<?php if($ex_link != null){	?>
+			    	<div id="exercise_f" class="exercise-footer">
+			    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+			    	</div>
+	    	<?php  }	
+	    	if($act_link != null){	?>	
+			    	<div id="activity_f" class="activity-footer">
+			    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+			    	</div>		
+			<?php  }	?>
+
+		    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
+			    <!-- Download button -->
+			    <div id="download-f" class="buy-f">
+					<a id="dwn-h-f" href="<?php echo get_option('home'); ?>/buy" class="button-red-f"><?php _e('Download', 'pressbooks'); ?></a>
+				</div>
+			<?php endif; ?>	
+		</div>
 		<p class="cie-name">
 			<?php _e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');?>
 		</p>
