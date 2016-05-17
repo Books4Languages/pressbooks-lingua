@@ -94,7 +94,7 @@ Afther version 2.0 We need to write the List of Files Revised
    * Info Button: 
      * Custom icon for each different language level 
      * Added link to the Table Of Contents and Questions And Answers of the book
-   * ** Custom Chapter Metabox** Changed Costum Input 1 and Costum Input 2 in to:
+   * **Custom Chapter Metabox** Changed Costum Input 1 and Costum Input 2 in to:
      * _Main Descriptor:_ type of grammar element taught in the topic
      * _Secondary descriptor:_ type of descriptor taught in the topic
  * FIXED: 
