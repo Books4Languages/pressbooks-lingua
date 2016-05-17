@@ -114,14 +114,14 @@ Afther version 2.0 We need to write the List of Files Revised
 * **Custom Chapter Metadata:** new custom metaboxes for the custom page chapter
   * _Questions And Answers:_ this field allows teachers to insert a custom link. 
   * _Class Learning Time (minutes):_ how long the students will need for the topic.
-  * _Main Descriptor:_ Type of grammar element taught in the topic
-  * _Secondary descriptor:_ Type of descriptor taught in the topic
+  * _Main Descriptor:_ type of grammar element taught in the topic
+  * _Secondary descriptor:_ type of descriptor taught in the topic
  
 * **Chapter Resources:** this metabox provides fields for media resources and exercises
-  *_Exercises_: custom link to the Exercises website about the lesson
-  *_Activities_: custom link to the Activities site about the lesson 
-  *_Audio_: custom URL to an audio about the lesson
-  *_Video_: custom URL to a youtube video about the lesson.
+  * _Exercises_: custom link to the Exercises website about the lesson
+  * _Activities_: custom link to the Activities site about the lesson 
+  * _Audio_: custom URL to an audio about the lesson
+  * _Video_: custom URL to a youtube video about the lesson
 
 * **General Education Informations:**
   * _Target Language:_ European languages
