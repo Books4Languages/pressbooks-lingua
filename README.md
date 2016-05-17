@@ -83,17 +83,20 @@ Afther version 2.0 We need to write the List of Files Revised
 ### 0.2
  * Requires Pressbooks 3.5.0
  * FEATURE:
- Introduced a new Chapter Metabox.
-
-   * **Chapter Resources:** this metabox provides fields for media resources and exercises
+   * Window responsive buttons for Activities, Exercises and Download
+   * **Chapter Resources:**  Introduced a new Chapter Metabox that provides fields for media resources and exercises
     * _Exercises_: custom link to the Exercises website about the lesson
     * _Activities_: custom link to the Activities site about the lesson 
     * _Audio_: custom URL to an audio about the lesson
     * _Video_: custom URL to a youtube video about the lesson
  * ENHANCED: 
-   Changed the Costum Input 1 and Costum Input 2 in Custom Chapter Metabox to:
-  * _Main Descriptor:_ type of grammar element taught in the topic
-  * _Secondary descriptor:_ type of descriptor taught in the topic
+   * Book title automatically converted in uppercase 
+   * Info Button: 
+     * Custom icon for each different language level 
+     * Added link to the Table Of Contents and Questions And Answers of the book
+   * ** Custom Chapter Metabox** Changed Costum Input 1 and Costum Input 2 in to:
+    * _Main Descriptor:_ type of grammar element taught in the topic
+    * _Secondary descriptor:_ type of descriptor taught in the topic
  * FIXED: 
  * UNDER THE HOOD: 
 
