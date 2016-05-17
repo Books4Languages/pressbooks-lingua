@@ -83,7 +83,17 @@ Afther version 2.0 We need to write the List of Files Revised
 ### 0.2
  * Requires Pressbooks 3.5.0
  * FEATURE:
+ Introduced a new Chapter Metabox.
+
+ * **Chapter Resources:** this metabox provides fields for media resources and exercises
+  * _Exercises_: custom link to the Exercises website about the lesson
+  * _Activities_: custom link to the Activities site about the lesson 
+  * _Audio_: custom URL to an audio about the lesson
+  * _Video_: custom URL to a youtube video about the lesson
  * ENHANCED: 
+   Changed the Costum Input 1 and Costum Input 2 in Custom Chapter Metabox to:
+  * _Main Descriptor:_ type of grammar element taught in the topic
+  * _Secondary descriptor:_ type of descriptor taught in the topic
  * FIXED: 
  * UNDER THE HOOD: 
 
@@ -114,15 +124,9 @@ Afther version 2.0 We need to write the List of Files Revised
 * **Custom Chapter Metadata:** new custom metaboxes for the custom page chapter
   * _Questions And Answers:_ this field allows teachers to insert a custom link. 
   * _Class Learning Time (minutes):_ how long the students will need for the topic.
-  * _Main Descriptor:_ type of grammar element taught in the topic
-  * _Secondary descriptor:_ type of descriptor taught in the topic
- 
-* **Chapter Resources:** this metabox provides fields for media resources and exercises
-  * _Exercises_: custom link to the Exercises website about the lesson
-  * _Activities_: custom link to the Activities site about the lesson 
-  * _Audio_: custom URL to an audio about the lesson
-  * _Video_: custom URL to a youtube video about the lesson
-
+  * _Costum Input 1:_ hashtag 1
+  * _Costum Input 2:_ hashtag 2
+  
 * **General Education Informations:**
   * _Target Language:_ European languages
   * _Level:_ A1, A2, B1, B2, C1, C2
