@@ -84,17 +84,17 @@ Afther version 2.0 We need to write the List of Files Revised
  * Requires Pressbooks 3.5.0
  * FEATURE:
    
-   * **Chapter Resources:**  Introduced a new Chapter Metabox that provides fields for media resources and exercises
+   **Chapter Resources:**  Introduced a new Chapter Metabox that provides fields for media resources and exercises
      * _Exercises_: custom link to the Exercises website about the lesson
      * _Activities_: custom link to the Activities site about the lesson 
      * _Audio_: custom URL to an audio about the lesson
      * _Video_: custom URL to a youtube video about the lesson
 
-    * **General Educational Informations:** Added a new custom field
-      * _Youtube Channel:_ link of the Youtube channel about the lectures
+   **General Educational Informations:** Added a new custom field
+     * _Youtube Channel:_ link of the Youtube channel about the lectures
     
-    * Added resources button in the sidebar showing Chapter Resources
-    * Window responsive buttons for Activities, Exercises and Download
+   Added resources button in the sidebar showing Chapter Resources
+   Window responsive buttons for Activities, Exercises and Download
     
  * ENHANCED: 
    * Book title automatically converted in uppercase 
