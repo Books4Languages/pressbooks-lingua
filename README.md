@@ -20,8 +20,6 @@ Plugin for pressbooks
 #### PB-Lingua-Book
 Child theme for Luther (pressbooks-book)
 
-#### PB-Lingua-Catalog
-Child theme for Pressbook Root Page (themes-root/pressbooks-publisher/)
 
 ## Requirements
 This is a plugin for Wordpress (tested on 4.3)
@@ -49,7 +47,6 @@ Afther version 2.0 We need to write the List of Files Revised
 
 * PB-Lingua: Plugin for pressbooks
 * PB-Lingua-Book: Child theme for Luther (pressbooks-book)
-* PB-Lingua-Catalog: Child theme for Pressbook Root Page (themes-root/pressbooks-publisher/)
 
 ### 0.6
  * Requires Pressbooks 0.0.0
@@ -117,8 +114,14 @@ Afther version 2.0 We need to write the List of Files Revised
 * **Custom Chapter Metadata:** new custom metaboxes for the custom page chapter
   * _Questions And Answers:_ this field allows teachers to insert a custom link. 
   * _Class Learning Time (minutes):_ how long the students will need for the topic.
-  * _Custom Input 1:_ hashtag 1 
-  * _Custom Input 2:_ hashtag 2
+  * _Main Descriptor:_ Type of grammar element taught in the topic
+  * _Secondary descriptor:_ Type of descriptor taught in the topic
+ 
+* **Chapter Resources:** this metabox provides fields for media resources and exercises
+  *_Exercises_: custom link to the Exercises website about the lesson
+  *_Activities_: custom link to the Activities site about the lesson 
+  *_Audio_: custom URL to an audio about the lesson
+  *_Video_: custom URL to a youtube video about the lesson.
 
 * **General Education Informations:**
   * _Target Language:_ European languages
@@ -132,6 +135,7 @@ Afther version 2.0 We need to write the List of Files Revised
   * _Bibliography URL:_ custom link to a bibliography
   * _Library URL:_ custom link to a library
   * _Questions and Answers:_ allows teachers to insert a custom link 
+  * _Youtube Channel:_ Link of the Youtube channel about the lectures
 
 
 * **Related books:** Indexing system to switch from book to book located in Unit page. Every fiel is a custom input for links or books name for the same level of language
