@@ -93,8 +93,8 @@ Afther version 2.0 We need to write the List of Files Revised
    **General Educational Informations:** Added a new custom field
      * _Youtube Channel:_ link of the Youtube channel about the lectures
     
-   Added resources button in the sidebar showing Chapter Resources
-   Window responsive buttons for Activities, Exercises and Download
+   * Added resources button in the sidebar showing Chapter Resources
+   * Window responsive buttons for Activities, Exercises and Download
     
  * ENHANCED: 
    * Book title automatically converted in uppercase 
