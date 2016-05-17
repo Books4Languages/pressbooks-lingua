@@ -89,6 +89,7 @@ Afther version 2.0 We need to write the List of Files Revised
      * _Activities_: custom link to the Activities site about the lesson 
      * _Audio_: custom URL to an audio about the lesson
      * _Video_: custom URL to a youtube video about the lesson
+  * Addes resources button in the sidebar showing Chapter Resources 
  * ENHANCED: 
    * Book title automatically converted in uppercase 
    * Info Button: 
