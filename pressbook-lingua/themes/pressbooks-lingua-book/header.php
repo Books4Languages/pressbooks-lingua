@@ -97,6 +97,8 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 		    			<?php }?>
 		    		</div>	
 		    	-->	
+
+		    	<!-- Gets the value of Exercises and Activities link and, if not null, shows it as a button in the header  -->
 		    	<?php 
 		    		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
 	                $meta = $pm_CR->get_current_metadata_flat();
@@ -116,16 +118,19 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	                    	}
 	                    }        
 	                }
-    			
+    				
 			    	if($ex_link != null){	?>
-					    	<div id="exercise_h" class="exercise">
-					    		<a id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
-					    	</div>
-			    	<?php  }	
+		    			<!-- Exercises button -->
+				    	<div id="exercise_h" class="exercise">
+				    		<a id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+				    	</div>
+			    	<?php  }
+			    				
 			    	if($act_link != null){	?>	
-					    	<div id="activity_h" class="activity">
-					    		<a id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
-					    	</div>		
+		    			<!-- Activities button -->
+				    	<div id="activity_h" class="activity">
+				    		<a id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+				    	</div>		
 		    	<?php  }	?>	
 
 			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>

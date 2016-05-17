@@ -19,6 +19,7 @@
 		<?php if (get_option('blog_public') == '1' || is_user_logged_in()): ?>
 			<?php if (is_page() || is_home( ) ): ?>
 			
+			<!-- Setting the footer table for showing metadata in the Cover book page-->
 			<table  class="footer-table">
 				<tr>
 					<td><?php _e('Book Name', 'pressbooks'); ?>:</td>
@@ -56,7 +57,8 @@
 			?>
 		
 		<?php endif; ?>
-		<!-- Footer custom sentence -->
+
+		<!-- Gets the value of Exercises and Activities link and, if not null, shows them as a button in the footer for responsive layout -->
 	    	<?php 
 		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
         $meta = $pm_CR->get_current_metadata_flat();
@@ -78,14 +80,16 @@
         } ?>
 		<div class="f-container">
 	    	<?php if($ex_link != null){	?>
-			    	<div id="exercise_f" class="exercise-footer">
-			    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
-			    	</div>
+	    		<!-- Exercises button -->
+		    	<div id="exercise_f" class="exercise-footer">
+		    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+		    	</div>
 	    	<?php  }	
-	    	if($act_link != null){	?>	
-			    	<div id="activity_f" class="activity-footer">
-			    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
-			    	</div>		
+	    	if($act_link != null){	?>
+	    		<!-- Activities button -->	
+		    	<div id="activity_f" class="activity-footer">
+		    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+		    	</div>		
 			<?php  }	?>
 
 		    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
@@ -95,6 +99,8 @@
 				</div>
 			<?php endif; ?>	
 		</div>
+
+		<!-- Custom footer link-->
 		<p class="cie-name">
 			<?php _e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');?>
 		</p>
