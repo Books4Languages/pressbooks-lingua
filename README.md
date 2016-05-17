@@ -85,11 +85,11 @@ Afther version 2.0 We need to write the List of Files Revised
  * FEATURE:
  Introduced a new Chapter Metabox.
 
- * **Chapter Resources:** this metabox provides fields for media resources and exercises
-  * _Exercises_: custom link to the Exercises website about the lesson
-  * _Activities_: custom link to the Activities site about the lesson 
-  * _Audio_: custom URL to an audio about the lesson
-  * _Video_: custom URL to a youtube video about the lesson
+   * **Chapter Resources:** this metabox provides fields for media resources and exercises
+    * _Exercises_: custom link to the Exercises website about the lesson
+    * _Activities_: custom link to the Activities site about the lesson 
+    * _Audio_: custom URL to an audio about the lesson
+    * _Video_: custom URL to a youtube video about the lesson
  * ENHANCED: 
    Changed the Costum Input 1 and Costum Input 2 in Custom Chapter Metabox to:
   * _Main Descriptor:_ type of grammar element taught in the topic
