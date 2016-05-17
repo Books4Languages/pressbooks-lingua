@@ -78,6 +78,8 @@
             	}
             }        
         } ?>
+
+        <!-- footer buttons container -->
 		<div class="f-container">
 	    	<?php if($ex_link != null){	?>
 	    		<!-- Exercises button -->
