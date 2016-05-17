@@ -91,7 +91,7 @@ Afther version 2.0 We need to write the List of Files Revised
      * _Video_: custom URL to a youtube video about the lesson
 
     * **General Educational Informations:** Added a new custom field
-    * _Youtube Channel:_ link of the Youtube channel about the lectures
+      * _Youtube Channel:_ link of the Youtube channel about the lectures
     
     * Added resources button in the sidebar showing Chapter Resources
     * Window responsive buttons for Activities, Exercises and Download
