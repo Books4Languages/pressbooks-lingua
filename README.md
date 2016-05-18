@@ -5,7 +5,7 @@ Extended features for Pressbooks (Metadata and new child Theme)
 
 ### About
 
-With PressBooks-Metadata for Wordpress you can add metadata in the books. Also use the template for show extra information.
+With pressbooks-lingua for Wordpress you can add metadata in the books and use the template to show extra information regarding the page and the resources related.
 
 We want to make the language courses more user-friendly. This is the second step.
 
