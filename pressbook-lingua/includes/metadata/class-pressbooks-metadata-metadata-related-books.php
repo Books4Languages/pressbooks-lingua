@@ -329,7 +329,7 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	}
 
 	/**
-	 * Checks if the â€œRelated Booksâ€? option is enabled for the current page.
+	 * Checks if the Related Books option is enabled for the current page.
 	 *
 	 * @since 0.1
 	 * @return string True if the option is enabled, false otherwise.

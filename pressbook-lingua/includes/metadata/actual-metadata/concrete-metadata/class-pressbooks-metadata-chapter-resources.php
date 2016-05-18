@@ -31,7 +31,7 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 	private static $instance = NULL;
 
 	/**
-	 * Initialize the class and set its properties.
+	 * Initialize the class and set its properties and fields.
 	 *
 	 * @since  0.1
 	 */
@@ -42,11 +42,13 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 		// Preexisting meta-box
         global $post;
 
+        //creates the metabox
 		$chap_resource = new Pressbooks_Metadata_Meta_Box(
 			'Chapter Resources', '',
 			'chapter-resources2',true );
 		$chap_resource->add_post_type( 'chapter' );
 
+		//creates fields for the metabox
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Exercises',
 			'The URL of exercise site about this lesson.',
@@ -99,6 +101,7 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 		$pm_BM = get_metada_fields();
 		$meta = $pm_BM->get_current_metadata_flat();
 	   
+	   	/*gets the value of the Youtube Channel from the Book info metadata and shows it for every page different from the chapter page*/
         global $post;
         if($post->post_type!='chapter'){
 		    foreach ( $meta as $key=>$elt ) {      
@@ -124,6 +127,7 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
             return;
    		}
    		
+   		/*Gets the metadata from the database and prints them*/
         global $wpdb;
         $table_name=$wpdb->prefix.'postmeta';
         $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
