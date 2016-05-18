@@ -27,6 +27,11 @@ This is a plugin for Wordpress (tested on 4.3)
 This plugin uses some styles from PressBooks, thus you should have installed and
 activated this plugin (tested on 2.4.5).
 
+This plugin works with:
+* Wordpress Multisite
+* Pressbooks Plugin
+
+
 ## Installation
 
 1. Clone (or copy) this repository to the `/wp-content/plugins/` directory
@@ -92,9 +97,8 @@ Afther version 2.0 We need to write the List of Files Revised
 
    **General Educational Informations:** Added a new custom field
      * _Youtube Channel:_ link of the Youtube channel about the lectures
-   
-   
-   * Added resources button in the sidebar showing Chapter Resources
+     
+   * Added resources button in the sidebar to show Chapter Resources fields
    * Window responsive buttons for Activities, Exercises and Download
     
  * ENHANCED: 
