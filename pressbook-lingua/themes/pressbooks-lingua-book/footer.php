@@ -25,6 +25,7 @@
 					<td><?php _e('Book Name', 'pressbooks'); ?>:</td>
 					<td><?php bloginfo('name'); ?></td>
 				</tr>
+				<!-- Show Book Info metadata -->
 				<?php global $metakeys; ?>
        			 <?php $metadata = pb_get_book_information();?>
 				<?php foreach ($metakeys as $key => $val): ?>

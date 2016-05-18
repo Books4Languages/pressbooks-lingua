@@ -11,6 +11,7 @@ function fitzgerald_enqueue_styles() {
 add_action( 'wp_print_styles', 'fitzgerald_enqueue_styles' );
 
 function pbt_enqueue_child_theme_styles() {
+	/* Call the parent theme style */
     wp_enqueue_style( 'pressbooks-book', get_stylesheet_uri());
     //wp_enqueue_style( 'open-textbook', get_stylesheet_uri());
 }
@@ -340,8 +341,6 @@ function pm_enqueue_scripts() {
 	// TOC pop-out JS code without conflicts with Page Info's one
 	wp_dequeue_script( 'pb-pop-out-toc' );
 	wp_enqueue_script( 'pb-pop-out-toc', get_stylesheet_directory_uri() . '/js/pop-out.js', array( 'jquery' ), '1.0', false );
-
-	wp_enqueue_script( 'pb-hide-btn', get_stylesheet_directory_uri() . '/js/hide-btn.js', array( 'jquery' ), '1.0', false );
 
 }
 

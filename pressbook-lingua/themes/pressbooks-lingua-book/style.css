@@ -37,12 +37,18 @@ h1.book-title {
     background-position: 50% 36%;
 }
 
+#booknav .page-info-btn a {
+    background-image: url("images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
 
 #booknav .resource-btn a {
     background-image: url("images/play.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
+
 
 /* Extra sidebar button pop-up */
 #page-info, #related-books, #sidebar-search, #resource {
@@ -61,13 +67,6 @@ h1.book-title {
     position: relative;
     width: 280px;
     z-index: 50;
-}
-
-
-.page-info-btn a {
-    background-image: url("../../themes/pressbooks-lingua-book/images/info.png");
-    background-repeat: no-repeat;
-    background-position: 50% 36%;
 }
 
 .book_name_author p {
@@ -480,7 +479,7 @@ a.button-red-f{
   text-decoration: none;
   text-transform: uppercase; }
 
-
+/*Responsive buttons for activities, exercises and download*/  
 #exercise_f, #activity_f, .buy-f, .buy-f a{
     display:none;
 }
@@ -506,6 +505,8 @@ a.button-red-f{
         display: inherit;
     }
 }
+
+
 
 /*
 @media screen and (max-width > 700px) {

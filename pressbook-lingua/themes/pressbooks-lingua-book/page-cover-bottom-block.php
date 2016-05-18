@@ -18,7 +18,7 @@
 						echo $custom_copyright;?>
 					</p>
 			<?php endif; ?>
-			<!-- sets the share icons -->
+			<!-- Share icons -->
 			<div id="share">
 			  <div id="twitter" data-url="<?php the_permalink(); ?>" data-text="Check out this great book on PressBooks." data-title="Tweet"></div>
 			  <div id="facebook" data-url="<?php the_permalink(); ?>" data-text="Check out this great book on PressBooks." data-title="Like"></div>
