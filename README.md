@@ -99,15 +99,16 @@ Afther version 2.0 We need to write the List of Files Revised
      * _Youtube Channel:_ link of the Youtube channel about the lectures
     
      
-   * Added resources button in the sidebar to show Chapter Resources fields
-   * Window responsive buttons for Activities, Exercises and Download
+   Added resources button in the sidebar to show Chapter Resources fields
+   Window responsive buttons for Activities, Exercises and Download
     
  * ENHANCED: 
-   * Book title automatically converted in uppercase 
+   Book title automatically converted in uppercase 
    
-   * Info Button: 
+   Info Button: 
      * Custom icon for each different language level 
-     * Added link to the Table Of Contents and Questions And Answers of the book
+     * Added link to the Table Of Contents
+     * Added book Questions And Answers of the  in the chapter page 
      
    **Custom Chapter Metabox** Changed Costum Input 1 and Costum Input 2 to:
      * _Main Descriptor:_ type of grammar element taught in the topic
