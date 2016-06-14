@@ -113,7 +113,16 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 		                    $YTchannel='http://'.$YTchannel;
 		                }
 	            	}
-	            }           
+	            }
+			  	if($elt->get_name()==='Book Exercises'){
+	                if($elt->get_value() !== '0'){
+	                	$bookEx=$elt->get_value();
+		                $pos = strpos($bookEx, 'http://');
+		                if($pos===false){                 
+		                    $bookEx='http://'.$bookEx;
+		                }
+	            	}
+	            }             
 			}
 
             echo '<table class="metadata_questtions_answers">';
@@ -121,6 +130,10 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
             if(isset($YTchannel)){
                 echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
                 '<a style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
+        	}
+            if(isset($bookEx)){
+                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
+                '<a style="font-size:1em; color:blue;" href="'.$bookEx.'">'.str_replace("http://", '', $bookEx).'</a></td></tr>';
         	}
             echo '</table>';
             
