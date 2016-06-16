@@ -1,7 +1,7 @@
-<section class="second-block-wrap"> 
+<section class="second-block-wrap"> <!-- Wrapper for the second-->
 	<div class="second-block clearfix">
 		<div class="description-book-info">
-			<?php $metadata = pb_get_book_information();?>
+			<?php $metadata = pb_get_book_information(); //gets book information data ?>
 			<h2><?php _e('Book Description', 'pressbooks'); ?></h2>
 				<?php if ( ! empty( $metadata['pb_about_unlimited'] ) ): ?>
 					<p><?php
@@ -9,12 +9,12 @@
 						$about_unlimited = preg_replace( '/<p[^>]*>(.*)<\/p[^>]*>/i', '$1', $about_unlimited ); // Make valid HTML by removing first <p> and last </p>
 						echo $about_unlimited; ?></p>
 				<?php endif; ?>	
-			<!-- if there is a custom copyright description -->		
+			<!-- Show a custom copyright description if present-->		
 			<?php if ( ! empty ($metadata['pb_custom_copyright'])) : ?>
 					<h2><?php _e('Copyright', 'pressbooks') ;?></h2>
 					<p><?php 
 						$custom_copyright = pb_decode( $metadata['pb_custom_copyright']);
-						$custom_copyright = preg_replace( '/<p[^>]*>(.*)<\/p[^>]*>/i', '$1', $custom_copyright );
+						$custom_copyright = preg_replace( '/<p[^>]*>(.*)<\/p[^>]*>/i', '$1', $custom_copyright ); //replace the copyright with its regoular expression
 						echo $custom_copyright;?>
 					</p>
 			<?php endif; ?>
@@ -26,7 +26,8 @@
 			</div>	
 		</div>
 			
-		<?php	
+		<?php
+			//Creates an array with the taxonomy, fields and terms of the book
 			$args = $args = array(
 			    'post_type' => 'back-matter',
 			    'tax_query' => array(
@@ -38,7 +39,7 @@
 			    )
 			); 
 		?>
-
+		<!-- Show info about the author -->
 		<div class="author-book-info">
 			<?php $loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post(); ?>

@@ -3,9 +3,9 @@
 	</div><!-- #content -->
 
 <?php } ?>
-<?php if( !is_front_page() ){?>
+<?php if( !is_front_page() ){ //if it's not the front-page of the website?> 
 
-	<?php get_sidebar(); ?>
+	<?php get_sidebar(); //show the sidebar in the page?>
 
 	</div><!-- #wrap -->
 	<div class="push"></div>
@@ -13,31 +13,32 @@
 	</div><!-- .wrapper for sitting footer at the bottom of the page -->
 <?php } ?>
 
-
+<!-- Create the footer -->
 <div class="footer">
 	<div class="inner">
-		<?php if (get_option('blog_public') == '1' || is_user_logged_in()): ?>
-			<?php if (is_page() || is_home( ) ): ?>
+		<?php if (get_option('blog_public') == '1' || is_user_logged_in()): //control if the user is logged ?>
+			<?php if (is_page() || is_home( ) ): //control if the page is the home page or another page?>
 			
 			<!-- Setting the footer table for showing metadata in the Cover book page-->
-			<table  class="footer-table">
+						<table  class="footer-table">
 				<tr>
 					<td><?php _e('Book Name', 'pressbooks'); ?>:</td>
 					<td><?php bloginfo('name'); ?></td>
 				</tr>
 				<!-- Show Book Info metadata -->
 				<?php global $metakeys; ?>
-       			 <?php $metadata = pb_get_book_information();?>
+       			 <?php $metadata = pb_get_book_information(); //Gets the Book informations ?>
 				<?php foreach ($metakeys as $key => $val): ?>
 				<?php if ( isset( $metakeys[$key] ) && ! empty( $val ) ): ?>
 				<tr>
+					<!-- Printing metadata -->
 					<td><?php _e($metakeys[$key], 'pressbooks'); ?>:</td>
 					<td><?php if ( 'pb_publication_date' == $key ) { $val = date_i18n( 'F j, Y', absint( $val ) );  } echo $val; ?></td>
 				<?php endif; ?>
 				<?php endforeach; ?>
 				</tr>
 				<?php
-				// Copyright
+				// Show Copyright
 				echo '<tr><td>' . __( 'Copyright', 'pressbooks' ) . ':</td><td>';
 				echo ( ! empty( $metadata['pb_copyright_year'] ) ) ? $metadata['pb_copyright_year'] : date( 'Y' );
 				if ( ! empty( $metadata['pb_copyright_holder'] ) ) echo ' ' . __( 'by ', 'pressbooks' ) . ' ' . $metadata['pb_copyright_holder'] . '. ';
@@ -60,10 +61,11 @@
 		<?php endif; ?>
 
 		<!-- Gets the value of Exercises and Activities link and, if not null, shows them as a button in the footer for responsive layout -->
-	    	<?php 
-		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
+    	<?php 
+		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance(); //get an instance of the class
         $meta = $pm_CR->get_current_metadata_flat();
-        foreach ( $meta as $key=>$elt ) {
+        /* Get Exercises and Activities link value from Chapter Resources Metadata in order to create the buttons*/
+        foreach ( $meta as $key=>$elt ) { 
             if($elt->get_name()==='Exercises'){
             	$ex_link=$elt->get_value();
                 $pos = strpos($ex_link, 'http://');

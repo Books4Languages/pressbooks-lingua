@@ -51,7 +51,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 			'related-books-slugs' );
 		$book_meta->add_post_type( 'metadata' ); //adds the metabox to metadata
 
-		//
+		/* Create a group of fields for Notional Components, including text field Vocabulary */
 		$not_com = new Pressbooks_Metadata_Field_Group( 'Notional Components',
 			'', 'notional-components' );
 		$not_com->add_field( new Pressbooks_Metadata_Text_Field( 'Vocabulary',
@@ -64,6 +64,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		 */
 		$book_meta->add_field( $not_com );
 
+		/* Create a group of fields for Grammatical Components, including text field Grammar and Phonetics and Spelling */
 		$gram_com = new Pressbooks_Metadata_Field_Group(
 			'Grammatical Components', '', 'grammatical-components'
 		);
@@ -78,6 +79,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		*/
 		$book_meta->add_field( $gram_com );
 
+		/* Create a group of fields for Pragmatic Components, including text field for Text and Functions */
 		$prag_com = new Pressbooks_Metadata_Field_Group(
 			'Pragmatic Components', '', 'pragmatic-components' );
 		$prag_com->add_field( new Pressbooks_Metadata_Text_Field(
@@ -90,8 +92,9 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 			'Texts', '', 'texts_book' ) );
 		*/
 		$book_meta->add_field( $prag_com );
-                
-                $cul_com = new Pressbooks_Metadata_Field_Group(
+
+        /* Create a group of fields for Cultural Components, including text field for Cultural and Sociocultural */  
+        $cul_com = new Pressbooks_Metadata_Field_Group(
 			'Cultural Components', '', 'cultural-components' );
 		$cul_com->add_field( new Pressbooks_Metadata_Text_Field(
 			'Cultural and Sociocultural', '', 'cultural_functions_book' ) );
@@ -122,20 +125,23 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		) );
 		$book_meta->add_field( $cult_com );
 		*/
-                $ex_com = new Pressbooks_Metadata_Field_Group(
+
+		/*Create a group of fields for Extra Components, including text field for Extra Content*/
+        $ex_com = new Pressbooks_Metadata_Field_Group(
 			'Extra Components', '', 'extra-components' );
 		
 		$ex_com->add_field( new Pressbooks_Metadata_Text_Field(
 			'Extra Content', '', 'extra_content_book' ) );
-                $book_meta->add_field( $ex_com );
+        $book_meta->add_field( $ex_com );
 		$this->add_component( $book_meta );
 
-		// Chapter part
+		// Create Metabox
 		$chap_meta = new Pressbooks_Metadata_Meta_Box(
 			'Related Books', '',
 			'use-related-books', false, 'side' );
 		$chap_meta->add_post_type( 'chapter' );
 
+		//Checkbox to enable Related Books
 		$chap_meta->add_field( new Pressbooks_Metadata_Checkbox_Field(
 			'Enable â€œRelated Booksâ€? Button', 'Enable Related Books', 'use_related_books'
 		) );
@@ -198,7 +204,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		return $new_book_home_uri . $page_relative_uri;
 
 	}
-     	/**
+ 	/**
 	 * Prints the links (HTML code) to related books for the public part of
 	 * the book.
 	 *
@@ -207,18 +213,21 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 	public function print_related_books_fields() {
 
 		$meta = $this->get_current_metadata();
+		/* Control if the related books slug exist */
 		if ( ! array_key_exists( 'related-books-slugs', $meta ) ) {
                    	?><ul><?php ?><li>
 				<?php echo 'No related books have been added yet!'; ?></li><?php
                                 ?></ul><?php
 			return;
 		}
+
+		/* Gets the slug of the book */
 		$slugs = &$meta['related-books-slugs'];
-                        $pathparts=explode('/', site_url());
-                        $length=count($pathparts);
-                        unset($pathparts[$length-1]);
-                        array_values($pathparts);  
-                        $filepath=implode('/', $pathparts);
+                        $pathparts=explode('/', site_url()); //explodes the site url in parts delimited by /
+                        $length=count($pathparts); //counts the parts
+                        unset($pathparts[$length-1]); //unset the last part of the slug
+                        array_values($pathparts);  //creates an array of the parts
+                        $filepath=implode('/', $pathparts); //implodes again the parts
 		?><ul><?php
 		foreach ( $slugs->get_fields() as $key => $val ) {
 			if ( $val->is_group_of_fields() ) {

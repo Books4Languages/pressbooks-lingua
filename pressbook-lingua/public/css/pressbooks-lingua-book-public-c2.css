@@ -1,8 +1,9 @@
+/* Color of the level */
 .level{
 	background-color: #FF7F00;
 }
 
-
+/* Sets the image for the info button according to the level*/
 .page-info-btn a {
     background-image: url("../../themes/pressbooks-lingua-book/images/Badges4Languages-C2.png");
     background-repeat: no-repeat;

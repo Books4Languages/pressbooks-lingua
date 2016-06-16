@@ -17,10 +17,10 @@
 	if ( is_front_page() ) {
 		echo pb_get_seo_meta_elements();
 		echo pb_get_microdata_elements();
-		print_book_microdata_meta_tags();
+		print_book_microdata_meta_tags(); //print microdata of the book
 	} else {
 		echo pb_get_microdata_elements();
-		print_chapter_microdata_meta_tags();
+		print_chapter_microdata_meta_tags(); //print microdata of the chapter
 	}
 ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
@@ -42,7 +42,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<?php wp_head(); ?>
+<?php wp_head(); //wordpress header ?>
 
 </head>
 <body <?php body_class(); if(wp_title('', false) != '') { print ' id="' . str_replace(' ', '', strtolower(wp_title('', false))) . '"'; } ?>>
@@ -54,7 +54,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; //connect to facebook
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, "script", "facebook-jssdk"));</script>
 <?php } ?>
@@ -73,7 +73,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 		<nav>
  			<!-- Book Title -->
 	    	<h1 class="book-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-    
+    		<!-- Left nav-menu -->
 		    <div class="sub-nav-left">
 				<!-- Logo -->
 				<h2 class="pb-lingua-logo"><a href="http://on-lingua.com">Pressboks Lingua</a></h2>
@@ -98,7 +98,7 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 		    		</div>	
 		    	-->	
 
-		    	<!-- Gets the value of Exercises and Activities link and, if not null, shows it as a button in the header  -->
+		    	<!-- Gets the value of Exercises and Activities link value and, if not null, shows them as a button in the header  -->
 		    	<?php 
 		    		$pm_CR = Pressbooks_Metadata_Chapter_Resources::get_instance();
 	                $meta = $pm_CR->get_current_metadata_flat();
@@ -119,14 +119,14 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	                    }        
 	                }
     				
-			    	if($ex_link != null){	?>
+			    	if($ex_link != null){	//if the link ha content?>
 		    			<!-- Exercises button -->
 				    	<div id="exercise_h" class="exercise">
 				    		<a id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
 				    	</div>
 			    	<?php  }
 			    				
-			    	if($act_link != null){	?>	
+			    	if($act_link != null){	//if the link ha content?>	
 		    			<!-- Activities button -->
 				    	<div id="activity_h" class="activity">
 				    		<a id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>

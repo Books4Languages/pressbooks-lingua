@@ -36,7 +36,7 @@
             }
 		}
 	    
-	    $metadata = pb_get_book_information();
+	    $metadata = pb_get_book_information(); //gets book information metadata
         $level = $level? '_'.strtolower($level):''; //lowercase the level name
 		     		
 	?>
@@ -48,7 +48,8 @@
 			<a <?php  echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?> class=""><?php _e('libary', 'pressbooks'); ?></a>
 		<?php endif; ?>
 	</div>
-	<div class="log-wrap">	<!-- Login/Logout -->
+	<!-- Login/Logout -->
+	<div class="log-wrap">	
 	   <?php if(!is_single()): ?>
 	    	<?php if(!is_user_logged_in()): ?> <!-- if the user is not logged show the login button-->
 	    	<!-- Login button -->
@@ -57,7 +58,7 @@
 	   	 	<!-- Logout button -->
 				<a href="<?php echo  wp_logout_url(); ?>" class=""><?php _e('logout', 'pressbooks'); ?></a>
 				<?php if(is_super_admin() || is_user_member_of_blog()): ?> <!-- If the user is admin show the admin button -->
-			<!-- Admint button -->
+			<!-- Admin button -->
 				<a href="<?php echo get_option('home'); ?>/wp-admin"><?php _e('Admin', 'pressbooks'); ?></a>
 				<?php endif; ?>
 	    	<?php endif; ?>
@@ -67,7 +68,10 @@
 	<div class="book-info">
 		<!-- Book Title -->
 		<h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		<!-- Show book info metadata-->	
+		<!-- Show book info metadata
+			Book-Author
+			Subtitle
+			metadata-->	
 		<?php if(!empty( $metadata['pb_author'] ) ): ?>
 	     	<p class="book-author"><?php echo $metadata['pb_author']; ?></p>
 	     	<span class="stroke"></span>
@@ -87,6 +91,7 @@
 	<!-- Sets the cover of the book -->
 	<?php if(!empty( $metadata['pb_cover_image'] ) ): ?>
 	<div class="book-cover">
+		
 		<!-- Sets the default cover image of our theme
 		<?php
 			$pathparts=explode('/', site_url());

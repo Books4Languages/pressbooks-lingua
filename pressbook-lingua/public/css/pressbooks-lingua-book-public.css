@@ -1,3 +1,4 @@
+/* Default colour of the header*/
 .nav-container nav{
 	background-color: #313131;
 }
@@ -6,6 +7,7 @@
 	background-color: #FF0000;
 }*/
 
+/* Sets the default image for the info button*/
 .page-info-btn a {
     background-image: url("../../themes/pressbooks-lingua-book/images/info.png");
     background-repeat: no-repeat;
