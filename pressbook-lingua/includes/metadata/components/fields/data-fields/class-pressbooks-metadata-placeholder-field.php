@@ -97,3 +97,5 @@ abstract class Pressbooks_Metadata_Placeholder_Field
 	}
 
 }
+
+

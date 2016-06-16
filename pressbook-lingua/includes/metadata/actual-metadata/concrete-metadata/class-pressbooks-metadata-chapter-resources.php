@@ -42,31 +42,35 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 		// Preexisting meta-box
         global $post;
 
-        //creates the metabox
+        //create the metabox
 		$chap_resource = new Pressbooks_Metadata_Meta_Box(
 			'Chapter Resources', '',
 			'chapter-resources2',true );
 		$chap_resource->add_post_type( 'chapter' );
 
-		//creates fields for the metabox
+		//create fields for the metabox
+		//create URL field for Exercises website link about the chapter
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Exercises',
 			'The URL of exercise site about this lesson.',
 			'exercises_url', '', '', '', false,
 			'http://site.com/' ) );
 
+		//create URL field for Activities website link about the chapter
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Activities',
 			'The URL of the Activities site about this lesson.',
 			'activities_url', '', '', '', false,
 			'http://site.com/' ) );
 
+		//create URL field for Audio website link about the chapter
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Audio',
 			'The URL of a audio about this lesson.',
 			'audio_url', '', '', '', false,
 			'http://site.com/' ) );
 
+		//create URL field for the Video website link about the chapter
 		$chap_resource->add_field( new Pressbooks_Metadata_Url_Field(
 			'Video',
 			'The URL of a audio about this lesson.',
@@ -100,30 +104,33 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
 
 		$pm_BM = get_metada_fields();
 		$meta = $pm_BM->get_current_metadata_flat();
+
+		/*Gets the value of Youtube Channel and Book Exercises from Book Metadata and removes 'http://' from the string*/
+	    foreach ( $meta as $key=>$elt ) {      
+		  	if($elt->get_name()==='Youtube Channel'){
+	            if($elt->get_value() !== '0'){
+	            	$YTchannel=$elt->get_value();
+	                $pos = strpos($YTchannel, 'http://');
+	                if($pos===false){                 
+	                    $YTchannel='http://'.$YTchannel;
+	                }
+	        	}
+	        }
+		  	if($elt->get_name()==='Book Exercises'){
+	            if($elt->get_value() !== '0'){
+	            	$bookEx=$elt->get_value();
+	                $pos = strpos($bookEx, 'http://');
+	                if($pos===false){                 
+	                    $bookEx='http://'.$bookEx;
+	                }
+	        	}
+	        }             
+		}
 	   
-	   	/*gets the value of the Youtube Channel from the Book info metadata and shows it for every page different from the chapter page*/
-        global $post;
+	   	/*gets the value of the Youtube Channel and Book Exercises from the Book info metadata
+	   	and shows it for every page different from the chapter page */
+	   	global $post;
         if($post->post_type!='chapter'){
-		    foreach ( $meta as $key=>$elt ) {      
-			  	if($elt->get_name()==='Youtube Channel'){
-	                if($elt->get_value() !== '0'){
-	                	$YTchannel=$elt->get_value();
-		                $pos = strpos($YTchannel, 'http://');
-		                if($pos===false){                 
-		                    $YTchannel='http://'.$YTchannel;
-		                }
-	            	}
-	            }
-			  	if($elt->get_name()==='Book Exercises'){
-	                if($elt->get_value() !== '0'){
-	                	$bookEx=$elt->get_value();
-		                $pos = strpos($bookEx, 'http://');
-		                if($pos===false){                 
-		                    $bookEx='http://'.$bookEx;
-		                }
-	            	}
-	            }             
-			}
 
             echo '<table class="metadata_questtions_answers">';
             /* if any value is set for $YTchannel*/
@@ -140,20 +147,21 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
             return;
    		}
    		
-   		/*Gets the metadata from the database and prints them*/
+   		/*Gets the chapter resources metadata from the database and prints them*/
         global $wpdb;
         $table_name=$wpdb->prefix.'postmeta';
         $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
         $meta_keys=array('lb_exercises_url'=>'Exercises', 'lb_activities_url'=>'Activities','lb_video_url'=>'Video', 'lb_audio_url'=>'Audio');
 
 		?><table class="metadata_questtions_answers"><?php
-		         			
+		                       			
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
 				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
 				?><td><?php
                    unset($meta_keys[$row['meta_key']]);
                    array_values($meta_keys);
+                   //removes 'http://' part of the string
                     if($row['meta_key'] === 'lb_exercises_url' ||  $row['meta_key'] === 'lb_activities_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){ 
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      

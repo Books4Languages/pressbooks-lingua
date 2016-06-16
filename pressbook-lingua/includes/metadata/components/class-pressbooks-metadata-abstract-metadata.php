@@ -150,8 +150,8 @@ abstract class Pressbooks_Metadata_Abstract_Metadata {
 		if ( empty( $label ) ) {
 			return '';
 		}
-		$label = strtolower( $label );
-		$res = preg_replace( '/[^a-z]/', '_', $label );
+		$label = strtolower( $label ); //lowercase
+		$res = preg_replace( '/[^a-z]/', '_', $label ); //replaces the label with the regEx
 		return $res;
 
 	}

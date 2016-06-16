@@ -158,6 +158,8 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	 */
 	private function add_related_books_fields() {
 
+		/*Adds Vocabulary, Grammar, Phonetics and Spelling, Text and Functions books to related books*/
+
 		$this->add_related_books_field( 'vocabulary_book', 'Vocabulary', 'Notional Components' );
 		//$this->add_related_books_field( 'general_notions_book', 'General Notions', 'Notional Components' );
 		//$this->add_related_books_field( 'specific_notions_book', 'Specific Notions', 'Notional Components' );
@@ -206,7 +208,7 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	}
 
 	/**
-	 * Generates an array with the fields to be added to the dashboard, in the â€œGeneral Book Informationâ€? page.
+	 * Generates an array with the fields to be added to the dashboard, in the General Book Informations page.
 	 *
 	 * @since  0.1
 	 * @return array The generated array.
@@ -319,10 +321,10 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	 */
 	private function other_book_url( $new_book_slug ) {
 
-		$book_home_uri = get_blog_details()->path;
-		$page_base_uri = $_SERVER['REQUEST_URI'];
-		$page_relative_uri = str_replace( $book_home_uri, '', $page_base_uri );
-		$new_book_home_uri = preg_replace( '!/[^/]+/$!', '/' . $new_book_slug . '/', $book_home_uri );
+		$book_home_uri = get_blog_details()->path; //get the blog path
+		$page_base_uri = $_SERVER['REQUEST_URI']; //request the uri to the server
+		$page_relative_uri = str_replace( $book_home_uri, '' , $page_base_uri ); //replaces the blog path with the uri receives from the server
+		$new_book_home_uri = preg_replace( '!/[^/]+/$!', '/' . $new_book_slug . '/', $book_home_uri ); //creates the new slug
 
 		return $new_book_home_uri . $page_relative_uri;
 
@@ -386,3 +388,5 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	}
 
 }
+
+

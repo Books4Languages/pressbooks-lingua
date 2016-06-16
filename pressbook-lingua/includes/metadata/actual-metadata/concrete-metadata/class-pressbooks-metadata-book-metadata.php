@@ -46,10 +46,12 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'general-educational-information', true );
 		$g_b_info->add_post_type( 'metadata' );
 
+		// create the language field
 		$g_b_info->add_field( new Pressbooks_Metadata_Language_List_Field(
 			'Target language', 'The language this book is about',
 			'target_language' ) );
 
+		// create the level list field
 		$g_b_info->add_field( new Pressbooks_Metadata_List_Field( 'Level',
 			'The language level the book is about', 'level', '',
 			'', 'none', array(
@@ -66,6 +68,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 		 * (itemprop = educationalAlignment)
 		 * not used for now */
 
+		// create the learning resource type list field
 		$g_b_info->add_field( new Pressbooks_Metadata_List_Field(
 			'Learning Resource Type',
 			'The kind of resource this book represents',
@@ -77,6 +80,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
                                 'descriptor' => 'Descriptor'
 			), 'learningResourceType' ) );
 
+		// create the interactivity type field
 		$g_b_info->add_field( new Pressbooks_Metadata_List_Field(
 			'Interactivity Type',
 			'The interactivity type of this book',
@@ -87,6 +91,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 				'mixed' => 'Mixed'
 			), 'interactivityType' ) );
 
+		//create age range field as a list
 		$g_b_info->add_field( new Pressbooks_Metadata_List_Field( 'Age Range',
 			'The target age of this book',
 			'age_range', '', '', '18',
@@ -118,21 +123,25 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 				
 			), ' additionalType' ) );
 
+        //create class learning time as number field
 		$g_b_info->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (hours)', '',
 			'time_required', '', '', 0, false, 0 ) );
 
+		//create age range as text field
 		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field( 'License URL',
 			'You can add a link contains detailed description of the License of your book', 'rights_url', '', '', '', false, 'http://site.com/',
 			'license' ) );
 
+		//create bibliography as text field
 		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Bibliography URL',
 			'The URL of a website/book this book is inspirated of',
 			'bibliography_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
-		
+
+		//create Library field as text field
         $g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Library URL',
 			'Leave empty if you want to use your default On-lingua library <b>www.on-lingua.com/YourUserName/</b>',
@@ -140,6 +149,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
+        //create question and answers text field
     	$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Questions and Answers URL',
 			'Questions and answers about the',
@@ -147,11 +157,14 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
+    	//create URL field for a Youtube Channell
 		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Youtube Channel',
 			'The URL of the Youtube channel of this book.',
 			'youtube_url', '', '', '', false,
 			'http://site.com/') );
+		
+		//create URL field for Book Exercises website
 		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Book Exercises',
 			'The URL of the Exercises website of this book.',
@@ -186,6 +199,8 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 	 */
 	public function print_book_metadata_fields() {
         global $post;
+        /* If the post is located in the front matter get the metadata of the book and show them. 
+        If the field is an URL field, remove the 'http:// prefix'*/
         if($post->post_type=='front-matter'){
 			$meta = $this->get_current_metadata_flat();
 			if ( empty( $meta ) ) {
@@ -212,6 +227,10 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 
 }
 
+
+/*
+* Initiates the metadata groups
+*/
 add_action( 'custom_metadata_manager_init_metadata', function (){
     
     

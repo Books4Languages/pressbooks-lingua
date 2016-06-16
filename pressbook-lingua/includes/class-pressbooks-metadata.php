@@ -110,7 +110,7 @@ class Pressbooks_Metadata {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadata-i18n.php';
 
-                /**
+        /**
 		 * The class responsible for registering and setting all the themes used by the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadata-themes.php';
@@ -154,7 +154,8 @@ class Pressbooks_Metadata {
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
-        /**
+    
+    /**
 	 * Set the plugin's specific themes and removes useless ones.
 	 *
 	 * @since    0.1
@@ -204,18 +205,22 @@ class Pressbooks_Metadata {
 		$plugin_chapter_resources = Pressbooks_Metadata_Chapter_Resources::get_instance();
 		$plugin_related_books_metadata = Pressbooks_Metadata_Related_Books_Metadata::get_instance();
 
+		//costumization of book metadata
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',
 			$plugin_book_metadata, 'add_to_current_post_metadata',
 			31 );
+		//costumization of chapter metadata
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',
 			$plugin_chapter_metadata,
 			'add_to_current_post_metadata', 31 );
+		//costumization of chapter resources
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',
 			$plugin_chapter_resources,
 			'add_to_current_post_metadata', 31 );
+		//costumization of related books metadata
 		$this->loader->add_action(
 			'custom_metadata_manager_init_metadata',
 			$plugin_related_books_metadata,

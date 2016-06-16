@@ -164,7 +164,7 @@ abstract class Pressbooks_Metadata_Data_Field extends Pressbooks_Metadata_Field 
 
 		$args = parent::get_args();
 		if ( NULL !== $this->default_value
-			&& '' !== $this->default_value ) {
+			&& '' !== $this->default_value ) { //if the default value is not null or empty
 			$args['default_value'] = $this->default_value;
 		}
 		if ( $this->read_only ) {

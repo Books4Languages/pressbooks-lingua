@@ -43,13 +43,15 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
                
                $add='For <span style="color:red;">On-lingua</span> books you can write just the book name you want to relate! <b>Mybook</b> <br/>';
                $add.='You can also enter external links! <b>mybook.com</b>';
-		// Book part
+		
+		// Create Related Books metabox, including the explanation above
 		$book_meta = new Pressbooks_Metadata_Meta_Box(
 			'Related Books',
 			$explaination.$add,
 			'related-books-slugs' );
-		$book_meta->add_post_type( 'metadata' );
+		$book_meta->add_post_type( 'metadata' ); //adds the metabox to metadata
 
+		//
 		$not_com = new Pressbooks_Metadata_Field_Group( 'Notional Components',
 			'', 'notional-components' );
 		$not_com->add_field( new Pressbooks_Metadata_Text_Field( 'Vocabulary',
