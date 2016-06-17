@@ -9,6 +9,7 @@ Version: 0.1.2
 Template: pressbooks-book
 */
 
+/*Import google fonts*/
 @import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
 
 h1.book-title a {

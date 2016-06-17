@@ -1,17 +1,17 @@
 jQuery(document).ready(function(){
 
 	/* Table of contents pop-up */	
-	jQuery('#toc').hide();
-	jQuery(document).on('click', '.toc-btn a, #toc a.close', function() {
-		if(jQuery('#toc').css('display') == 'none') {
-			jQuery('.toc-btn a').addClass('tabbed');
-			jQuery('.toc-btn').addClass('bg-color');
-			jQuery('#toc').toggle({ duration:200 });
+	jQuery('#toc').hide(); //hide toc
+	jQuery(document).on('click', '.toc-btn a, #toc a.close', function() { //when TOC button is clicked
+		if(jQuery('#toc').css('display') == 'none') {  //if toc is not dispayed
+			jQuery('.toc-btn a').addClass('tabbed'); //set the pop-up
+			jQuery('.toc-btn').addClass('bg-color'); //set the color
+			jQuery('#toc').toggle({ duration:200 }); //wait 2seconds before showing the popup
 			return false;
 		} else {
-			jQuery('.toc-btn a').removeClass('tabbed');
+			jQuery('.toc-btn a').removeClass('tabbed'); 
 			jQuery('.toc-btn').removeClass('bg-color');
-			jQuery('#toc').toggle({ duration:100 });
+			jQuery('#toc').toggle({ duration:100 }); //wait 1 second before hide the pop-up
 			return false;
 		}
 	});

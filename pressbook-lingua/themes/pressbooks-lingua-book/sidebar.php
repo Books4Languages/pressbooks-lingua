@@ -6,13 +6,15 @@
 		<ul id="booknav">
 		<!-- Gets the filepath and values of Target language or library URL -->
         <?php
-	        $pathparts=explode('/', site_url());
-	        $length=count($pathparts);
-	        unset($pathparts[$length-1]);
-	        array_values($pathparts);  
-	        $filepath=implode('/', $pathparts);
-	        $pm_BM = get_metada_fields();
-			$meta=$pm_BM->get_current_metadata_flat();
+	        $pathparts=explode('/', site_url()); //divedes the site url by parts delimited by '/'
+	        $length=count($pathparts); //gets the length of the url by counting the parts
+	        unset($pathparts[$length-1]); //unsets the last part of the url
+	        array_values($pathparts);  //creates an array
+	        $filepath=implode('/', $pathparts); //assembles the new filepath
+	        $pm_BM = get_metada_fields(); //get metadata from the book
+			
+			/* Extract Target Language and Library URL from book metadata */
+			$meta=$pm_BM->get_current_metadata_flat(); 
 	        foreach ( $meta as $key=>$elt ) {
 				if($elt->get_name()==='Target language'){
 					$target=$elt->get_value();
@@ -58,7 +60,7 @@
 			<ul>
 				<li><h4><!-- Front-matter --></h4></li>
 				<li>
-					<ul>
+					<ul><!-- Print data for TOC -->
 						<?php foreach ($book['front-matter'] as $fm): ?>
 						<?php if ( $fm['post_status'] !== 'publish' ) {
 							if ( !current_user_can_for_blog( $blog_id, 'read_private_posts' ) ) {
