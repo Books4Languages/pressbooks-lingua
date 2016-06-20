@@ -46,14 +46,17 @@
 		<!-- If the $post parameter is specified, this function will additionally check if the query is for one of the Posts specified.-->
 			<a href="http://on-lingua.com/" class=""><?php _e('home', 'pressbooks'); ?></a>
 			<a <?php  echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?> class=""><?php _e('libary', 'pressbooks'); ?></a>
+		<!-- Read now -->
+    		<?php global $first_chapter; ?>
+			<a id="read_now" href="<?php global $first_chapter; echo $first_chapter; ?>" class=""><?php _e('Read Now', 'pressbooks'); ?></a>
 		<?php endif; ?>
 	</div>
-	<!-- Login/Logout -->
+	<!-- Login/Logout - Admin-->
 	<div class="log-wrap">	
 	   <?php if(!is_single()): ?>
 	    	<?php if(!is_user_logged_in()): ?> <!-- if the user is not logged show the login button-->
 	    	<!-- Login button -->
-				<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="" style="margin-left:10px;"><?php _e('login', 'pressbooks'); ?></a>
+				<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="" ><?php _e('login', 'pressbooks'); ?></a>
 	   	 	<?php else: ?>
 	   	 	<!-- Logout button -->
 				<a href="<?php echo  wp_logout_url(); ?>" class=""><?php _e('logout', 'pressbooks'); ?></a>
@@ -111,9 +114,10 @@
 	<div class="call-to-action-wrap">
 		<?php global $first_chapter; ?>
 		<div class="call-to-action">
-			<!-- Download Button -->
+			<!-- Read Button -->
 			<a class="btn red" href="<?php global $first_chapter; echo $first_chapter; ?>"><span class="read-icon"></span><?php _e('Read', 'pressbooks'); ?></a>
 			<?php if (@array_filter(get_option('pressbooks_ecommerce_links'))) : ?>
+				<!-- Download Button -->
 				<a class="btn black" href="<?php echo get_option('home'); ?>/buy"><span class="buy-icon"></span><?php _e('Download', 'pressbooks'); ?></a>				
 			<?php endif; ?>	
 			

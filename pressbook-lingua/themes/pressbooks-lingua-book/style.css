@@ -51,6 +51,7 @@ h1.book-title {
 }
 
 
+
 /* Extra sidebar button pop-up */
 #page-info, #related-books, #sidebar-search, #resource {
     background: #eeeeee;
@@ -121,8 +122,9 @@ h1.book-title {
 
 
 @media screen and (max-width: 1260px){
+
     .log-wrap a {
-        display: inline!important;
+        display: inline;
     }
     .book-cover img{
         margin-top:35px;
@@ -147,7 +149,7 @@ h1.book-title {
     #content {
         width: 500px;
     }
-    /* Sidebar glued to the right */
+    /* Sidebar glued to the right 
     #sidebar {
         margin-right: 0;
     }
@@ -155,10 +157,28 @@ h1.book-title {
     #booknav {
         border-radius: 6px 0px 0px 6px;
         box-shadow: -2px 2px 2px #ddd;
-    }
+    }*/
     .footer-table{
         max-width: 100%;
         padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    #wrap{
+        padding-top:50px;       
+    }
+
+    #content{
+        width: auto;
+    }
+
+    #sidebar{
+        margin: 0;
+        padding: 0;
+        right: 12px;
+        top: 0;
+        width: auto;
     }
 }
 
@@ -212,6 +232,7 @@ h1.book-title {
 }
 
 @media screen and (max-width: 768px) {
+
     .lingua-logo a {
         background: url("images/On_lingua.png");
     }
@@ -259,6 +280,9 @@ h1.book-title {
         padding-left: 25%;
     }
 }
+
+
+
 
 @media screen and (max-width: 470px) {
     #booknav {
@@ -319,7 +343,7 @@ nav {
     position: absolute;
     top: 0px;
     z-index: 1000;
-    max-width: 120px;
+    max-width: 200px;
     right: 0px;
 }
 
@@ -479,6 +503,20 @@ a.button-red-f{
   padding: 5px 10px;
   text-decoration: none;
   text-transform: uppercase; }
+
+/*Read button responsive*/
+
+#read_now{
+    display: none;
+}
+
+@media screen and (max-width : 550px){
+    #read_now{
+        display: inline;
+    }
+}
+
+
 
 /*Responsive buttons for activities, exercises and download*/  
 #exercise_f, #activity_f, .buy-f, .buy-f a{

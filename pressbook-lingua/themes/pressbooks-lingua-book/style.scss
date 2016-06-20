@@ -32,6 +32,13 @@ h1.book-title {
     background-position: 50% 36%;    
 }
 
+#booknav .page-info-btn a {
+    background-image: url("images/info.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
+
+
 /* Extra sidebar button pop-up */
 #page-info, #related-books, #sidebar-search, #resource {
     background: #eeeeee;
@@ -51,11 +58,7 @@ h1.book-title {
     z-index: 50;
 }
 
-.page-info-btn a {
-    background-image: url("images/info.png");
-    background-repeat: no-repeat;
-    background-position: 50% 36%;
-}
+
 
 /* Copied from Luther theme (for #toc a tags) */
 #page-info table, #resource table {
@@ -75,8 +78,9 @@ h1.book-title {
 
     
 @media screen and (max-width: 1260px){
+
     .log-wrap a {
-        display: inline!important;
+        display: inline;
     }
     .book-cover img{
         margin-top:35px;
@@ -86,6 +90,7 @@ h1.book-title {
 
 /* Pressbooks Luther theme overrides */
 @media screen and (max-width: 1024px) {
+
     /* Copied from Luther theme (#toc) */
     #page-info, #related-books,  #resource{
         background: none repeat scroll 0% 0% #E0E0E0;
@@ -111,7 +116,7 @@ h1.book-title {
     #content {
         width: 500px;
     }
-    /* Sidebar glued to the right */
+    /* Sidebar glued to the right 
     #sidebar {
         margin-right: 0;
     }
@@ -119,10 +124,29 @@ h1.book-title {
     #booknav {
         border-radius: 6px 0px 0px 6px;
         box-shadow: -2px 2px 2px #ddd;
-    }
+    }*/
     .footer-table{
         max-width: 100%;
         padding-left: 25%;
+    }
+}
+
+
+@media screen and (max-width: 930px) {
+    #wrap{
+        padding-top:50px;       
+    }
+
+    #content{
+        width: auto;
+    }
+
+    #sidebar{
+        margin: 0;
+        padding: 0;
+        right: 12px;
+        top: 0;
+        width: auto;
     }
 }
 
@@ -150,6 +174,8 @@ h1.book-title {
         padding-left: 25%;
     }
 }
+
+
 
 @media screen and (max-device-width: 480px) {
     #content {
@@ -298,7 +324,7 @@ nav {
     position: absolute;
     top: 0px;
     z-index: 1000;
-    max-width: 120px;
+    max-width: 200px;
     right: 0px;
 }
 
@@ -453,6 +479,18 @@ a.button-red-f {
   text-decoration: none;
   text-transform: uppercase; 
 }
+
+/*Read button responsive*/
+#read_now{
+    display: none;
+}
+
+@media screen and (max-width : 550px){
+    #read_now{
+        display: inline;
+    }
+}
+
 
 /*Responsive buttons for activities, exercises and download*/  
 #exercise_f, #activity_f, .buy-f, .buy-f a{
