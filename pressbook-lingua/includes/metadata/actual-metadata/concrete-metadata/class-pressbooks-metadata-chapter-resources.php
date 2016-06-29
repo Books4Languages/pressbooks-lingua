@@ -150,11 +150,11 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
             /* if any value is set for $YTchannel*/
             if(isset($YTchannel)){
                 echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
-                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.", '', $YTchannel).'</a></td></tr>';
+                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'"> >>GO>> </a></td></tr>';
         	}
             if(isset($bookEx)){
                 echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
-                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'">'.str_replace("http://", '', $bookEx).'</a></td></tr>';
+                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'"> >>GO>> </a></td></tr>';
         	}
             echo '</table>';
             
@@ -166,7 +166,6 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
         $table_name=$wpdb->prefix.'postmeta';
         $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
         $meta_keys=array('lb_video1_url'=>'Video 1', 'lb_video2_url'=>'Video 2', 'lb_audio_url'=>'Audio', 'lb_exercises1_url'=>'Exercises 1', 'lb_exercises2_url'=>'Exercises 2', 'lb_activities_url'=>'Activities');
-
 		?><table class="metadata_questtions_answers"><?php
 		                       			
 		foreach ( $meta as $row ) {
@@ -177,11 +176,16 @@ class Pressbooks_Metadata_Chapter_Resources extends Pressbooks_Metadata_Plugin_M
                    array_values($meta_keys);
                    //removes 'http://' part of the string
                     if($row['meta_key'] === 'lb_exercises1_url' || $row['meta_key'] === 'lb_exercises2_url' ||  $row['meta_key'] === 'lb_activities_url' || $row['meta_key'] === 'lb_video1_url' || $row['meta_key'] === 'lb_video2_url' ||$row['meta_key'] === 'lb_audio_url'){ 
-						$pos = strpos($row['meta_value'], 'http://');    
-						if($pos===false){                                      
-						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       
+						$pos = strpos($row['meta_value'], 'http://'); 
+						$posa = strpos($row['meta_value'], 'https://');    
+						if($pos===false){      
+							if($posa===false){                                
+						  		echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'"> >>GO>> </a>';                       
+							}else{
+								echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'"> >>GO>> </a>';
+							}
 						}else{ 
-						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
+						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'"> >>GO>> </a>';
 						}
                     }else{
                     	echo $row['meta_value'];

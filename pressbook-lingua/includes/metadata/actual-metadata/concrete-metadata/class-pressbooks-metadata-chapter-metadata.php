@@ -148,7 +148,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
 	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
-	                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>';
+	                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$QandAURL.'"> >>GO>> </a></td></tr>';
 	        	}
 	            if(isset($learning_time)){
 	                echo '<tr id="lb_time_required"><td style="padding:1em;">Class Learning Time (minutes)</td><td style="font-size:1em;">'.($learning_time?$learning_time:0).'</td></tr>';
@@ -166,11 +166,11 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		?><table class="metadata_questtions_answers"><?php
 		   	echo '<tr id="lb_toc"><td style="text-align:center"><a target="_blank" href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
         	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
-	                '<a target="_blank "style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>'; 
+	                '<a target="_blank "style="font-size:1em; color:blue;" href="'.$QandAURL.'"> >>GO>> </a></td></tr>'; 
 	        echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
-	       		 '<a target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
+	       		 '<a target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'"> >>GO>> </a></td></tr>';
             echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
-                '<a target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'">'.str_replace("http://", '', $bookEx).'</a></td></tr>';
+                '<a target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'"> >>GO>> </a></td></tr>';
 		
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
@@ -180,10 +180,15 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
                    array_values($meta_keys);
                     if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){              
 						$pos = strpos($row['meta_value'], 'http://');    
-						if($pos===false){                                      
-						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       
+						$posa = strpos($row['meta_value'], 'https://'); 
+						if($pos===false){  
+							if($posa === false){                                    
+						  		echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'"> >>GO>> </a>'; 
+					  		}else{
+					  			echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'"> >>GO>> </a>'; 
+					  		}                     
 						}else{ 
-						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
+						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'"> >>GO>> </a>'; //.str_replace("http://", '', $row['meta_value'])
 						}
                     }else{
                     	echo $row['meta_value'];

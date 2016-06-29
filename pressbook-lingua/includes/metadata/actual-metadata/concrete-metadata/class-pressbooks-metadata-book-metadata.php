@@ -152,7 +152,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
         //create question and answers text field
     	$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Questions&Answers URL',
-			'Questions and answers about the',
+			'Questions and answers about the book, always start with https:// or http://',
 			'book_questions_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
@@ -160,14 +160,14 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
     	//create URL field for a Youtube Channell
 		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Youtube Channel',
-			'The URL of the Youtube channel of this book.',
+			'The URL of the Youtube channel of this book, always start with https:// or http://',
 			'youtube_url', '', '', '', false,
 			'http://site.com/') );
 		
 		//create URL field for Book Exercises website
 		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Book Exercises',
-			'The URL of the Exercises website of this book.',
+			'The URL of the Exercises website of this book, always start with https:// or http://',
 			'bexercise_url', '', '', '', false,
 			'http://site.com/') );
 
@@ -209,12 +209,19 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
             ?> <table class="metadata_questtions_answers"><?php
 				foreach ( $meta as $elt ) {
 					if($elt->get_name() === "Questions&Answers URL" || $elt->get_name() === "Youtube Channel" || $elt->get_name() === "Book Exercises"){
-						$pos = strpos($elt->get_value(), 'http://');    
+						$pos = strpos($elt->get_value(), 'http://'); 
+						$posa = strpos($elt->get_value(), 'https://');        
 						if($pos===false){ 
-							echo '<tr><td>'.$elt->get_name().'</td>
-							<td><a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'">'.str_replace("www.", '', $elt->get_value()).'</a></td></tr>'; 
+							if($posa === false){
+								echo '<tr><td>'.$elt->get_name().'</td>
+								<td><a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'"> >>GO>> </a></td></tr>'; 
+							}else{
+								echo '<tr><td>'.$elt->get_name().'</td>
+								<td><a target="_blank" style="font-size:1em; color:blue;" href="'.$elt->get_value().'"> >>GO>> </a></td></tr>'; 
+							} 
 						}else{ 
-							echo '<tr><td>'.$elt->get_name().'</td><td><a  target="_blank" style="font-size:1em; color:blue;" href="'.$elt->get_value().'">'.str_replace("http://www.", '', $elt)->get_value().'</a></td></tr>';
+							echo '<tr><td>'.$elt->get_name().'</td>
+							<td><a  target="_blank" style="font-size:1em; color:blue;" href="'.$elt->get_value().'"> >>GO>> </a></td></tr>';
 						}
 					}else{	
 						?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
