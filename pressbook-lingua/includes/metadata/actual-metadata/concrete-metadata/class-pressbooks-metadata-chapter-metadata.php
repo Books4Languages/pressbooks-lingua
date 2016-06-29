@@ -46,33 +46,22 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 			'chapter-metadata2',true );
 		$chap_meta->add_post_type( 'chapter' );
 
-		//create Question and Answers URL fiel
 		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
-			'Questions and answers',
+			'Questions&Answers',
 			'The URL of a forum/discussion about this page.',
 			'discussion_url', '', '', '', false,
 			'http://site.com/' ) );
 
-		//crate Class Learning Time number field
 		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (minutes)',
 			'', 'time_required', '', '', 0, false, 0 ) );
 
-		/*
-        $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
-			'General Descriptor:',
-			'Subtitle - pressbooks metadata',
-			'generaldesc', '', '', '', 
-			false, 'descriptor', 'general_desc' ) );*/
-		
-		//create Main Descriptor text field
         $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
         	'Main Descriptor:',
         	'Kind of grammar element taught in the topic',
         	'desc1', '', '', '', 
         	false, 'descriptor', 'main_desc' ) );
 
-        //create Secondary Descriptor text field
         $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 
         	'Secondary Descriptor',
 			'Kind of descriptor taught in the topic',
@@ -82,6 +71,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		// Built-in fields (from WordPress)
 		$chap_meta->add_field( new Pressbooks_Metadata_Creation_Date_Field(
 			'Created on' ) );
+
 		$chap_meta->add_field( new Pressbooks_Metadata_Modification_Date_Field(
 			'Last modified on' ) );
 
@@ -113,14 +103,12 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 
 			$pm_BM = get_metada_fields();
 			$meta = $pm_BM->get_current_metadata_flat();
-			/* Gets the values of Question and Answers, Class Learning Time, Youtube Channel and Book Exercises
-				from Book Metadata, if the field it's an URL field cuts off the 'http://' part */
 		    foreach ( $meta as $key=>$elt ) {      
 			  	if($elt->get_name()==='Questions and Answers URL'){
 	                if($elt->get_value() !== '0'){
 	                	$QandAURL=$elt->get_value();
 		                $pos = strpos($QandAURL, 'http://');
-		                if($pos===false){                 
+		                if($pos === false){             
 		                    $QandAURL='http://'.$QandAURL;
 		                }
 	            	}
@@ -129,7 +117,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 	                if($elt->get_value()!== '0'){
 	                	$learning_time=$elt->get_value();
 	                }
-	            } 
+	            }   
     		  	if($elt->get_name()==='Youtube Channel'){
 		            if($elt->get_value() !== '0'){
 		            	$YTchannel=$elt->get_value();
@@ -147,22 +135,20 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		                    $bookEx='http://'.$bookEx;
 		                }
 		        	}
-		        }             
+		        }           
 			}
-            
+
+
             global $post;
-            /*
-            * If the post it's not located in the chapter, show Table of Contents link and Question and Answers and Class Learning Time from the Book*/
-            */
             if($post->post_type!='chapter'){
 
 	            echo '<table class="metadata_questtions_answers">';
 	            echo '<tr id="lb_toc"><td>'.
-	                '<a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
+	                '<a target="_blank" href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>';
 	            /* if any value is set for $QandAURL or $learning_time a table row is created, otherwise print*/
 	            if(isset($QandAURL)){
-	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
-	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>';
+	                echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
+	                '<a  target="_blank" style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>';
 	        	}
 	            if(isset($learning_time)){
 	                echo '<tr id="lb_time_required"><td style="padding:1em;">Class Learning Time (minutes)</td><td style="font-size:1em;">'.($learning_time?$learning_time:0).'</td></tr>';
@@ -175,21 +161,18 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
             global $wpdb;
             $table_name=$wpdb->prefix.'postmeta';
             $meta = $wpdb->get_results("SELECT meta_key,meta_value FROM $table_name WHERE post_id='$post->ID' ORDER BY meta_id DESC",ARRAY_A);
-            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)',
-            	'lb_generaldesc'=>'General Descriptor','lb_desc1'=>'Main Descriptor','lb_desc2'=>'Secondary Descriptor');
+            $meta_keys=array('lb_discussion_url'=>'Questions and Answers','lb_time_required'=>'Class Learning Time (minutes)','lb_desc1'=>'Main Descriptor','lb_desc2'=>'Secondary Descriptor');
 
 		?><table class="metadata_questtions_answers"><?php
-		/* Prints Book Metadata in chapter pages */
-		   	echo '<tr id="lb_toc"><td style="text-align:center"><a href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
-        	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions and Answers Book</td><td style="font-size:1em;">'.
-	                '<a style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www", '', $QandAURL).'</a></td></tr>'; 
+		   	echo '<tr id="lb_toc"><td style="text-align:center"><a target="_blank" href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
+        	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
+	                '<a target="_blank "style="font-size:1em; color:blue;" href="'.$QandAURL.'">'.str_replace("http://www.", '', $QandAURL).'</a></td></tr>'; 
 	        echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
-	       		 '<a style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
+	       		 '<a target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'">'.str_replace("http://www.youtube.com/", '', $YTchannel).'</a></td></tr>';
             echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
-                '<a style="font-size:1em; color:blue;" href="'.$bookEx.'">'.str_replace("http://", '', $bookEx).'</a></td></tr>';
+                '<a target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'">'.str_replace("http://", '', $bookEx).'</a></td></tr>';
 		
 		foreach ( $meta as $row ) {
-			/*Prints chapter metadata*/
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
 				?><tr id="<?php echo $row['meta_key'];?>"><td><?php echo $meta_keys[$row['meta_key']]; ?></td><?php
 				?><td><?php
@@ -198,9 +181,9 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
                     if($row['meta_key'] === 'lb_discussion_url' || $row['meta_key'] === 'lb_video_url' || $row['meta_key'] === 'lb_audio_url'){              
 						$pos = strpos($row['meta_value'], 'http://');    
 						if($pos===false){                                      
-						  echo '<a style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       
+						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$row['meta_value'].'">'.str_replace("www.", '', $row['meta_value']).'</a>';                       
 						}else{ 
-						  echo '<a style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
+						  echo '<a target="_blank" style="font-size:1em; color:blue;" href="'.$row['meta_value'].'">'.str_replace("http://", '', $row['meta_value']).'</a>';
 						}
                     }else{
                     	echo $row['meta_value'];
@@ -211,5 +194,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		?></table><?php
 
 	}
+
+
 }
 

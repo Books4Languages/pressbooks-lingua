@@ -48,6 +48,20 @@ jQuery(document).ready(function(){
 		}
 	});
 
-});
+    jQuery('#sidebar-search').hide();
+    jQuery('.search-btn a, #sidebar-search a.close').live('click', function () {
+        if (jQuery('#sidebar-search').css('display') == 'none') {
+            jQuery('.search-btn a').addClass('tabbed');
+            jQuery('.search-btn').addClass('bg-color');
+            jQuery('#sidebar-search').toggle({ duration: 200 });
+            return false;
+        } else {
+            jQuery('.search-btn a').removeClass('tabbed');
+            jQuery('.search-btn').removeClass('bg-color');
+            jQuery('#sidebar-search').toggle({ duration: 100 });
+            return false;
+        }
+    });
 
+});
 

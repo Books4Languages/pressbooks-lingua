@@ -87,27 +87,34 @@
 	    	<?php if($ex_link != null){	?>
 	    		<!-- Exercises button -->
 		    	<div id="exercise_f" class="exercise-footer">
-		    		<a id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+		    		<a target="_blank" id="ex_f_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
 		    	</div>
 	    	<?php  }	
 	    	if($act_link != null){	?>
 	    		<!-- Activities button -->	
 		    	<div id="activity_f" class="activity-footer">
-		    		<a id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+		    		<a target="_blank" id="act_f_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
 		    	</div>		
 			<?php  }	?>
 
 		    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 			    <!-- Download button -->
 			    <div id="download-f" class="buy-f">
-					<a id="dwn-h-f" href="<?php echo get_option('home'); ?>/buy" class="button-red-f"><?php _e('Download', 'pressbooks'); ?></a>
+					<a target="_blank" id="dwn-h-f" href="<?php echo get_option('home'); ?>/buy" class="button-red-f"><?php _e('Download', 'pressbooks'); ?></a>
 				</div>
 			<?php endif; ?>	
 		</div>
 
 		<!-- Custom footer link-->
 		<p class="cie-name">
-			<?php _e('<a href="http://on-lingua.com/">Insolently powered by WordPress', 'pressbooks');?>
+			<?php 
+				$url = get_site_url();
+				$pieces = parse_url($url);
+				$hostname = $pieces['host'];
+				preg_match ("/\.([^\/]+)/", $hostname, $domain_only);
+				$host =  'http://'.$domain_only[1]; 
+
+			_e('<a target="_blank" href="'.$host.'">Insolently powered by WordPress', 'pressbooks');?>
 		</p>
 	</div><!-- #inner -->
 </div><!-- #footer -->

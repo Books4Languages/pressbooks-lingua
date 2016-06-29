@@ -68,7 +68,8 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	<div class="book-info-container">
 
 <?php else: ?>  	 
-	<span itemscope itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher">		
+	<span itemscope itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher">
+
 	<div class="nav-container">
 		<nav>
  			<!-- Book Title -->
@@ -76,27 +77,24 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
     		<!-- Left nav-menu -->
 		    <div class="sub-nav-left">
 				<!-- Logo -->
-				<h2 class="pb-lingua-logo"><a href="http://on-lingua.com">Pressboks Lingua</a></h2>
+				<!-- Dynamic link to home page. If you want to use a static url comment till "End dynamic link" --> 
+				<?php 
+					$url = get_site_url();
+					$pieces = parse_url($url);
+					$hostname = $pieces['host'];
+					preg_match ("/\.([^\/]+)/", $hostname, $domain_only);
+					$host =  'http://'.$domain_only[1]; 
+				?>
+				<h2 class="pb-lingua-logo"><a target="_blank" href="<?php echo $host; ?>"></a></h2>
+			<!-- End dynamic link -->
+
+			<!-- Custom link for static Home Page
+				<h2 class="pb-lingua-logo"><a target="_blank" href="---INSERT LINK---"></a></h2>
+			-->
+
 		    </div> <!-- end .sub-nav-left -->
 		    
 		    <div class="sub-nav-right">
-		    	<!-- Shows level descriptors in the header
-
-		    		<div class="levelbox">
-		    			<?php
-		                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
-		                $meta=$pm_BM->get_current_metadata_flat();
-		                foreach ( $meta as $key=>$elt ) {
-		                if($elt->get_name()==='Level'){
-		                            $level=$elt;
-		                        }        
-		                }
-		                $level=$level?strtolower($level):'none';
-						if($level != 'none'){ ?>
-		    				<a class="level"><?php _e($level, 'pressbooks');?></a>
-		    			<?php }?>
-		    		</div>	
-		    	-->	
 
 		    	<!-- Gets the value of Exercises and Activities link value and, if not null, shows them as a button in the header  -->
 		    	<?php 
@@ -118,25 +116,25 @@ if ( 1 === @$social_media['social_media'] || !isset( $social_media['social_media
 	                    	}
 	                    }        
 	                }
-    				
-			    	if($ex_link != null){	//if the link ha content?>
+   				
+			    	if($ex_link != null){	//if the link has content?>
 		    			<!-- Exercises button -->
 				    	<div id="exercise_h" class="exercise">
-				    		<a id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
+				    		<a target="_blank" id="ex_h_a" class="level" href='<?php echo $ex_link; ?>'><?php _e('Exercises', 'pressbooks');?></a>
 				    	</div>
 			    	<?php  }
 			    				
-			    	if($act_link != null){	//if the link ha content?>	
+			    	if($act_link != null){	//if the link has content?>	
 		    			<!-- Activities button -->
 				    	<div id="activity_h" class="activity">
-				    		<a id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
+				    		<a target="_blank" id="act_h_a" class="level" href='<?php echo $act_link; ?>'><?php _e('Activities', 'pressbooks');?></a>
 				    	</div>		
 		    	<?php  }	?>	
 
 			    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 				    <!-- Download button -->
 				    <div id="download-h" class="buy-h">
-						<a id="dwn-h-a" href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a> <!--  -->
+						<a  target="_blank" id="dwn-h-a" href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Download', 'pressbooks'); ?></a> <!--  -->
 					</div>
 				<?php endif; ?>	
 				

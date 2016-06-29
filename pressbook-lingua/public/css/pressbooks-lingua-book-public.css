@@ -3,9 +3,9 @@
 	background-color: #313131;
 }
 
-/*.nav-container nav{
-	background-color: #FF0000;
-}*/
+.level{
+	background-color: #dd3737;
+}
 
 /* Sets the default image for the info button*/
 .page-info-btn a {

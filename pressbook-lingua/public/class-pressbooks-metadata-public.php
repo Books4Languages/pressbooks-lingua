@@ -72,7 +72,7 @@ class Pressbooks_Metadata_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+       $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
                 $meta=$pm_BM->get_current_metadata_flat();
                 foreach ( $meta as $key=>$elt ) {
                 if($elt->get_name()==='Level'){
@@ -81,10 +81,10 @@ class Pressbooks_Metadata_Public {
                 }
                 $level=$level? '-'.strtolower($level):'none';
                 if($level==='none'){
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public.css', array(), $this->version, 'all' );
+					wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public.css', array(), $this->version, 'all' );
                 }
                 else{
-                wp_enqueue_style( $this->plugin_name.$level, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public'.$level.'.css', array(), $this->version, 'all' );    
+               		wp_enqueue_style( $this->plugin_name.$level, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-book-public'.$level.'.css', array(), $this->version, 'all' );    
                 }
 	}
 

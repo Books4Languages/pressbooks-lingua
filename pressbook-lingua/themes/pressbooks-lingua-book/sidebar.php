@@ -41,7 +41,7 @@
 			<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
 		<!-- Search button always there -->
 			<li class="search-btn"><a href="#"><?php _e('Search', 'pressbooks'); ?></a></li>
-		<!-- Info button if there are metadata -->	
+		<!-- Info button if there are metadata -->
 			<li class="page-info-btn"><a href="#"><?php _e('Page Info', 'pressbooks'); ?></a></li>
 		<!-- Resource button if there are media -->	
 			<li class="resource-btn"><a href="#"><?php _e('Resources', 'pressbooks'); ?></a></li>
@@ -152,6 +152,12 @@
 		</div><!-- end #toc -->
 		<?php endif; ?>
 
+		<!-- Search button -->
+		<div id="sidebar-search">
+			<a href="#" class="close"><?php _e('Close', 'pressbooks'); ?></a>
+			<?php get_search_form() //prints search form ?>
+		</div>
+
 		<!-- Page info metadata-->
 		<div id="page-info">			
 			<a href="#" class="close"><?php _e('Close', 'pressbooks'); ?></a>
@@ -168,7 +174,6 @@
 				print_chapter_resources_fields(); //prints chapter metadata
 			?>
 		</div><!-- end #page-meta -->
-
 
 	</div><!-- end #sidebar -->
 	<?php endif; ?>

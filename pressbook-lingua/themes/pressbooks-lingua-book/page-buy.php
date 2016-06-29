@@ -27,12 +27,12 @@
                        $url_onlingua=implode('/', $url_parts).'/wp-content/plugins/pressbooks-lingua/themes/pressbooks-lingua-book/images/pb-lingua.png';
                 ?>  
                 <!-- On-Lingua buy link -->    
-               <li class="buy-onlingua"><a href="http://books.on-lingua.com/" class="bookstore-logo-link logo"><img src="<?php echo $url_onlingua; ?>" alt="pb-lingua-logo" title="On-lingua"/></a><?php printf( __('Purchase on  <a href="http://on-lingua.com/buy">on-lingua.com</a>', 'pressbooks'), $urls['onlingua']); ?></li>
+               <li class="buy-onlingua"><a target="_blank" href="http://books.on-lingua.com/" class="bookstore-logo-link logo"><img src="<?php echo $url_onlingua; ?>" alt="pb-lingua-logo" title="On-lingua"/></a><?php printf( __('Purchase on  <a href="http://on-lingua.com/buy">on-lingua.com</a>', 'pressbooks'), $urls['onlingua']); ?></li>
 <!--            END ON-LINGUA LOGO--> 
-
+  
 			<!-- Amazon buy Link -->  
                <?php if (isset($urls['amazon']) && $urls['amazon']): ?>
-			   <li class="buy-amazon"><a href="<?php print $urls['amazon']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/amazon.png" width="100" height="20" alt="amazon-logo" title="Amazon"/></a><?php printf( __('Purchase on  <a href="%1$s">amazon.com</a>', 'pressbooks'), $urls['amazon']); ?></li>
+			   <li class="buy-amazon"><a target="_blank" href="<?php print $urls['amazon']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/amazon.png" width="100" height="20" alt="amazon-logo" title="Amazon"/></a><?php printf( __('Purchase on  <a href="%1$s">amazon.com</a>', 'pressbooks'), $urls['amazon']); ?></li>
          <?php endif; ?>              
 			  
                            
@@ -40,23 +40,23 @@
         <!-- If set, show the others ecommerce links --> 
         <!-- O'Reilly -->                  
          <?php if (isset($urls['oreilly']) && $urls['oreilly']): ?>
-			   <li class="buy-oreilly"><a href="<?php print $urls['oreilly']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/oreilly.png" width="100" height="18" alt="oreilly-logo" title="Oreilly"/></a><?php printf( __('Purchase on  <a href="%1$s">oreilly.com</a>', 'pressbooks'), $urls['oreilly']); ?></li>
+			   <li class="buy-oreilly"><a target="_blank" href="<?php print $urls['oreilly']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/oreilly.png" width="100" height="18" alt="oreilly-logo" title="Oreilly"/></a><?php printf( __('Purchase on  <a href="%1$s">oreilly.com</a>', 'pressbooks'), $urls['oreilly']); ?></li>
          <?php endif; ?>
 		<!-- Barnes and Noble-->
 			   <?php if (isset($urls['barnesandnoble']) && $urls['barnesandnoble']): ?>
-			   <li class="buy-barnes-and-noble"><a href="<?php print $urls['barnesandnoble']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/barnes-and-noble.png" width="100" height="16" alt="barnes-and-noble-logo" title="Barnes &amp; Noble"/></a><?php printf( __('Purchase on  <a href="%1$s">barnesandnoble.com</a>', 'pressbooks'), $urls['barnesandnoble']); ?></li>
+			   <li class="buy-barnes-and-noble"><a target="_blank" href="<?php print $urls['barnesandnoble']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/barnes-and-noble.png" width="100" height="16" alt="barnes-and-noble-logo" title="Barnes &amp; Noble"/></a><?php printf( __('Purchase on  <a href="%1$s">barnesandnoble.com</a>', 'pressbooks'), $urls['barnesandnoble']); ?></li>
          <?php endif; ?>
 		  <!-- Kobo --> 
 			   <?php if (isset($urls['kobo']) && $urls['kobo']): ?>
-			   <li class="buy-kobo"><a href="<?php print $urls['kobo']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/kobo.png" width="54" height="29" alt="kobo-logo" title="Kobo"/></a><?php printf( __('Purchase on  <a href="%1$s">kobobooks.com</a>', 'pressbooks'), $urls['kobo']); ?></li>
+			   <li class="buy-kobo"><a target="_blank" href="<?php print $urls['kobo']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/kobo.png" width="54" height="29" alt="kobo-logo" title="Kobo"/></a><?php printf( __('Purchase on  <a href="%1$s">kobobooks.com</a>', 'pressbooks'), $urls['kobo']); ?></li>
          <?php endif; ?>
 		<!-- iBooks -->	   
 			   <?php if (isset($urls['ibooks']) && $urls['ibooks']): ?>
-			   <li class="buy-ibooks"><a href="<?php print $urls['ibooks']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/ibooks.png" width="34" height="34" alt="ibooks-logo" title="iBook"/></a><?php printf( __('Purchase on  <a href="%1$s">apple.com</a>', 'pressbooks'), $urls['ibooks']); ?></li>
+			   <li class="buy-ibooks"><a target="_blank" href="<?php print $urls['ibooks']; ?>" class="bookstore-logo-link logo"><img src="<?php bloginfo('template_directory'); ?>/images/ibooks.png" width="34" height="34" alt="ibooks-logo" title="iBook"/></a><?php printf( __('Purchase on  <a href="%1$s">apple.com</a>', 'pressbooks'), $urls['ibooks']); ?></li>
          <?php endif; ?>
 		<!-- Other Service -->	   
 			   <?php if (isset($urls['otherservice']) && $urls['otherservice']): ?>
-			   <li class="buy-other"><a href="<?php print $urls['otherservice']; ?>" class="bookstore-other-link logo"><?php _e('Elsewhere', 'pressbooks'); ?></a><?php _e('Purchase here:', 'pressbooks'); ?> <a href="<?php print $urls['otherservice']; ?>"><?php print $urls['otherservice']; ?></a></li>
+			   <li class="buy-other"><a target="_blank" href="<?php print $urls['otherservice']; ?>" class="bookstore-other-link logo"><?php _e('Elsewhere', 'pressbooks'); ?></a><?php _e('Purchase here:', 'pressbooks'); ?> <a href="<?php print $urls['otherservice']; ?>"><?php print $urls['otherservice']; ?></a></li>
          <?php endif; ?>
          </ul>
          

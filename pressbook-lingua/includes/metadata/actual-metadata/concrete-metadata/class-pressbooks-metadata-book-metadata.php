@@ -151,7 +151,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 
         //create question and answers text field
     	$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
-			'Questions and Answers URL',
+			'Questions&Answers URL',
 			'Questions and answers about the',
 			'book_questions_url',
 			'', '', '', false, 'http://site.com/',
@@ -208,13 +208,13 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			}
             ?> <table class="metadata_questtions_answers"><?php
 				foreach ( $meta as $elt ) {
-					if($elt->get_name() === "Questions and Answers URL" || $elt->get_name() === "Youtube Channel" || $elt->get_name() === "Book Exercises"){
+					if($elt->get_name() === "Questions&Answers URL" || $elt->get_name() === "Youtube Channel" || $elt->get_name() === "Book Exercises"){
 						$pos = strpos($elt->get_value(), 'http://');    
 						if($pos===false){ 
 							echo '<tr><td>'.$elt->get_name().'</td>
-							<td><a style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'">'.str_replace("www.", '', $elt->get_value()).'</a></td></tr>'; 
+							<td><a target="_blank" style="font-size:1em; color:blue;" href="'.'http://'.$elt->get_value().'">'.str_replace("www.", '', $elt->get_value()).'</a></td></tr>'; 
 						}else{ 
-							echo '<tr><td>'.$elt->get_name().'</td><td><a style="font-size:1em; color:blue;" href="'.$elt->get_value().'">'.str_replace("http://www.", '', $elt)->get_value().'</a></td></tr>';
+							echo '<tr><td>'.$elt->get_name().'</td><td><a  target="_blank" style="font-size:1em; color:blue;" href="'.$elt->get_value().'">'.str_replace("http://www.", '', $elt)->get_value().'</a></td></tr>';
 						}
 					}else{	
 						?><tr><td><?php echo $elt->get_name(); ?>:</td><?php

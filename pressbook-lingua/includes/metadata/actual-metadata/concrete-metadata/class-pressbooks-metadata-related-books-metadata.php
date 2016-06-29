@@ -41,7 +41,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
                $explaination= 'The books (one per content type) that are meant to '
 			. 'be linked with this one.<br/>';
                
-               $add='For <span style="color:red;">On-lingua</span> books you can write just the book name you want to relate! <b>Mybook</b> <br/>';
+               $add='For <span style="color:red;">Books4Languages</span> books you can write just the book name you want to relate! <b>Mybook</b> <br/>';
                $add.='You can also enter external links! <b>mybook.com</b>';
 		
 		// Create Related Books metabox, including the explanation above
@@ -129,10 +129,14 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		/*Create a group of fields for Extra Components, including text field for Extra Content*/
         $ex_com = new Pressbooks_Metadata_Field_Group(
 			'Extra Components', '', 'extra-components' );
-		
+        
 		$ex_com->add_field( new Pressbooks_Metadata_Text_Field(
-			'Extra Content', '', 'extra_content_book' ) );
+			'Extra Content 1', '', 'extra_content1_book' ) );
         $book_meta->add_field( $ex_com );
+
+		$ex_com->add_field( new Pressbooks_Metadata_Text_Field(
+			'Extra Content 2', '', 'extra_content2_book' ) );
+
 		$this->add_component( $book_meta );
 
 		// Create Metabox

@@ -333,6 +333,13 @@ function print_chapter_microdata_itemprops_list() {
 
 }
 
+function print_activity_link() {
+
+	$pm_RM = Pressbooks_Metadata_Resources_Metadata::get_instance();
+	$pm_RM->print_activity_field();
+
+}
+
 /**
  * Fixes pop-out for extra sidebar buttons.
  */

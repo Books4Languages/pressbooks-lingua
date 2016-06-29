@@ -51,6 +51,17 @@ h1.book-title {
 }
 
 
+.level{
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #ffffff;
+    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
+    text-shadow: 0 1px 0 #000;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
 
 /* Extra sidebar button pop-up */
 #page-info, #related-books, #sidebar-search, #resource {
@@ -80,6 +91,7 @@ h1.book-title {
 
 .nav-container {
     margin-bottom: 0px;
+    background-color: #313131;
 }
 
 .wrapper #content .entry-title {
@@ -149,7 +161,7 @@ h1.book-title {
     #content {
         width: 500px;
     }
-    /* Sidebar glued to the right 
+    /* Sidebar glued to the right */
     #sidebar {
         margin-right: 0;
     }
@@ -157,28 +169,10 @@ h1.book-title {
     #booknav {
         border-radius: 6px 0px 0px 6px;
         box-shadow: -2px 2px 2px #ddd;
-    }*/
+    }
     .footer-table{
         max-width: 100%;
         padding-left: 25%;
-    }
-}
-
-@media screen and (max-width: 930px) {
-    #wrap{
-        padding-top:50px;       
-    }
-
-    #content{
-        width: auto;
-    }
-
-    #sidebar{
-        margin: 0;
-        padding: 0;
-        right: 12px;
-        top: 0;
-        width: auto;
     }
 }
 
@@ -418,18 +412,6 @@ table.metadata_questtions_answers td {
     width: 70px;
 }
 
-.level{
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    color: #ffffff;
-    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
-    text-shadow: 0 1px 0 #000;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-
 .buy-f {
   display: inline!important;
   /*float: right;
@@ -516,8 +498,6 @@ a.button-red-f{
     }
 }
 
-
-
 /*Responsive buttons for activities, exercises and download*/  
 #exercise_f, #activity_f, .buy-f, .buy-f a{
     display:none;
@@ -545,35 +525,4 @@ a.button-red-f{
     }
 }
 
-
-
-/*
-@media screen and (max-width > 700px) {
-    #exercise_f, #activity_f{
-        display:none;
-    }
-    #exercise_h, #activity_h{
-        display:block;
-    }
-}*/
-
-/*.levelbox{
-    display: block;
-    float: left;
-    margin: 10px 10px 0 0;
-    width: 46px;
-}
-
-.level{
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    color: #ffffff;
-    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
-    text-shadow: 0 1px 0 #000;
-    margin-right: 15px;
-    padding: 5px 10px;
-    text-transform: uppercase;
-}*/
 

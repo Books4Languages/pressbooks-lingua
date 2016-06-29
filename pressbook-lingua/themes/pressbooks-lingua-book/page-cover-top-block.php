@@ -44,11 +44,18 @@
 	<div class="log-wrap" style="left:5px; "> <!-- Home/Library -->
 		<?php if(!is_single()): ?> 
 		<!-- If the $post parameter is specified, this function will additionally check if the query is for one of the Posts specified.-->
-			<a href="http://on-lingua.com/" class=""><?php _e('home', 'pressbooks'); ?></a>
+			<?php 
+				$url = get_site_url();
+				$pieces = parse_url($url);
+				$hostname = $pieces['host'];
+				preg_match ("/\.([^\/]+)/", $hostname, $domain_only);
+				$host =  'http://'.$domain_only[1]; 
+			?>
+			<a  target="_blank" href="<?php echo $host; ?>" class=""><?php _e('home', 'pressbooks'); ?></a>
 			<a <?php  echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?> class=""><?php _e('libary', 'pressbooks'); ?></a>
 		<!-- Read now -->
     		<?php global $first_chapter; ?>
-			<a id="read_now" href="<?php global $first_chapter; echo $first_chapter; ?>" class=""><?php _e('Read Now', 'pressbooks'); ?></a>
+			<a  id="read_now" href="<?php global $first_chapter; echo $first_chapter; ?>" class=""><?php _e('Read Now', 'pressbooks'); ?></a>
 		<?php endif; ?>
 	</div>
 	<!-- Login/Logout - Admin-->
@@ -95,18 +102,7 @@
 	<?php if(!empty( $metadata['pb_cover_image'] ) ): ?>
 	<div class="book-cover">
 		
-		<!-- Sets the default cover image of our theme
-		<?php
-			$pathparts=explode('/', site_url());
-            $length=count($pathparts);
-            unset($pathparts[$length-1]);
-            array_values($pathparts);  
-            $filepath=implode('/', $pathparts);
-                    $bookcoverpath=$filepath.'/wp-content/plugins/pressbook-lingua/themes/pressbooks-lingua-book/images/default-book-cover.jpg';
-        ?>
-		<img src="<?php echo $bookcoverpath; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />	-->
-
-		<!-- Sets the image uploaded from the site -->
+	<!-- Sets the image uploaded from the site -->
 		<img src="<?php echo $metadata['pb_cover_image']; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />
 	</div>	
 	<?php endif; ?>
