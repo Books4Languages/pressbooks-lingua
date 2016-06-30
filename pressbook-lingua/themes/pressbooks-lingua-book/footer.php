@@ -20,7 +20,7 @@
 			<?php if (is_page() || is_home( ) ): //control if the page is the home page or another page?>
 			
 			<!-- Setting the footer table for showing metadata in the Cover book page-->
-						<table  class="footer-table">
+				<table  class="footer-table">
 				<tr>
 					<td><?php _e('Book Name', 'pressbooks'); ?>:</td>
 					<td><?php bloginfo('name'); ?></td>

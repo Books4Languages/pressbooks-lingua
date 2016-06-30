@@ -37,10 +37,10 @@
 			<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
 		<!-- Search button always there -->
 			<li class="search-btn"><a href="#"><?php _e('Search', 'pressbooks'); ?></a></li>
-		<!-- Info button if there are metadata -->
-			<li class="page-info-btn"><a href="#"><?php _e('Page Info', 'pressbooks'); ?></a></li>
 		<!-- Resource button if there are media -->	
 			<li class="resource-btn"><a href="#"><?php _e('Resources', 'pressbooks'); ?></a></li>
+		<!-- Info button if there are metadata -->
+			<li class="page-info-btn"><a href="#"><?php _e('Page Info', 'pressbooks'); ?></a></li>
 		<!-- If Logged in show ADMIN -->
 			<?php global $blog_id; ?>
 			<?php if (current_user_can_for_blog($blog_id, 'edit_posts') || is_super_admin()): ?>
