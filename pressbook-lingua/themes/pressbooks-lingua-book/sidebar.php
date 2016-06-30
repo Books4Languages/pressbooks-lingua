@@ -21,17 +21,13 @@
 				}
 				if($elt->get_name()==='Library URL'){
 					$libraryURL=$elt->get_value();
-					$pos = strpos($libraryURL, 'http://');
-					if($pos===false){                 
-						$libraryURL='http://'.$libraryURL;
-					}
 				}
 			}
         	$metadata = pb_get_book_information();
 		?>
 		<!-- Library button -->
 			<li id="library" class="lib-btn">
-				<a <?php echo $libraryURL? 'id="linked"' :'';?> 
+				<a target="_blank" <?php echo $libraryURL? 'id="linked"' :'';?> 
 					<?php echo $target ? 'class="'.strtolower($target).'"' :'';?> 
 					<?php echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?>>
 					<?php _e('Library', 'pressbooks'); ?>

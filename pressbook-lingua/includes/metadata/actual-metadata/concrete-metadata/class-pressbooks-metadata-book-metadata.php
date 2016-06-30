@@ -134,7 +134,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'license' ) );
 
 		//create bibliography as text field
-		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Bibliography URL',
 			'The URL of a website/book this book is inspirated of',
 			'bibliography_url',
@@ -142,7 +142,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
 		//create Library field as text field
-        $g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+        $g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Library URL',
 			'Leave empty if you want to use your default On-lingua library <b>www.on-lingua.com/YourUserName/</b>',
 			'user_library_url',
@@ -157,7 +157,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
-    	//create URL field for a Youtube Channell
+    	//create URL field for a Youtube Channel
 		$g_b_info->add_field( new Pressbooks_Metadata_Url_Field(
 			'Youtube Channel',
 			'The URL of the Youtube channel of this book, always start with https:// or http://',
@@ -208,7 +208,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			}
             ?> <table class="metadata_questtions_answers"><?php
 				foreach ( $meta as $elt ) {
-					if($elt->get_name() === "Questions&Answers URL" || $elt->get_name() === "Youtube Channel" || $elt->get_name() === "Book Exercises"){
+					if($elt->get_name() === "Questions&Answers URL" || $elt->get_name() === "Youtube Channel" || $elt->get_name() === "Book Exercises" || $elt->get_name() === "Library URL" || $elt->get_name() === "Bibliography URL"){
 						$pos = strpos($elt->get_value(), 'http://'); 
 						$posa = strpos($elt->get_value(), 'https://');        
 						if($pos===false){ 

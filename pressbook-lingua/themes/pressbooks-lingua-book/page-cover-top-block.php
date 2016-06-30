@@ -29,10 +29,6 @@
                        
 			if($elt->get_name()==='Library URL'){
                 $libraryURL = $elt->get_value();
-                $pos = strpos($libraryURL, 'http://');
-	            if($pos === false){                 
-	                $libraryURL = 'http://'.$libraryURL; //gets the library URL as a string and concats it with http:// string
-	            }
             }
 		}
 	    
@@ -52,7 +48,7 @@
 				$host =  'http://'.$domain_only[1]; 
 			?>
 			<a  target="_blank" href="<?php echo $host; ?>" class=""><?php _e('home', 'pressbooks'); ?></a>
-			<a <?php  echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?> class=""><?php _e('libary', 'pressbooks'); ?></a>
+			<a  <?php  echo $libraryURL? 'href="'.$libraryURL.'"' : 'href="'.$filepath.'/catalog/'.sanitize_title($metadata['pb_author']).'"' ; ?> class=""><?php _e('libary', 'pressbooks'); ?></a>
 		<!-- Read now -->
     		<?php global $first_chapter; ?>
 			<a  id="read_now" href="<?php global $first_chapter; echo $first_chapter; ?>" class=""><?php _e('Read Now', 'pressbooks'); ?></a>
