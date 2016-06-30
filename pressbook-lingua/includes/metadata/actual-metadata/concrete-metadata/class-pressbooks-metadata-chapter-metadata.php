@@ -165,12 +165,18 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 
 		?><table class="metadata_questtions_answers"><?php
 		   	echo '<tr id="lb_toc"><td style="text-align:center"><a target="_blank" href="'.site_url().'/table-of-contents/'.'"> >>Table of Contents<< </a></td></tr>'; 
-        	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
+    		if(isset($QandAURL)){
+        		echo '<tr id="lb_discussion_url"><td style="padding:1em;">Questions&Answers Book</td><td style="font-size:1em;">'.
 	                '<a target="_blank "style="font-size:1em; color:blue;" href="'.$QandAURL.'"> >>GO>> </a></td></tr>'; 
-	        echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
+            }
+            if(isset($YTchannel)){
+	        	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Youtube Channel</td><td style="font-size:1em;">'.
 	       		 '<a target="_blank" style="font-size:1em; color:blue;" href="'.$YTchannel.'"> >>GO>> </a></td></tr>';
-            echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
+       		}
+       		if(isset($bookEx)){
+            	echo '<tr id="lb_discussion_url"><td style="padding:1em;">Book Exercises</td><td style="font-size:1em;">'.
                 '<a target="_blank" style="font-size:1em; color:blue;" href="'.$bookEx.'"> >>GO>> </a></td></tr>';
+            }
 		
 		foreach ( $meta as $row ) {
             if(array_key_exists( $row['meta_key'] , $meta_keys )){  
