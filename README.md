@@ -49,6 +49,9 @@ This plugin works with:
 * Make Questions&Answers of the book working in chapter Page Info. (If it's empty do not disappear but show the book link, also when it's filled it shows the wrong link)
 * Not open any pop-up if there is no information to show
 * Print our metadata in the footer
+* Exercises 2 and Video 2 not working
+* Check the description of the fields in custum chapter metadata and resources
+* Show exercises button in header (choose one of the 2 links)
 
 
 ## Changelog
