@@ -116,6 +116,8 @@ Afther version 2.0 We need to write the List of Files Revised
      * _Secondary descriptor:_ type of descriptor taught in the topic
     
  * FIXED: 
+   Links open in a new tab of the browser.
+   
  * UNDER THE HOOD: 
 
 ### 0.1.2
