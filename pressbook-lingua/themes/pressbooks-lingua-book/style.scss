@@ -69,6 +69,23 @@ h1.book-title {
     z-index: 50;
 }
 
+/* fix problem with Facebook */
+.share-single li {
+line-height: 1;
+ }
+
+ /* fix problem with sidebar */
+ #wrap {
+   width: 768px; /* 940px */
+ }
+ #sidebar {
+   margin-right: 0; /* fix issue with wrap */
+ }
+ 
+ /* More screen for mobile */
+ #content {
+ padding: 0px 15px;
+ }
 
 /* Copied from Luther theme (for #toc a tags) */
 #page-info table, #resource table {

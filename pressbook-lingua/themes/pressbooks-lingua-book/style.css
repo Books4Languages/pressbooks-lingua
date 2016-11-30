@@ -117,6 +117,26 @@ h1.book-title {
     #page-info table tr td:last-child,  #resource table tr td:last-child{
         padding-left: 3px;
     }
+	
+	/* fix problem with Facebook */
+    .share-single li {
+    line-height: 1;
+	 }
+	
+/* fix problem with sidebar */
+    #wrap {
+      width: 768px; /* 940px */
+    }
+    #sidebar {
+      margin-right: 0; /* fix issue with wrap */
+    }
+	
+	
+    /* More screen for mobile */
+    #content {
+    padding: 0px 15px;
+    }
+	
 
 /* Pressbooks Luther theme overrides */
 @media screen and (min-width: 1024px) {
@@ -144,14 +164,6 @@ h1.book-title {
 }
 
 
-@media screen and (min-width: 1024px) {
-    /* Copied from Luther theme (#toc) */
-    .footer-table{
-        max-width: 100%;
-        padding-left: 25%;
-    }
-}
-
 
 @media screen and (max-width: 940px) {
     #wrap {
@@ -159,11 +171,12 @@ h1.book-title {
     }
 
     #content {
+    
         width: 500px;
     }
     /* Sidebar glued to the right */
     #sidebar {
-        margin-right: 0;
+        margin-right:0;
     }
 
     #booknav {
@@ -175,6 +188,11 @@ h1.book-title {
         padding-left: 25%;
     }
 }
+ @media only screen and (min-width:615px) and (max-width: 752px) {
+            #sidebar{
+                margin: 25%;
+            }
+        }
 
 @media screen and (max-width: 768px) {
     #content {
