@@ -136,7 +136,9 @@ h1.book-title {
     #content {
     padding: 0px 15px;
     }
-	
+	.edit-link {
+	margin: 120px 0 0 -53px;
+	}
 
 /* Pressbooks Luther theme overrides */
 @media screen and (min-width: 1024px) {
