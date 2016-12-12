@@ -1,16 +1,4 @@
-/*
-Theme Name: Pressbooks Lingua Book
-Theme URI: http://pressbooks.com/themes/fitzgerald
-Description: Serif body, with condensed sans serif header fonts. Based on Luther theme commissioned by My Language Skills.
-Author: Books4Languages Team
-Author URI: http://www.books4languages.com
-Copyright 2016 Book4Languages Inc. (books4languages.com) books4languages@hotmail.com
-Version: 1
-Template: pressbooks-book
-*/
-
-/*Import google fonts*/
-@import url("http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Roboto+Condensed:400,300,300italic,400italic");
+@import 'mixins', 'fonts-web';
 
 h1.book-title a {
     text-transform: uppercase!important;
@@ -38,18 +26,17 @@ h1.book-title {
     background-position: 50% 36%;
 }
 
+#booknav .resource-btn a{
+    background-image: url("images/play.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;    
+}
+
 #booknav .page-info-btn a {
     background-image: url("images/info.png");
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
-
-#booknav .resource-btn a {
-    background-image: url("images/play.png");
-    background-repeat: no-repeat;
-    background-position: 50% 36%;
-}
-
 
 .level{
     border-radius: 6px;
@@ -82,25 +69,6 @@ h1.book-title {
     z-index: 50;
 }
 
-.book_name_author p {
-    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
-    margin: 0px auto;
-    text-align: center;
-    width: auto;
-}
-
-.nav-container {
-    margin-bottom: 0px;
-    background-color: #313131;
-}
-
-.wrapper #content .entry-title {
-    margin: 10px auto 3em;
-}
-
-.single #content {
-    min-height: 405px;
-}
 
 /* Copied from Luther theme (for #toc a tags) */
 #page-info table, #resource table {
@@ -117,44 +85,8 @@ h1.book-title {
     #page-info table tr td:last-child,  #resource table tr td:last-child{
         padding-left: 3px;
     }
-	
-	/* fix problem with Facebook */
-    .share-single li {
-    line-height: 1;
-	 }
-	
-/* fix problem with sidebar */
-    #wrap {
-      width: 768px; /* 940px */
-    }
-    #sidebar {
-      margin-right: 0; /* fix issue with wrap */
-    }
-	
-	
-    /* More screen for mobile */
-    #content {
-    padding: 0px 15px;
-    }
-	.edit-link {
-	margin: 120px 0 0 -53px;
-	}
 
-/* Pressbooks Luther theme overrides */
-@media screen and (min-width: 1024px) {
-    /* Copied from Luther theme (#toc) */
-    #page-info, #related-books, #resource {
-        background: none repeat scroll 0% 0% #E0E0E0;
-        /*margin-left: -130px;
-        margin-top: -10px;*/
-    }
-    .footer-table{
-        max-width: 100%;
-        padding-left: 25%;
-    }
-}
-
-
+    
 @media screen and (max-width: 1260px){
 
     .log-wrap a {
@@ -166,6 +98,25 @@ h1.book-title {
 }
 
 
+/* Pressbooks Luther theme overrides */
+@media screen and (max-width: 1024px) {
+
+    /* Copied from Luther theme (#toc) */
+    #page-info, #related-books,  #resource{
+        background: none repeat scroll 0% 0% #E0E0E0;
+        /*margin-left: -130px;
+        margin-top: -10px;*/
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    /* Copied from Luther theme (#toc) */
+    .footer-table{
+        max-width: 100%;
+        padding-left: 25%;
+    }
+}
+
 
 @media screen and (max-width: 940px) {
     #wrap {
@@ -173,12 +124,11 @@ h1.book-title {
     }
 
     #content {
-    
         width: 500px;
     }
     /* Sidebar glued to the right */
     #sidebar {
-        margin-right:0;
+        margin-right: 0;
     }
 
     #booknav {
@@ -190,11 +140,7 @@ h1.book-title {
         padding-left: 25%;
     }
 }
- @media only screen and (min-width:615px) and (max-width: 752px) {
-            #sidebar{
-                margin: 25%;
-            }
-        }
+
 
 @media screen and (max-width: 768px) {
     #content {
@@ -205,11 +151,11 @@ h1.book-title {
         float: none;
     }
 
-    #page-info a.close, #related-books a.close, #resource a.close {
+    #page-info a.close, #related-books a.close,  #resource a.close {
         background-position: 260px -50px;
     }
     /* Copied from Luther theme (#toc) */
-    #page-info, #related-books, #resource {
+    #page-info, #related-books,  #resource  {
         position: relative;
         margin-top: 47px;
         margin-left: 0px;
@@ -220,6 +166,8 @@ h1.book-title {
         padding-left: 25%;
     }
 }
+
+
 
 @media screen and (max-device-width: 480px) {
     #content {
@@ -232,10 +180,9 @@ h1.book-title {
     #toc {
         position: relative;
         right: 0px;
-        */;
     }
 
-    #page-info, #resource {
+    #page-info {
         /*position: absolute;
         right: 0px;*/
     }
@@ -245,10 +192,29 @@ h1.book-title {
     }
 }
 
-@media screen and (max-width: 768px) {
 
+.book_name_author p {
+    font: 1.3em/1.1em "Minion Pro", "Times New Roman", Times, serif;
+    margin: 0px auto;
+    text-align: center;
+    width: auto;
+}
+
+.nav-container {
+    margin-bottom: 0px;
+}
+
+.wrapper #content .entry-title {
+    margin: 10px auto 3em;
+}
+
+.single #content {
+    min-height: 405px;
+}
+
+@media screen and (max-width: 768px) {
     .lingua-logo a {
-        background: url("images/On_lingua.png");
+        background: url("images/pb-lingua.png");
     }
 
     #sidebar-search {
@@ -265,18 +231,18 @@ h1.book-title {
         z-index: 100;
     }
 
-    #page-info, #resource {
+    #page-info,  #resource{
         max-width: 180px;
         margin-top: 47px;
         margin-left: 0;
         z-index: 100;
     }
 
-        #page-info table, #resource table {
+        #page-info table,  #resource table {
             display: table;
         }
 
-        #page-info a.close, #resource table {
+        #page-info a.close,  #resource a.close {
             background-position: 160px -50px;
         }
 
@@ -289,14 +255,11 @@ h1.book-title {
         top: 0px;
         width: 100%;
     }
-    .footer-table{
+    .footer-table {
         max-width: 100%;
-        padding-left: 25%;
+        padding-left: 45px;
     }
 }
-
-
-
 
 @media screen and (max-width: 470px) {
     #booknav {
@@ -314,6 +277,7 @@ h1.book-title {
     #booknav {
         max-width: 285px;
     }
+
     .footer-table{
         max-width: 100%;
         padding-left: 10%;
@@ -324,19 +288,14 @@ h1.book-title {
     #booknav {
         max-width: 215px;
     }
-        .footer-table{
-        max-width: 100%;
-    }
 }
 
 @media screen and (max-width: 260px) {
     #booknav {
         max-width: 145px;
     }
-        .footer-table{
-        max-width: 100%;
-    }
 }
+
 
 .pb-lingua-logo a {
     background: url("images/pb-lingua.png");
@@ -384,7 +343,6 @@ table.metadata_questtions_answers td {
     padding-left: 25%;
 }
 
-
 .btn{
     margin: 5px 10px!important;
     width: 140px!important;
@@ -392,26 +350,6 @@ table.metadata_questtions_answers td {
 
 .facebook{
     padding: 0px 0px 0px 15px!important;
-    margin-top: 0px!important;
-}
-
-
-.exercise{
-    display: block;
-    float: left;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    margin: 10px 10px 0 -40px;
-    width: 100px;
-}
-
-.exercise-footer{
-    display: inline;
-    float: left;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    margin: 0px 5px 0 -40px;
-    width: 70px;
 }
 
 .activity{
@@ -430,6 +368,35 @@ table.metadata_questtions_answers td {
     -webkit-border-radius: 6px;
     margin: 0px 0px 0 -154px;
     width: 70px;
+}
+
+.exercise{
+    display: block;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 10px 10px 0 -40px;
+    width: 70px;
+}
+
+.exercise-footer{
+    display: inline;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 0px 5px 0 -40px;
+    width: 70px;
+}
+
+.level{
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #ffffff;
+    font: 0.75em "Oswald", Arial, Helvetica, sans-serif;
+    text-shadow: 0 1px 0 #000;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 .buy-f {
@@ -451,7 +418,6 @@ table.metadata_questtions_answers td {
 .buy-h a {
   float: right!important;
   margin-right: 0!important; }
-
 
 .dwn-img{
     background-image: url("images/download.png");
@@ -475,12 +441,11 @@ table.metadata_questtions_answers td {
     margin-right: 50%;
 }
 
-
 .cie-name{
     margin-top: 50px!important;
 }
 
-a.button-red-f{
+a.button-red-f {
   background-color: #820808;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#a62c2c), to(#820808));
   background-image: -webkit-linear-gradient(top, #a62c2c, #820808);
@@ -504,10 +469,10 @@ a.button-red-f{
   margin-right: 15px;
   padding: 5px 10px;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase; 
+}
 
 /*Read button responsive*/
-
 #read_now{
     display: none;
 }
@@ -524,13 +489,10 @@ a.button-red-f{
 }
 
 @media screen and (max-width : 750px) {
-    #exercise_h, #activity_h{
+    #exercise_h, #activity_h, .buy-h, .buy-h a{
         display:none;
     }
-    #exercise_f, #activity_f{
-        display: inherit;
-    }
-    .buy-f, .buy-f a{
+    #exercise_f, #activity_f, .buy-f, .buy-f a{
         display: inherit;
     }
 }
@@ -543,11 +505,6 @@ a.button-red-f{
     .buy-f, .buy-f a{
         display: inherit;
     }
-}
-
-/* Modifications of code by Toni: Tables */
-#content tr td{
-padding: 6px 12px;
 }
 
 
