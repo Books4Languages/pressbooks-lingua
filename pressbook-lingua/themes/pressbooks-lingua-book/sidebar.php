@@ -34,7 +34,7 @@
 				</a>
 			</li>
 		<!-- TOC button always there -->
-			<li class="toc-btn"><a href="#"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
+			<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
 		<!-- Search button always there -->
 			<li class="search-btn"><a href="#"><?php _e('Search', 'pressbooks'); ?></a></li>
 		<!-- Resource button if there are media -->	
@@ -54,10 +54,7 @@
 		<div id="toc">
 			<a href="#" class="close"><?php _e('Close', 'pressbooks'); ?></a>
 			<ul>
-		<!--open to table of content with new tab -->
-				<li><h4><a  target="_blank" href="<?php echo get_option('home'); ?>/table-of-contents">Table of Contents</a>
-				<span class="dashicons dashicons-external"></span></h4></li> <!--<li><h4>Front Matter</h4></li> -->
-				
+				<li><h4><!-- Front-matter --></h4></li>
 				<li>
 					<ul><!-- Print data for TOC -->
 						<?php foreach ($book['front-matter'] as $fm): ?>
@@ -148,8 +145,8 @@
 					</ul>
 				</li>
 			</ul>
-		</div><!-- end #toc-->
-		<?php endif; ?> 
+		</div><!-- end #toc -->
+		<?php endif; ?>
 
 		<!-- Search button -->
 		<div id="sidebar-search">
